@@ -1,16 +1,19 @@
-```{r import}
+library(tidyverse)
 library(checkmate)
 library(haven)
 library(dplyr)
 library(magrittr)
+library(purrr)
 
 # Import full data from TresorIt
-atizo <- read_sav("../../Tresors/crowd/data/atizo.sav",
+rawdat <- NULL
+rawdat$atizo <- read_sav("../../Tresors/crowd/data/atizo.sav",
                   user_na = FALSE)
+# TODO: haven, NAs (see -99 als NA, row 191)
 # Sadly, the survey had some free input fields. I changed the columns manually in excel.
 # TODO add apply function (or something for tibbles?) to check data
-atizo[, c("v_35", "v_38", "v_45", "v_44")] <- read_csv2("data/atizoc.csv", col_names = TRUE)
-atizo %<>% 
+rawdat$atizo[, c("v_35", "v_38", "v_45", "v_44")] <- read_csv2("data/atizoc.csv", col_names = TRUE)
+rawdat$atizo %<>% 
   select(c(birth = v_1,
            gender = v_2,
            education = v_7,
@@ -85,10 +88,10 @@ atizo %<>%
            wage_organisation_cw = v_146
            ))
 
-applause <- read_sav("../../Tresors/crowd/data/applause.sav",
+rawdat$applause <- read_sav("../../Tresors/crowd/data/applause.sav",
                      user_na = FALSE)
-applause[, c("v_35", "v_38", "v_45", "v_44")]  <- read_csv2("data/applausec.csv", col_names = TRUE)
-applause %<>% 
+rawdat$applause[, c("v_35", "v_38", "v_45", "v_44")]  <- read_csv2("data/applausec.csv", col_names = TRUE)
+rawdat$applause %<>% 
   select(c(birth = v_1,
            gender = v_2,
            education = v_7,
@@ -163,10 +166,10 @@ applause %<>%
            wage_organisation_cw = v_146
   ))
 
-crowdguru <- read_sav("../../Tresors/crowd/data/crowdguru.sav",
+rawdat$crowdguru <- read_sav("../../Tresors/crowd/data/crowdguru.sav",
                       user_na = FALSE)
-crowdguru[, c("v_35", "v_38", "v_45", "v_44")]  <- read_csv2("data/crowdguruc.csv", col_names = TRUE)
-crowdguru %<>% 
+rawdat$crowdguru[, c("v_35", "v_38", "v_45", "v_44")]  <- read_csv2("data/crowdguruc.csv", col_names = TRUE)
+rawdat$crowdguru %<>% 
   select(c(birth = v_1,
            gender = v_2,
            education = v_7,
@@ -241,11 +244,27 @@ crowdguru %<>%
            wage_organisation_cw = v_146
   ))
 
+rawdat <- map(.x = rawdat, .f = as_factor, only_labeled = TRUE)
 
-# Warning: item h_platform (v_44) is data set specfic! ("Wie viele Stunden im Monat arbeiten Sie auf der X-Plattform?")
-# TODO: Add column with platform types (study titles).
-# set variable names
-# join data sets
-# fix as_factors etc. (assert: levels?)
+# Append crowdguru and applause to atizo.
+crowddata <- dplyr::bind_rows(rawdat, .id = "study")
 
-```
+crowddata$study %<>% as_factor(ordered = FALSE)
+
+crowddata$birth %<>% 
+  as.integer(crowddata$birth) # %>%
+  # assert_integer(lower = 1900, upper = 2005, any.missing = TRUE)
+# TODO pipe below if possible
+attr(x = crowddata$birth, which = "prompt") <- "In welchem Jahr wurden Sie geboren?"
+
+crowddata$gender %<>%
+  assert_factor(levels = c("Männlich", "Weiblich"), ordered = FALSE, empty.levels.ok = FALSE, any.missing = TRUE, all.missing = FALSE)
+# TODO add prompt for all!
+
+crowddata$education %<>%
+  as_factor(ordered = FALSE) %>%
+  fct_recode(NULL = "0") %>%
+  assert_factor(ordered = FALSE, n.levels = 6) %>%
+  fct_explicit_na(na_level = "(Keine Angabe)")
+  # TODO use purrr at the end to mark all factors wth fct_explicit_nas
+
