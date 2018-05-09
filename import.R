@@ -251,6 +251,11 @@ crowddata <- dplyr::bind_rows(rawdat, .id = "study")
 
 crowddata$study %<>% as_factor(ordered = FALSE)
 
+for (cur_col in names(crowddata)) {
+  new_prompt <- attributes(x =  rawdat$atizo[[cur_col]])$label
+  attr(x = crowddata[[cur_col]], which = "prompt") <- new_prompt
+}
+
 crowddata$birth %<>% 
   as.integer(crowddata$birth) # %>%
   # assert_integer(lower = 1900, upper = 2005, any.missing = TRUE)
@@ -259,7 +264,7 @@ attr(x = crowddata$birth, which = "prompt") <- "In welchem Jahr wurden Sie gebor
 
 crowddata$gender %<>%
   assert_factor(levels = c("Männlich", "Weiblich"), ordered = FALSE, empty.levels.ok = FALSE, any.missing = TRUE, all.missing = FALSE)
-# TODO add prompt for all!
+attr(x = crowddata$gender, which = "prompt") <- "Sind Sie..."
 
 crowddata$education %<>%
   as_factor(ordered = FALSE) %>%
@@ -267,4 +272,6 @@ crowddata$education %<>%
   assert_factor(ordered = FALSE, n.levels = 6) %>%
   fct_explicit_na(na_level = "(Keine Angabe)")
   # TODO use purrr at the end to mark all factors wth fct_explicit_nas
+
+# crowddata$disability_care %>% 
 
