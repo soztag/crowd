@@ -7,13 +7,6 @@ script:
 after_success:
 - curl -OL http://raw.githubusercontent.com/soztag/fau_deploy/master/deploy2karli.sh
 deploy:
-- provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  local_dir: _site/
-  commiter-grom-gh: true
-  on:
-    branch: master
 - provider: script
   skip_cleanup: true
   script:
