@@ -1,18 +1,48 @@
 library(tidyverse)
 library(checkmate)
-library(haven)
 library(dplyr)
 library(magrittr)
 library(purrr)
 
-# Import full data from TresorIt
-rawdat <- NULL
-rawdat$atizo <- read_sav("../../Tresors/Crowddaten/data/atizo.sav",
-                  user_na = FALSE)
-# TODO: haven, NAs (see -99 als NA, row 191) VK: What??
-# Sadly, the survey had some free input fields. I changed the columns manually in excel.
-# TODO add apply function (or something for tibbles?) to check data
-rawdat$atizo[, c("v_35", "v_38", "v_45", "v_44")] <- read_csv2("data/atizoc.csv", col_names = TRUE)
+# Import full data from TresorIt ====
+
+# binding *right* to *one* data frame does not work, because the underlying bind_rows (or sth) inside map_dfr will kill all spss attributes
+rawdat <- purrr::map(
+  .x = list(atizo = "atizo", applause = "applause", crowdguru = "crowdguru"),
+  .f = function(x) {
+    df <- haven::read_sav(
+      file = fs::path("../../Tresors/Crowddaten/data/", x, ext = "sav"),
+      user_na = FALSE
+    )
+    
+    # the last 6 cols have unique (hashes?) column names, to avoid confusion we delete them
+    # they seem to measure some time spent *between* the different survey pages, not very important to keep
+    df[(ncol(df) - 6):ncol(df)] <- NULL
+      
+    # Sadly, the below columns are string inputs in the survey, and include some *strings* instead of integers ("four" instead of 4 etc.).
+    # These offending cells have been fixed by hand in excel, and commited in the below csv.
+    # It appeared easier to do this in excel than with individual subsetting edits.
+    df[, c("v_35", "v_38", "v_45", "v_44")] <- readr::read_delim(
+      file = fs::path("data/manual_corrections/", x, ext = "csv"), 
+      delim = ";",
+      col_names = TRUE,
+      col_types = c("iiii")
+    )
+    df
+  }
+)
+
+# there are no meaningful short variable names available anywhere in the raw data, so we came up with these for easier handling.
+# first, we need to test that all the separate studies use the same variable names
+map_dfr(.x = rawdat, .f = names) %>% 
+  pmap_lgl(
+    .f = function(atizo, applause, crowdguru) {
+      length(unique(c(atizo, applause,crowdguru))) == 1
+    }
+  ) %>% 
+  assert_true(x = all(.), na.ok = FALSE)
+
+# no we select and rename what is interesting
 rawdat$atizo %<>% 
   select(c(birth = v_1,
            gender = v_2,
@@ -88,9 +118,6 @@ rawdat$atizo %<>%
            wage_organisation_cw = v_146
            ))
 
-rawdat$applause <- read_sav("../../Tresors/crowd/data/applause.sav",
-                     user_na = FALSE)
-rawdat$applause[, c("v_35", "v_38", "v_45", "v_44")]  <- read_csv2("data/applausec.csv", col_names = TRUE)
 rawdat$applause %<>% 
   select(c(birth = v_1,
            gender = v_2,
@@ -166,9 +193,6 @@ rawdat$applause %<>%
            wage_organisation_cw = v_146
   ))
 
-rawdat$crowdguru <- read_sav("../../Tresors/crowd/data/crowdguru.sav",
-                      user_na = FALSE)
-rawdat$crowdguru[, c("v_35", "v_38", "v_45", "v_44")]  <- read_csv2("data/crowdguruc.csv", col_names = TRUE)
 rawdat$crowdguru %<>% 
   select(c(birth = v_1,
            gender = v_2,
@@ -244,13 +268,17 @@ rawdat$crowdguru %<>%
            wage_organisation_cw = v_146
   ))
 
+# re-write spss attributes into proper R factors
 rawdat <- map(.x = rawdat, .f = as_factor, only_labeled = TRUE)
 
 # Append crowdguru and applause to atizo.
+# TODO this kills all attributes, most importantly, prompts, find other solution to bind rows
 crowddata <- dplyr::bind_rows(rawdat, .id = "study")
 
 crowddata$study %<>% as_factor(ordered = FALSE)
 
+# this is how we currently reconstruct attributes, we just trust that atizo is correct
+# this actually only reconstructs *one* attribute, only prompt
 for (cur_col in names(crowddata)) {
   new_prompt <- attributes(x =  rawdat$atizo[[cur_col]])$label
   attr(x = crowddata[[cur_col]], which = "prompt") <- new_prompt
@@ -258,12 +286,12 @@ for (cur_col in names(crowddata)) {
 
 crowddata$birth %<>% 
   as.integer(crowddata$birth) # %>%
+  # TODO this looses the above attributes again
   # assert_integer(lower = 1900, upper = 2005, any.missing = TRUE)
 # TODO pipe below if possible
 attr(x = crowddata$birth, which = "prompt") <- "In welchem Jahr wurden Sie geboren?"
 
-crowddata$gender %<>%
-  assert_factor(levels = c("Männlich", "Weiblich"), ordered = FALSE, empty.levels.ok = FALSE, any.missing = TRUE, all.missing = FALSE)
+assert_factor(x = crowddata$gender, levels = c("Männlich", "Weiblich"), ordered = FALSE, empty.levels.ok = FALSE, any.missing = TRUE, all.missing = FALSE)
 attr(x = crowddata$gender, which = "prompt") <- "Sind Sie..."
 
 crowddata$education %<>%
@@ -274,6 +302,3 @@ crowddata$education %<>%
   # TODO use purrr at the end to mark all factors wth fct_explicit_nas
 
 # crowddata[15:73][crowddata[15:73] == 0] <- NA
-
-# crowddata$disability_care %>% 
-
