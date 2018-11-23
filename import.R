@@ -7,9 +7,9 @@ library(purrr)
 
 # Import full data from TresorIt
 rawdat <- NULL
-rawdat$atizo <- read_sav("../../Tresors/crowd/data/atizo.sav",
+rawdat$atizo <- read_sav("../../Tresors/Crowddaten/data/atizo.sav",
                   user_na = FALSE)
-# TODO: haven, NAs (see -99 als NA, row 191)
+# TODO: haven, NAs (see -99 als NA, row 191) VK: What??
 # Sadly, the survey had some free input fields. I changed the columns manually in excel.
 # TODO add apply function (or something for tibbles?) to check data
 rawdat$atizo[, c("v_35", "v_38", "v_45", "v_44")] <- read_csv2("data/atizoc.csv", col_names = TRUE)
@@ -272,6 +272,8 @@ crowddata$education %<>%
   assert_factor(ordered = FALSE, n.levels = 6) %>%
   fct_explicit_na(na_level = "(Keine Angabe)")
   # TODO use purrr at the end to mark all factors wth fct_explicit_nas
+
+# crowddata[15:73][crowddata[15:73] == 0] <- NA
 
 # crowddata$disability_care %>% 
 
