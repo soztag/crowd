@@ -1,23 +1,14 @@
 name: crowd
 navbar:
   title: crowd
-  left:
-  - text: Studie
-    href: index.html
   right:
   - icon: fa-github
     text: Source
     href: https://github.com/soztag/crowd
   - icon: fa-university
     menu:
-    - text: UnivIS
-      href: http://univis.fau.de/
-    - text: meincampus
-      href: https://www.campus.uni-erlangen.de/
-    - text: studOn
-      href: https://www.studon.fau.de/crs2139506.html
     - text: Institut für Soziologie
-      href: https://www.soziologie.phil.fau.de)
+      href: https://www.soziologie.phil.fau.de
     - text: Nuremberg Campus of Technology
       href: https://www.ncatec.de
 output:
