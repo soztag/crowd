@@ -3,6 +3,7 @@ library(checkmate)
 library(dplyr)
 library(magrittr)
 library(purrr)
+library(forcats)
 
 # Import full data from TresorIt ====
 
@@ -12,7 +13,7 @@ rawdat <- purrr::map(
   .f = function(x) {
     df <- haven::read_sav(
       file = fs::path("../../Tresors/Crowddaten/data/", x, ext = "sav"),
-      user_na = FALSE
+      user_na = FALSE  # turns out, the spss file does not actually include properly coded user-defined missings, so this won't help either way
     )
     
     # the last 6 cols have unique (hashes?) column names, to avoid confusion we delete them
@@ -31,6 +32,7 @@ rawdat <- purrr::map(
     df
   }
 )
+ 
 
 # there are no meaningful short variable names available anywhere in the raw data, so we came up with these for easier handling.
 # first, we need to test that all the separate studies use the same variable names
@@ -142,32 +144,117 @@ crowddata %<>%
     wage_organisation_cw = v_146
   ))
 
-# tests and assertions
+# store full prompts
+prompts <- tibble::tibble(var = character(), german = character())
+# TODO this would be place to also add english prompts
+# TODO however, that would require all the below factor levels etc. to *also* be translated, and we're avoiding that for now.
 
-crowddata$study %<>% as_factor(ordered = FALSE)
-
-# this is how we currently reconstruct attributes, we just trust that atizo is correct
-# this actually only reconstructs *one* attribute, only prompt
-for (cur_col in names(crowddata)) {
-  new_prompt <- attributes(x =  rawdat$atizo[[cur_col]])$label
-  attr(x = crowddata[[cur_col]], which = "prompt") <- new_prompt
-}
+# tests, assertions, metadat  ====
 
 crowddata$birth %<>% 
-  as.integer(crowddata$birth) # %>%
-  # TODO this looses the above attributes again
-  # assert_integer(lower = 1900, upper = 2005, any.missing = TRUE)
-# TODO pipe below if possible
-attr(x = crowddata$birth, which = "prompt") <- "In welchem Jahr wurden Sie geboren?"
+  as.integer(crowddata$birth) %>%
+  na_if(y = -99) %>% 
+  assert_integer(lower = 1900, upper = 2005, any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "birth",
+    german = "In welchem Jahr wurden Sie geboren?"
+  )
 
-assert_factor(x = crowddata$gender, levels = c("Männlich", "Weiblich"), ordered = FALSE, empty.levels.ok = FALSE, any.missing = TRUE, all.missing = FALSE)
-attr(x = crowddata$gender, which = "prompt") <- "Sind Sie..."
+crowddata$gender %<>%
+  assert_factor(
+    levels = c("Männlich", "Weiblich"), 
+    ordered = FALSE, 
+    empty.levels.ok = FALSE, 
+    any.missing = TRUE, 
+    all.missing = FALSE
+  )
+prompts %<>%
+  add_row(
+    var = "gender",
+    german = "Sind Sie ..."
+  )
 
 crowddata$education %<>%
   as_factor(ordered = FALSE) %>%
   fct_recode(NULL = "0") %>%
-  assert_factor(ordered = FALSE, n.levels = 6) %>%
-  fct_explicit_na(na_level = "(Keine Angabe)")
-  # TODO use purrr at the end to mark all factors wth fct_explicit_nas
+  assert_factor(ordered = FALSE, n.levels = 6)
+prompts %<>%
+  add_row(
+    var = "education",
+    german = "Welchen Abschluss haben Sie gemacht?"
+  )
 
-# crowddata[15:73][crowddata[15:73] == 0] <- NA
+crowddata$disability_care %<>%
+  recode_factor(ja = TRUE, nein = FALSE) %>% 
+  as.logical() %>% 
+  assert_logical(any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "disability_care",
+    german = "Gibt es in Ihrem Haushalt jemand, der aus Alters-oder Krankheitsgründen oder wegen einer Behinderung hilfe-oder pflegebedürftig ist?"
+  )
+
+crowddata$children %<>%
+  recode_factor(Ja = TRUE, Nein = FALSE) %>% 
+  as.logical() %>% 
+  assert_logical(any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "children",
+    german = "Gibt es in Ihrem Haushalt Kinder, die erst 2000 oder später geboren sind?"
+  )
+
+crowddata$employment %<>%
+  as_factor(ordered = FALSE) %>%
+  fct_recode(NULL = "0") %>% 
+  # several levels are missing
+  lvls_expand(new_levels = c(
+    "Voll erwerbstätig",
+    "In Teilzeitbeschäftigung",
+    "In betrieblicher Ausbildung/Lehre/oder betrieblicher Umschulung",
+    "Geringfügig oder unregelmäßig erwerbstätig",
+    "In Altersteilzeit mit Arbeitszeit null",
+    "Freiwilliger Wehrdienst",
+    "Freiwilliges soziales/ökologisches Jahr, Bundesfreiwilligendienst",
+    "Nicht erwerbstätig"
+  )) %>% 
+  assert_factor(ordered = FALSE, n.levels = 8)
+prompts %<>%
+  add_row(
+    var = "employment",
+    german = "Üben Sie derzeit eine Erwerbstätigkeit aus? Was trifft für Sie zu?"
+  )
+
+crowddata$sum_employer %<>%
+  as.integer() %>% 
+  replace(. > 50, NA) %>%  # these seem too high, probably in error
+  replace(. == 0, NA) %>%  # these seem too low
+  assert_integer(lower = 1)
+prompts %<>%
+  add_row(
+    var = "sum_employer",
+    german = "Bei wie vielen verschiedenen Arbeitgebern waren Sie seit dem Sie erstmals eine berufliche Tätigkeit aufgenommen haben beschäftigt, einschließlich Ihrer heutigen Beschäftigung? Phasen der Selbstständigkeit und der Beschäftigung bei einer Arbeitszeitfirma zählen wie ein Arbeitgeber."
+  )
+
+crowddata$profession_dev %<>%
+  as_factor(ordered = FALSE) %>% 
+  fct_recode(NULL = "0") %>% 
+  assert_factor(n.levels = 3, any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "profession_dev",
+    german = "Wenn Sie Ihr ganzes Berufsleben betrachten, würden Sie sagen, Sie haben einen beruflichen Aufstieg, einen Abstieg, keine wesentliche Veränderung oder war das eher ein Auf und Ab?"
+  )
+
+crowddata$sum_platforms %<>%
+  as.integer() %>% 
+  na_if(y = 99) %>% # this was probably the NA value
+  na_if(y = 17) %>%   # this just seems too high, typo perhaps
+  # 0 was retained, because perhaps as per the question wording respondent wasn't *currently* working on the platform
+  assert_integer(lower = 0)
+prompts %<>%
+  add_row(
+    var = "sum_platforms",
+    german = "Auf wie vielen Crowdworking-Plattformen arbeiten Sie zur Zeit?"
+  )
