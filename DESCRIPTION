@@ -6,4 +6,7 @@ Imports:
   rmarkdown,
   tidyverse,
   forcats,
-  checkmate
+  checkmate,
+  radix
+Remotes:
+  rstudio/radix

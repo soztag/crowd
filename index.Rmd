@@ -1,8 +1,27 @@
 ---
-title: "index"
-author: "foo"
-date: "11/2/2018"
-output: html_document
+title: "Crowdworking"
+description: |
+  A study of german crowdworkers on three select platforms.
+author: 
+  - name: "Sandra Kawalec"
+    url: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=13&ved=2ahUKEwjxwKCI1u3eAhUS_KQKHZlACtAQFjAMegQIAhAB&url=https%3A%2F%2Fde.linkedin.com%2Fin%2Fsandra-kawalec-024a2711b&usg=AOvVaw2GrC229sMO4AU3MUoOTfV7
+    affiliation: IG Metall
+  - name: "Maximilian Held"
+    url: https://www.maxheld.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
+  - name: "Verena Kasztantowicz"
+    url: http://verenakasztantowicz.de/
+    affiliation: Humboldt-Universität zu Berlin
+    affiliation_url: https://www.erziehungswissenschaften.hu-berlin.de/de/grundschulpaed/abteilung-grundschulpaedagogik/lern-bereiche/deutsch
+  - name: "Sabine Pfeiffer"
+    url: https://www.sabine-pfeiffer.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
+date: "November 25, 2018"
+output: radix::radix_article
+repository_url: https://github.com/soztag/crowd
+creative_commons: CC BY-SA
 ---
 
 ```{r setup, cache = FALSE, include=FALSE}
