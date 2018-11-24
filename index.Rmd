@@ -23,6 +23,7 @@ output:
   radix::radix_article:
     toc: true
     toc_depth: 2
+    dev: 'svglite'
 repository_url: https://github.com/soztag/crowd
 creative_commons: CC BY-SA
 ---
