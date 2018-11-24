@@ -127,124 +127,99 @@ mutate(
   
   # 4 Expectations Work ====
 
-# 5 Expectations Crowdwork ====
+  # 5 Expectations Crowdwork ====
 {.} -> crowddata
 
-# store full quest
-quest <- tibble::tibble(
+
+# store full questionnaire ====
+
+# TODO this would be place to also add english quest
+# TODO however, that would require all the below factor levels etc. to *also* be translated, and we're avoiding that for now.
+tibble::tibble(
   var = character(), 
   var_german = character(),
   section = character(),
   section_intro_german = character()
-)
-# TODO this would be place to also add english quest
-# TODO however, that would require all the below factor levels etc. to *also* be translated, and we're avoiding that for now.
+) %>%  
 
-quest %<>%
+  # 2 Personal Information
   add_row(
     var = "birth",
     var_german = "In welchem Jahr wurden Sie geboren?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "gender",
     var_german = "Sind Sie ..."
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "education",
     var_german = "Welchen Abschluss haben Sie gemacht?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "disability_care",
     var_german = "Gibt es in Ihrem Haushalt jemand, der aus Alters-oder Krankheitsgründen oder wegen einer Behinderung hilfe-oder pflegebedürftig ist?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "children",
     var_german = "Gibt es in Ihrem Haushalt Kinder, die erst 2000 oder später geboren sind?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "employment",
     var_german = "Üben Sie derzeit eine Erwerbstätigkeit aus? Was trifft für Sie zu?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "sum_employer",
     var_german = "Bei wie vielen verschiedenen Arbeitgebern waren Sie seit dem Sie erstmals eine berufliche Tätigkeit aufgenommen haben beschäftigt, einschließlich Ihrer heutigen Beschäftigung? Phasen der Selbstständigkeit und der Beschäftigung bei einer Arbeitszeitfirma zählen wie ein Arbeitgeber."
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "profession_dev",
     var_german = "Wenn Sie Ihr ganzes Berufsleben betrachten, würden Sie sagen, Sie haben einen beruflichen Aufstieg, einen Abstieg, keine wesentliche Veränderung oder war das eher ein Auf und Ab?"
-  )
-
+  ) %>% 
+  {.} -> quest
 quest[1:8, c("section")] <- "personal_info"
 quest[1:8, c("section_intro_german")] <- "Zunächst würden wir gerne einige Fragen zu Ihrer Person und zu Ihrem bisherigen Berufsleben stellen."
 
-
-quest %<>%
+# 3 Current Job
+quest %>% 
   add_row(
     var = "sum_platforms",
     var_german = "Auf wie vielen Crowdworking-Plattformen arbeiten Sie zur Zeit?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "platforms",
     var_german = "Auf welcher Art von Crowdworking-Plattformen sind Sie überwiegend tätig?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "h_month",
     var_german = "Wie viele Stunden im Monat arbeiten Sie auf Crowdworking-Plattformen insgesamt?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "h_platform",
     var_german = "Wie viele Stunden im Monat arbeiten Sie auf dieser Crowdworking-Plattform?"
     # the wording is actually slightly inconsistent for this one; some questionnaires ask for, say "Atizo" by name, others just refer to "this platform".
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "time_of_day",
     var_german = "Zu welcher Tageszeit sind Sie als CrowdworkerIn tätig?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "time_of_week",
     var_german = "Sind Sie überwiegend unter der Woche, am Wochenende oder die ganze Woche über auf Crowdworking-Plattformen tätig?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "workspace",
     var_german = "Von welchem Ort aus sind Sie auf Crowdworking-Plattformen tätig?"
-  )
-
-quest %<>%
+  ) %>% 
   add_row(
     var = "perm_contract",
     var_german = "Würden Sie Ihre aktuelle Crowdworking-Tätigkeit gerne im Rahmen einer unbefristeten Vollzeitstelle ausüben?"
-  )
-
+  ) %>% 
+  {.} -> quest
 quest[9:16, c("section")] <- "current_occ"
 quest[9:16, c("section_intro_german")] <- "Nun würden wir gerne etwas über Ihre aktuelle Tätigkeit als CrowdworkerIn erfahren."
 
 
+# 4 Expectations Work
 quest %<>%
   add_row(
     var = names(crowddata)[18:45],
@@ -257,15 +232,18 @@ quest[quest$section == "expect_work", "var_german"] <- rawdat$atizo %>%
     attr(x = x, which = "label")
   })
 
+# 5 Expectations Crowdwork
 quest %<>%
   add_row(
     var = names(crowddata)[46:(46+27)],
     section = "expect_crowd",
     section_intro_german = "Bitte denken Sie nun an Ihre Aktivität auf Internet-Plattformen. Die folgenden Fragen beziehen sich ausschließlich (!) auf Ihre Tätigkeit als CrowdworkerIn. Dabei interessiert uns wieder, wie wichtig Ihnen folgende Ausssagen zu Ansprüchen an Crowdarbeit sind. \n Bei meiner Tätigketit als CrowdwokerIn ist es mir wichtig, dass..."
   )
-quest[quest$section == "expect_crowd", "var_german"] <-
-rawdat$atizo %>%
+quest[quest$section == "expect_crowd", "var_german"] <- rawdat$atizo %>%
   select(interesting_work_cw:wage_organisation_cw) %>% 
   map_chr(.f = function(x) {
     attr(x = x, which = "label")
   })
+
+# make sure that the above typed vars are the same as in crowddata
+assert_set_equal(x = names(crowddata)[-1], y = quest$var, ordered = TRUE)
