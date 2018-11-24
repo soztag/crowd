@@ -284,9 +284,12 @@ prompts %<>%
   add_row(
     var = "h_platform",
     german = "Wie viele Stunden im Monat arbeiten Sie auf dieser Crowdworking-Plattform?"
+    # the wording is actually slightly inconsistent for this one; some questionnaires ask for, say "Atizo" by name, others just refer to "this platform".
   )
 
-# TODO: Test that h_platform is >= h_month ?
+# h_platform must, by definition, be less than h_month, but it is not for these
+crowddata[which(crowddata$h_platform > crowddata$h_month), c("h_month", "h_platform")] <- NA
+#crowddata$h_month >= crowddata$h_platform
 
 crowddata$time_of_day %<>%
   as_factor(ordered = FALSE) %>% 
