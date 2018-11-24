@@ -258,3 +258,69 @@ prompts %<>%
     var = "sum_platforms",
     german = "Auf wie vielen Crowdworking-Plattformen arbeiten Sie zur Zeit?"
   )
+
+crowddata$platforms %<>%
+  as_factor(ordered = FALSE) %>% 
+  assert_factor(n.levels = 5, any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "platforms",
+    german = "Auf welcher Art von Crowdworking-Plattformen sind Sie überwiegend tätig?"
+  )
+
+crowddata$h_month %<>% 
+  as.integer() %>% 
+  assert_integer(lower = 0, upper = 400)
+prompts %<>%
+  add_row(
+    var = "h_month",
+    german = "Wie viele Stunden im Monat arbeiten Sie auf Crowdworking-Plattformen insgesamt?"
+  )
+
+crowddata$h_platform %>% 
+  as.integer() %>% 
+  assert_integer(lower = 0, upper = 400)
+prompts %<>%
+  add_row(
+    var = "h_platform",
+    german = "Wie viele Stunden im Monat arbeiten Sie auf dieser Crowdworking-Plattform?"
+  )
+
+# TODO: Test that h_platform is >= h_month ?
+
+crowddata$time_of_day %<>%
+  as_factor(ordered = FALSE) %>% 
+  assert_factor(n.levels = 6, any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "time_of_day",
+    german = "Zu welcher Tageszeit sind Sie als CrowdworkerIn tätig?"
+  )
+
+crowddata$time_of_week %<>%
+  as_factor(ordered = FALSE) %>% 
+  assert_factor(n.levels = 3, any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "time_of_week",
+    german = "Sind Sie überwiegend unter der Woche, am Wochenende oder die ganze Woche über auf Crowdworking-Plattformen tätig?"
+  )
+
+crowddata$workspace %<>%
+  as_factor(ordered = FALSE) %>% 
+  assert_factor(n.levels = 3, any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "workspace",
+    german = "Von welchem Ort aus sind Sie auf Crowdworking-Plattformen tätig?"
+  )
+
+crowddata$perm_contract %<>%
+  recode_factor(Ja = TRUE, Nein = FALSE) %>% 
+  as.logical() %>% 
+  assert_logical(any.missing = TRUE)
+prompts %<>%
+  add_row(
+    var = "perm_contract",
+    german = "Würden Sie Ihre aktuelle Crowdworking-Tätigkeit gerne im Rahmen einer unbefristeten Vollzeitstelle ausüben?"
+  )
