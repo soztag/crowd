@@ -123,12 +123,57 @@ mutate(
         false = NA_integer_
       )
     )
-  ) %>% 
+  ) %>%
+  {.} -> crowddata
   
-  # 4 Expectations Work ====
+# 4 Expectations Work ====
+crowddata$exp_work <- as.matrix(crowddata[, names(crowddata)[18:45]])
+crowddata %<>% select(
+  -c(18:45)
+)
+crowddata$exp_work <- apply(
+  X = crowddata$exp_work,
+  MARGIN = c(1,2),
+  FUN = function(x) {
+    switch(
+      EXPR = x,
+      `Trifft gar nicht zu` = -2,
+      `Trifft wenig zu` = -1,
+      `Teils. teils` = 0,
+      `Trifft ziemlich zu` = 1,
+      `Trifft völlig zu` = 2,
+      `0` = NA,
+      `Kann ich nicht beurteilen` = NA,
+      `NA` = NA
+    )
+  }
+)
 
-  # 5 Expectations Crowdwork ====
-{.} -> crowddata
+# 5 Expectations Crowdwork ====
+crowddata$exp_crowd <- as.matrix(crowddata[, names(crowddata)[18:45]])
+# dont be surprised; above indices are the same because in the meantime, we have deleted the first battery, so the indices changed!
+crowddata %<>% select(
+  -c(18:45)
+)
+crowddata$exp_crowd <- apply(
+  X = crowddata$exp_crowd,
+  MARGIN = c(1,2),
+  FUN = function(x) {
+    switch(
+      EXPR = x,
+      `Trifft gar nicht zu` = -2,
+      `Trifft wenig zu` = -1,
+      # careful here; below is typed slightly differently then above version!
+      `Teils, teils` = 0,
+      `Trifft ziemlich zu` = 1,
+      `Trifft völlig zu` = 2,
+      `0` = NA,
+      `Kann ich nicht beurteilen` = NA,
+      `NA` = NA
+    )
+  }
+)
+colnames(crowddata$exp_crowd) <- colnames(crowddata$exp_work)
 
 
 # store full questionnaire ====
@@ -222,7 +267,7 @@ quest[9:16, c("section_intro_german")] <- "Nun würden wir gerne etwas über Ihr
 # 4 Expectations Work
 quest %<>%
   add_row(
-    var = names(crowddata)[18:45],
+    var = colnames(crowddata$exp_work),
     section = "expect_work",
     section_intro_german = "Bitte denken Sie an Ihre aktuelle Erwerbstätigkeit. Sollten Sie zur Zeit keiner Erwerbstätigkeit nachgehen, so denken Sie bitte an Ihren letzten Job. Sollten Sie bisher noch nicht als ArbeitnehmerIn tätig gewesen sein, so stellen Sie sich bitte Ihren künftigen Job vor. Die folgenden Fragen beziehen sich ausschließlich auf diese Tätigkeit und fokussieren Ihre subjektiven Erwartungen an Arbeit. \n In meiner Erwerbsarbeit ist es mir wichtig, dass... \n Die Stärke Ihrer Zustimmung erfolgt auf einer 6-stufigen Skala."
   )
@@ -235,7 +280,7 @@ quest[quest$section == "expect_work", "var_german"] <- rawdat$atizo %>%
 # 5 Expectations Crowdwork
 quest %<>%
   add_row(
-    var = names(crowddata)[46:(46+27)],
+    var = colnames(crowddata$exp_work),
     section = "expect_crowd",
     section_intro_german = "Bitte denken Sie nun an Ihre Aktivität auf Internet-Plattformen. Die folgenden Fragen beziehen sich ausschließlich (!) auf Ihre Tätigkeit als CrowdworkerIn. Dabei interessiert uns wieder, wie wichtig Ihnen folgende Ausssagen zu Ansprüchen an Crowdarbeit sind. \n Bei meiner Tätigketit als CrowdwokerIn ist es mir wichtig, dass..."
   )
@@ -246,4 +291,4 @@ quest[quest$section == "expect_crowd", "var_german"] <- rawdat$atizo %>%
   })
 
 # make sure that the above typed vars are the same as in crowddata
-assert_set_equal(x = names(crowddata)[-1], y = quest$var, ordered = TRUE)
+assert_set_equal(x = names(crowddata)[2:17], y = quest$var[1:16], ordered = TRUE)
