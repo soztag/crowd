@@ -67,25 +67,130 @@ assert_integerish(
 )
 # all other non-questionnaire variables at the end are uninteresting or empty
 
-crowddata %<>%
-  dplyr::select(c(
-    study = study,
-    birth = v_1,
-    gender = v_2,
-    education = v_7,
-    disability_care = v_12,
-    children = v_17,
-    employment = v_22,
-    sum_employer = v_35,
-    profession_dev = v_37,
-    sum_platforms = v_38,
-    platforms = v_39,
-    h_month = v_45,
-    h_platform = v_44,
-    time_of_day = v_46,
-    time_of_week = v_52,
-    workspace = v_53,
-    perm_contract = v_203,
+
+# 1 Welcome ====
+
+# Sehr geehrte Damen und Herren,
+# wir freuen uns, dass Sie an der Befragung "Crowdworking - Ansprüche an Arbeit" im Rahmen eines Foschungsprojektes des Lehrstuhls für Soziologie der Universität Hohenheim teilnehmen. Mit dieser Studie wollen wir in Erfahrung bringen, welche Ansprüche, Einstellungen und Aspirationen Sie zum einen an Erwerbsarbeit und zum anderen an Crowdarbeit haben. Den Fragebogen auszufüllen wird etwa 20 Minuten in Anspruch nehmen.
+# Die Befragung ist anonym. Es werden keine personenbezogenen Daten erhoben, anhand derer Sie als Person indentifiziert werden können. Sämtliche Daten werden ausschließlich im Rahmen des Forschungsprojekts verwendet.
+# Wir bedanken uns für Ihre Unterstützung!
+
+
+crowddata %>% mutate(
+  # 2 Personal Information ====
+  study = study,
+  birth = {
+    as.integer(v_1) %>%
+      na_if(y = -99) %>% 
+      assert_integer(lower = 1900, upper = 2005, any.missing = TRUE)
+  },
+  gender = {
+    assert_factor(
+      x = v_2,
+      levels = c("Männlich", "Weiblich"), 
+      ordered = FALSE, 
+      empty.levels.ok = FALSE, 
+      any.missing = TRUE, 
+      all.missing = FALSE
+    )
+  },
+  education = {
+    as_factor(x = v_7, ordered = FALSE) %>%
+      fct_recode(NULL = "0") %>%
+      assert_factor(ordered = FALSE, n.levels = 6)
+  },
+  disability_care = {
+    recode_factor(.x = v_12, ja = TRUE, nein = FALSE) %>% 
+      as.logical() %>% 
+      assert_logical(any.missing = TRUE)
+  },
+  children = {
+    recode_factor(.x = v_17, Ja = TRUE, Nein = FALSE) %>% 
+      as.logical() %>% 
+      assert_logical(any.missing = TRUE)
+  },
+  employment = {
+    as_factor(x = v_22, ordered = FALSE) %>%
+      fct_recode(NULL = "0") %>% 
+      # several levels are missing
+      lvls_expand(new_levels = c(
+        "Voll erwerbstätig",
+        "In Teilzeitbeschäftigung",
+        "In betrieblicher Ausbildung/Lehre/oder betrieblicher Umschulung",
+        "Geringfügig oder unregelmäßig erwerbstätig",
+        "In Altersteilzeit mit Arbeitszeit null",
+        "Freiwilliger Wehrdienst",
+        "Freiwilliges soziales/ökologisches Jahr, Bundesfreiwilligendienst",
+        "Nicht erwerbstätig"
+      )) %>% 
+      assert_factor(ordered = FALSE, n.levels = 8)
+  },
+  sum_employer = {
+    as.integer(v_35) %>% 
+      replace(. > 50, NA) %>%  # these seem too high, probably in error
+      replace(. == 0, NA) %>%  # these seem too low
+      assert_integer(lower = 1)
+  },
+  profession_dev = {
+    as_factor(x = v_37, ordered = FALSE) %>% 
+      fct_recode(NULL = "0") %>% 
+      assert_factor(n.levels = 3, any.missing = TRUE)
+  }
+) %>% 
+  
+  # 3 current job ====
+  mutate(
+    sum_platforms = {
+      as.integer(v_38) %>% 
+        na_if(y = 99) %>% # this was probably the NA value
+        na_if(y = 17) %>%   # this just seems too high, typo perhaps
+        # 0 was retained, because perhaps as per the question wording respondent wasn't *currently* working on the platform
+        assert_integer(lower = 0)
+    },  
+    platforms = {
+      as_factor(x = v_39, ordered = FALSE) %>% 
+        assert_factor(n.levels = 5, any.missing = TRUE)
+    },
+    h_month = {
+      as.integer(v_45) %>% 
+        assert_integer(lower = 0, upper = 400)
+    },
+    h_platform = {
+      as.integer(v_44) %>% 
+        assert_integer(lower = 0, upper = 400)
+    },
+    time_of_day = {
+      as_factor(x = v_46, ordered = FALSE) %>% 
+        assert_factor(n.levels = 6, any.missing = TRUE)
+    },
+    time_of_week = {
+      as_factor(x = v_52, ordered = FALSE) %>% 
+        assert_factor(n.levels = 3, any.missing = TRUE)
+    },
+    workspace = {
+      as_factor(x = v_53, ordered = FALSE) %>% 
+        assert_factor(n.levels = 3, any.missing = TRUE)
+    },
+    perm_contract = {
+      recode_factor(.x = v_203, Ja = TRUE, Nein = FALSE) %>% 
+        as.logical() %>% 
+        assert_logical(any.missing = TRUE)
+    }
+  ) %>%
+  # h_platform must, by definition, be less than h_month, but it is not for these
+  mutate_at(
+    .vars = c("h_month", "h_platform"),
+    .funs = funs(
+      if_else(
+        condition = h_platform <= h_month,
+        true = .,
+        false = NA_integer_
+      )
+    )
+  ) %>% 
+  
+  # 4 Expectations Work ====
+  mutate(
     interesting_work = v_175,
     learning = v_176,
     cooperation = v_177,
@@ -114,6 +219,10 @@ crowddata %<>%
     dissent_eval = v_200,
     wage = v_201,
     wage_organisation = v_202,
+  ) %>% 
+  
+  # 5 Expectations Crowdwork ====
+  mutate(
     interesting_work_cw = v_119,
     learning_cw = v_120,
     cooperation_cw = v_121,
@@ -142,188 +251,148 @@ crowddata %<>%
     dissent_eval_cw = v_144,
     wage_cw = v_145,
     wage_organisation_cw = v_146
-  ))
+  ) %>% 
+  {.} -> crowddata
 
-# store full prompts
-prompts <- tibble::tibble(var = character(), german = character())
-# TODO this would be place to also add english prompts
+# store full quest
+quest <- tibble::tibble(
+  var = character(), 
+  var_german = character(),
+  section = character(),
+  section_intro_german = character()
+)
+# TODO this would be place to also add english quest
 # TODO however, that would require all the below factor levels etc. to *also* be translated, and we're avoiding that for now.
 
-# tests, assertions, metadat  ====
-
-crowddata$birth %<>% 
-  as.integer(crowddata$birth) %>%
-  na_if(y = -99) %>% 
-  assert_integer(lower = 1900, upper = 2005, any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "birth",
-    german = "In welchem Jahr wurden Sie geboren?"
+    var_german = "In welchem Jahr wurden Sie geboren?"
   )
 
-crowddata$gender %<>%
-  assert_factor(
-    levels = c("Männlich", "Weiblich"), 
-    ordered = FALSE, 
-    empty.levels.ok = FALSE, 
-    any.missing = TRUE, 
-    all.missing = FALSE
-  )
-prompts %<>%
+quest %<>%
   add_row(
     var = "gender",
-    german = "Sind Sie ..."
+    var_german = "Sind Sie ..."
   )
 
-crowddata$education %<>%
-  as_factor(ordered = FALSE) %>%
-  fct_recode(NULL = "0") %>%
-  assert_factor(ordered = FALSE, n.levels = 6)
-prompts %<>%
+quest %<>%
   add_row(
     var = "education",
-    german = "Welchen Abschluss haben Sie gemacht?"
+    var_german = "Welchen Abschluss haben Sie gemacht?"
   )
 
-crowddata$disability_care %<>%
-  recode_factor(ja = TRUE, nein = FALSE) %>% 
-  as.logical() %>% 
-  assert_logical(any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "disability_care",
-    german = "Gibt es in Ihrem Haushalt jemand, der aus Alters-oder Krankheitsgründen oder wegen einer Behinderung hilfe-oder pflegebedürftig ist?"
+    var_german = "Gibt es in Ihrem Haushalt jemand, der aus Alters-oder Krankheitsgründen oder wegen einer Behinderung hilfe-oder pflegebedürftig ist?"
   )
 
-crowddata$children %<>%
-  recode_factor(Ja = TRUE, Nein = FALSE) %>% 
-  as.logical() %>% 
-  assert_logical(any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "children",
-    german = "Gibt es in Ihrem Haushalt Kinder, die erst 2000 oder später geboren sind?"
+    var_german = "Gibt es in Ihrem Haushalt Kinder, die erst 2000 oder später geboren sind?"
   )
 
-crowddata$employment %<>%
-  as_factor(ordered = FALSE) %>%
-  fct_recode(NULL = "0") %>% 
-  # several levels are missing
-  lvls_expand(new_levels = c(
-    "Voll erwerbstätig",
-    "In Teilzeitbeschäftigung",
-    "In betrieblicher Ausbildung/Lehre/oder betrieblicher Umschulung",
-    "Geringfügig oder unregelmäßig erwerbstätig",
-    "In Altersteilzeit mit Arbeitszeit null",
-    "Freiwilliger Wehrdienst",
-    "Freiwilliges soziales/ökologisches Jahr, Bundesfreiwilligendienst",
-    "Nicht erwerbstätig"
-  )) %>% 
-  assert_factor(ordered = FALSE, n.levels = 8)
-prompts %<>%
+quest %<>%
   add_row(
     var = "employment",
-    german = "Üben Sie derzeit eine Erwerbstätigkeit aus? Was trifft für Sie zu?"
+    var_german = "Üben Sie derzeit eine Erwerbstätigkeit aus? Was trifft für Sie zu?"
   )
 
-crowddata$sum_employer %<>%
-  as.integer() %>% 
-  replace(. > 50, NA) %>%  # these seem too high, probably in error
-  replace(. == 0, NA) %>%  # these seem too low
-  assert_integer(lower = 1)
-prompts %<>%
+quest %<>%
   add_row(
     var = "sum_employer",
-    german = "Bei wie vielen verschiedenen Arbeitgebern waren Sie seit dem Sie erstmals eine berufliche Tätigkeit aufgenommen haben beschäftigt, einschließlich Ihrer heutigen Beschäftigung? Phasen der Selbstständigkeit und der Beschäftigung bei einer Arbeitszeitfirma zählen wie ein Arbeitgeber."
+    var_german = "Bei wie vielen verschiedenen Arbeitgebern waren Sie seit dem Sie erstmals eine berufliche Tätigkeit aufgenommen haben beschäftigt, einschließlich Ihrer heutigen Beschäftigung? Phasen der Selbstständigkeit und der Beschäftigung bei einer Arbeitszeitfirma zählen wie ein Arbeitgeber."
   )
 
-crowddata$profession_dev %<>%
-  as_factor(ordered = FALSE) %>% 
-  fct_recode(NULL = "0") %>% 
-  assert_factor(n.levels = 3, any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "profession_dev",
-    german = "Wenn Sie Ihr ganzes Berufsleben betrachten, würden Sie sagen, Sie haben einen beruflichen Aufstieg, einen Abstieg, keine wesentliche Veränderung oder war das eher ein Auf und Ab?"
+    var_german = "Wenn Sie Ihr ganzes Berufsleben betrachten, würden Sie sagen, Sie haben einen beruflichen Aufstieg, einen Abstieg, keine wesentliche Veränderung oder war das eher ein Auf und Ab?"
   )
 
-crowddata$sum_platforms %<>%
-  as.integer() %>% 
-  na_if(y = 99) %>% # this was probably the NA value
-  na_if(y = 17) %>%   # this just seems too high, typo perhaps
-  # 0 was retained, because perhaps as per the question wording respondent wasn't *currently* working on the platform
-  assert_integer(lower = 0)
-prompts %<>%
+quest[1:8, c("section")] <- "personal_info"
+quest[1:8, c("section_intro_german")] <- "Zunächst würden wir gerne einige Fragen zu Ihrer Person und zu Ihrem bisherigen Berufsleben stellen."
+
+
+quest %<>%
   add_row(
     var = "sum_platforms",
-    german = "Auf wie vielen Crowdworking-Plattformen arbeiten Sie zur Zeit?"
+    var_german = "Auf wie vielen Crowdworking-Plattformen arbeiten Sie zur Zeit?"
   )
 
-crowddata$platforms %<>%
-  as_factor(ordered = FALSE) %>% 
-  assert_factor(n.levels = 5, any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "platforms",
-    german = "Auf welcher Art von Crowdworking-Plattformen sind Sie überwiegend tätig?"
+    var_german = "Auf welcher Art von Crowdworking-Plattformen sind Sie überwiegend tätig?"
   )
 
-crowddata$h_month %<>% 
-  as.integer() %>% 
-  assert_integer(lower = 0, upper = 400)
-prompts %<>%
+quest %<>%
   add_row(
     var = "h_month",
-    german = "Wie viele Stunden im Monat arbeiten Sie auf Crowdworking-Plattformen insgesamt?"
+    var_german = "Wie viele Stunden im Monat arbeiten Sie auf Crowdworking-Plattformen insgesamt?"
   )
 
-crowddata$h_platform %>% 
-  as.integer() %>% 
-  assert_integer(lower = 0, upper = 400)
-prompts %<>%
+quest %<>%
   add_row(
     var = "h_platform",
-    german = "Wie viele Stunden im Monat arbeiten Sie auf dieser Crowdworking-Plattform?"
+    var_german = "Wie viele Stunden im Monat arbeiten Sie auf dieser Crowdworking-Plattform?"
     # the wording is actually slightly inconsistent for this one; some questionnaires ask for, say "Atizo" by name, others just refer to "this platform".
   )
 
-# h_platform must, by definition, be less than h_month, but it is not for these
-crowddata[which(crowddata$h_platform > crowddata$h_month), c("h_month", "h_platform")] <- NA
-#crowddata$h_month >= crowddata$h_platform
-
-crowddata$time_of_day %<>%
-  as_factor(ordered = FALSE) %>% 
-  assert_factor(n.levels = 6, any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "time_of_day",
-    german = "Zu welcher Tageszeit sind Sie als CrowdworkerIn tätig?"
+    var_german = "Zu welcher Tageszeit sind Sie als CrowdworkerIn tätig?"
   )
 
-crowddata$time_of_week %<>%
-  as_factor(ordered = FALSE) %>% 
-  assert_factor(n.levels = 3, any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "time_of_week",
-    german = "Sind Sie überwiegend unter der Woche, am Wochenende oder die ganze Woche über auf Crowdworking-Plattformen tätig?"
+    var_german = "Sind Sie überwiegend unter der Woche, am Wochenende oder die ganze Woche über auf Crowdworking-Plattformen tätig?"
   )
 
-crowddata$workspace %<>%
-  as_factor(ordered = FALSE) %>% 
-  assert_factor(n.levels = 3, any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "workspace",
-    german = "Von welchem Ort aus sind Sie auf Crowdworking-Plattformen tätig?"
+    var_german = "Von welchem Ort aus sind Sie auf Crowdworking-Plattformen tätig?"
   )
 
-crowddata$perm_contract %<>%
-  recode_factor(Ja = TRUE, Nein = FALSE) %>% 
-  as.logical() %>% 
-  assert_logical(any.missing = TRUE)
-prompts %<>%
+quest %<>%
   add_row(
     var = "perm_contract",
-    german = "Würden Sie Ihre aktuelle Crowdworking-Tätigkeit gerne im Rahmen einer unbefristeten Vollzeitstelle ausüben?"
+    var_german = "Würden Sie Ihre aktuelle Crowdworking-Tätigkeit gerne im Rahmen einer unbefristeten Vollzeitstelle ausüben?"
   )
+
+quest[9:16, c("section")] <- "current_occ"
+quest[9:16, c("section_intro_german")] <- "Nun würden wir gerne etwas über Ihre aktuelle Tätigkeit als CrowdworkerIn erfahren."
+
+
+quest %<>%
+  add_row(
+    var = names(crowddata)[18:45],
+    section = "expect_work",
+    section_intro_german = "Bitte denken Sie an Ihre aktuelle Erwerbstätigkeit. Sollten Sie zur Zeit keiner Erwerbstätigkeit nachgehen, so denken Sie bitte an Ihren letzten Job. Sollten Sie bisher noch nicht als ArbeitnehmerIn tätig gewesen sein, so stellen Sie sich bitte Ihren künftigen Job vor. Die folgenden Fragen beziehen sich ausschließlich auf diese Tätigkeit und fokussieren Ihre subjektiven Erwartungen an Arbeit. \n In meiner Erwerbsarbeit ist es mir wichtig, dass... \n Die Stärke Ihrer Zustimmung erfolgt auf einer 6-stufigen Skala."
+  )
+quest[quest$section == "expect_work", "var_german"] <- rawdat$atizo %>% 
+  select(v_175:v_202) %>% 
+  map_chr(.f = function(x) {
+    attr(x = x, which = "label")
+  })
+
+
+quest %>%
+  add_row(
+    var = names(crowddata)[46:(46+27)],
+    section = "expect_crowd",
+    section_intro_german = "Bitte denken Sie nun an Ihre Aktivität auf Internet-Plattformen. Die folgenden Fragen beziehen sich ausschließlich (!) auf Ihre Tätigkeit als CrowdworkerIn. Dabei interessiert uns wieder, wie wichtig Ihnen folgende Ausssagen zu Ansprüchen an Crowdarbeit sind. \n Bei meiner Tätigketit als CrowdwokerIn ist es mir wichtig, dass..."
+  ) %>% tail()
+# quest[quest$section == "expect_crowd", "var_german"] <- 
+# rawdat$atizo %>% 
+#   select(v_119:v_146) %>% 
+#   ncol(.)
+# 
+#   map_chr(.f = function(x) {
+#     attr(x = x, which = "label")
+#   })
