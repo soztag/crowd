@@ -5,7 +5,7 @@ knitr::opts_chunk$set(
   echo = FALSE,
   message = FALSE
 )
-options(digits = 2)  # display only 2 digits in knitr output
+options(digits = 1)  # display only 1 decimal in knitr output
 options(scipen = 999)
 options(knitr.kable.NA = '')
 

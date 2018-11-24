@@ -42,3 +42,20 @@ source(file = "cleaning.R")
 
 # Descriptives
 
+`r nrow(crowddata)` crowdworkers participated in this study, with `r table(crowddata$study)` from the [Applause](https://www.applause.com) application testing, [Atizo](https://www.atizo.com) innovation and market research and generic [Crowdguru](https://www.crowdguru.de) crowdsourcing platforms respectively.
+
+```{r, layout="l-page", fig.cap="Participants by Age, Gender and Platform", fig.width=9}
+crowddata %>% 
+  ggplot(mapping = aes(x = birth, fill = study)) +
+  geom_histogram(binwidth = 5) +
+  facet_grid(vars(gender), vars(study)) +
+  scale_x_continuous(breaks = seq(1940,2000,10))
+```
+
+Perhaps surprisingly, the crowdworkers surveyed here include young and old, with a mean age around `r 2017 - mean(crowddata$birth, na.rm = TRUE)` years. 
+The typical participant is in early middle age, with a median age of `r 2017 - median(crowddata$birth, na.rm = TRUE)` years, also indicating a skew towards younger participants overall, and few older outliers.
+The platform Crowdguru draws relatively more female participants, while Applause draws more male respondents.
+Across all three platforms, there are roughly equal numbers of female and male respondents (`r table(crowddata$gender)`, respectively).
+
+
+
