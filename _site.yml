@@ -1,4 +1,5 @@
 name: crowd
+title: "Crowdworking"
 navbar:
   title: crowd
   right:
@@ -6,11 +7,8 @@ navbar:
     text: Source
     href: https://github.com/soztag/crowd
   - icon: fa-university
-    menu:
-    - text: Institut für Soziologie
-      href: https://www.soziologie.phil.fau.de
-    - text: Nuremberg Campus of Technology
-      href: https://www.ncatec.de
+    text: FAU
+    href: https://www.soziologie.phil.fau.de
 output:
   html_document:
     theme: cosmo

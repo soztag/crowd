@@ -19,7 +19,10 @@ author:
     affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
     affiliation_url: http://soziologie.phil.fau.de
 date: "November 25, 2018"
-output: radix::radix_article
+output: 
+  radix::radix_article:
+    toc: true
+    toc_depth: 2
 repository_url: https://github.com/soztag/crowd
 creative_commons: CC BY-SA
 ---
@@ -36,4 +39,6 @@ source(file = "import.R")
 source(file = "cleaning.R")
 ```
 
+
+# Descriptives
 
