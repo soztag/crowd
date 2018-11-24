@@ -8,6 +8,7 @@ Imports:
   forcats,
   checkmate,
   radix,
-  svglite
+  svglite,
+  printr
 Remotes:
   rstudio/radix
