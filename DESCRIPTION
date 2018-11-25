@@ -11,6 +11,10 @@ Imports:
   svglite,
   printr,
   stringr,
-  DT
+  DT,
+  reshape2,
+  GGally,
+  paran,
+  principal
 Remotes:
   rstudio/radix

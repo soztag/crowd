@@ -256,3 +256,49 @@ For example, the counts for a `-3` in figure \@ref(fig:difference) is the number
 There are, alas, very view such substantial differences. 
 Most of the participants rate the statements very similarly for the two contexts.
 
+
+# Structure
+
+## Correlations
+
+```{r}
+cor_conds <- cor(
+  x = reshape2::melt(crowddata$exp_crowd)$value,
+  y = reshape2::melt(crowddata$exp_work)$value,
+  use = "pairwise.complete.obs",
+  method = "kendall"
+)
+```
+
+Somewhat surprisingly given the above small differences, ratings of the two contexts only display middling correlations of around `r cor_conds`, though these are still fairly high for *individual* level data (each data point is a person-variable rating). [^pairwise-complete]
+
+[^pairwise-complete]: To get meaningful correlations in spite of the frequent missing values, this and all of the below correlations are using pairwise complete observations.
+    No systematic analysis was undertaken to check whether and how many observations remain using this procedure, and whether any cases or variables should be excluded entirely.
+
+```{r cors-work, fig.cap="Correlations of Work Expectations", layout="l-page", fig.width=9, fig.height=9}
+cors_work <- cor(crowddata$exp_work, use = "pairwise.complete.obs", method = "kendall")
+mean_cors_work <- mean(abs(cors_work[upper.tri(cors_work, diag = FALSE)]))
+GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work)
+```
+
+```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", layout="l-page", fig.width=9, fig.height=9}
+cors_crowdwork <- cor(crowddata$exp_crowd, use = "pairwise.complete.obs", method = "kendall")
+mean_cors_crowdwork <- mean(abs(cors_crowdwork[upper.tri(cors_crowdwork, diag = FALSE)]))
+GGally::ggcorr(data = crowddata$exp_crowd, cor_matrix = cors_crowdwork)
+```
+
+As expected, the correlations between the two variables are relatively low for both contexts, with an average absolute Kendall's correlation coefficient of `r mean_cors_work` for the work, and `r mean_cors_crowdwork` crowdwork context.
+
+
+## Dimensionality Reduction
+
+```{r}
+paran_work <- paran::paran(
+  iterations = 10000, 
+  centile = 95, 
+  mat = cor(crowddata$exp_work, use = "pairwise.complete.obs"), 
+  n = 230
+)
+r2_work <- sum(paran_work$Ev[1:paran_work$Retained])/28
+pca_work <- psych::principal(r = crowddata$exp_work, nfactors = paran_work$Retained, rotate = "none")
+```
