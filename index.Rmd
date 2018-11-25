@@ -62,10 +62,10 @@ The typical participant is in early middle age, with a median age of `r 2017 - m
 The platform Crowdguru draws relatively more female participants, while Applause draws more male respondents.
 Across all three platforms, there are roughly equal numbers of female and male respondents (`r table(crowddata$gender)`, respectively).
 
-```{r}
+```{r education}
 crowddata %>% 
   count(education) %>% 
-  knitr::kable()
+  knitr::kable(caption = "Educational Attainment")
 ```
 
 ```{r include=FALSE}
@@ -80,10 +80,10 @@ Participants are, overall, relatively educated, with over half reporting a terti
 
 Only `r sum(crowddata$disability_care)` participants report caring for a sick, old or disabled person in their household, and `r sum(crowddata$children)` have children.
 
-```{r}
+```{r employment}
 crowddata %>% 
   count(employment) %>% 
-  knitr::kable()
+  knitr::kable(caption = "Employment Status")
 ```
 
 More than half of the participants are in some kind of regular employment, though it is unclear whether participants understood the question to include their crowdworking.
@@ -99,10 +99,10 @@ The surveyed crowdworkers assessed their professional life overall optimisticall
 Study subjects said they worked, on arithmetic average, for `r mean(crowddata$sum_platforms, na.rm = TRUE)` platforms, with a range from `r min(crowddata$sum_platforms, na.rm = TRUE)` to `r max(crowddata$sum_platforms, na.rm = TRUE)`.
 There were again a few erroneous entries.
 
-```{r}
+```{r platforms}
 crowddata %>% 
   count(platforms) %>% 
-  knitr::kable()
+  knitr::kable(caption = "Type of Platform")
 ```
 
 Testing and microjob platforms are most popular among the participants, as is also reflected in the many respondents recruited via Applause and Crowdguru.
@@ -133,26 +133,26 @@ At the individual level, all participants who reported higher hours worked on th
 
 [^dropped-both]: Because it was impossible to figure out which of the two numbers was entered erroneously, both were dropped from the analysis for these participants.
 
-```{r}
+```{r time-of-day}
 crowddata %>% 
   count(time_of_day) %>% 
-  knitr::kable()
+  knitr::kable(caption = "Predominant Working Hours")
 ```
 
 There appears to be a slight preference for working in the evening, though most study subjects responded *not* working at fixed time during the day.
 
-```{r}
+```{r time-of-week}
 crowddata %>% 
   count(time_of_week) %>% 
-  knitr::kable()
+  knitr::kable(caption = "Predominant Working Days")
 ```
 
 Similarly, most respondends reported working throughout the week, including weekends.
 
-```{r}
+```{r workspace}
 crowddata %>% 
   count(workspace) %>% 
-  knitr::kable()
+  knitr::kable(caption = "Predominant Working Locations")
 ```
 
 The overwhelming majority of all participants said they worked from home.
