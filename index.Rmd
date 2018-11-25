@@ -161,3 +161,70 @@ About half of the participants (`r sum(crowddata$perm_contract)`) would like to 
 
 
 ## Work and Crowdwork Expectations
+
+The participants were surveyed on 28 items concerning expectations towards work, under two separate contexts: work in general, and crowdwork.
+The items were slightly reworded to fit the two contexts.
+
+
+It should be noted that the items between the two batteries (work and crowdwork) are not strictly comparable.
+These differences are frequently above and beyond, or unrelated to the context.
+For example, item 
+
+
+```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), layout = "l-screen", fig.width=12, fig.height=10}
+plot_battery <- function(m, long) {
+  # name long y labels, so they can be used as named vectors to replace existing short labels in the below
+  long %>% 
+    set_names(value = colnames(crowddata$exp_work)) %>% 
+    stringr::str_wrap(width = 65) %>% 
+    {.} -> long
+  
+  # munge data
+  m %>% 
+    as_tibble() %>% 
+    add_column(study = crowddata$study) %>% 
+    gather(key = "item", value = "score", -study) %>% 
+    ggplot(
+      mapping = aes(
+        x = as.factor(score), 
+        y = item, 
+        fill = study,
+        alpha = stat(count)
+      )
+    ) +
+    stat_bin_2d() + 
+    facet_wrap(vars(study), nrow = 1) + 
+    theme(
+      panel.grid.major = element_blank(), 
+      panel.grid.minor = element_blank(),
+      panel.background = element_blank(),
+      legend.position = "bottom"
+    ) +
+    xlab("Agreement with Statement") +
+    ylab(label = NULL) +
+    scale_fill_discrete(name = "Platforms") + 
+    guides(fill = FALSE) + 
+    scale_y_discrete(labels = long)
+}
+
+quest %>%
+  dplyr::filter(section == "expect_work") %>% 
+  pull(var_german) %>% 
+  {.} -> long
+plot_battery(m = crowddata$exp_work, long = long)
+
+quest %>%
+  dplyr::filter(section == "expect_crowd") %>% 
+  pull(var_german) %>% 
+  {.} -> long
+plot_battery(m = crowddata$exp_crowd, long = long)
+```
+
+
+```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", layout = "l-screen", fig.width=12, fig.height=10}
+plot_battery(
+  m = crowddata$exp_work-crowddata$exp_crowd, 
+  long = colnames(crowddata$exp_work)
+)
+```
+

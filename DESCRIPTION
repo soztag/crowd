@@ -9,6 +9,7 @@ Imports:
   checkmate,
   radix,
   svglite,
-  printr
+  printr,
+  stringr
 Remotes:
   rstudio/radix
