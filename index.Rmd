@@ -129,7 +129,9 @@ Figure \@ref(fig:hours) displays the probability density estimates for reported 
 The figure suggests that the working hours are more broadly spread out for respondents from Crowdguru, with more participants working shorter hours for Applause.
 In both cases, the amount of hours worked on the platform in question tracks quite closely the amount of hours crowdworked in total, with an arithmetic average of only `r mean(crowddata$h_month - crowddata$h_platform, na.rm = TRUE)` worked *outside* of the studied platforms.
 The density estimate of the hours worked on the platform in question can sometimes be higher than the overall hours; this is because the estimate is an *aggregate* statistic.
-At the individual level, all participants who reported higher hours worked on the platform in question than on all crowdworking platforms were dropped on both variables. ^[Because it was impossible to figure out which of the two numbers was entered erroneously, both were dropped from the analysis for these participants.]
+At the individual level, all participants who reported higher hours worked on the platform in question than on all crowdworking platforms were dropped on both variables. [^dropped-both]
+
+[^dropped-both]: Because it was impossible to figure out which of the two numbers was entered erroneously, both were dropped from the analysis for these participants.
 
 ```{r}
 crowddata %>% 
@@ -159,4 +161,3 @@ About half of the participants (`r sum(crowddata$perm_contract)`) would like to 
 
 
 ## Work and Crowdwork Expectations
-
