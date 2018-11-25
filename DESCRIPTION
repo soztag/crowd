@@ -10,6 +10,7 @@ Imports:
   radix,
   svglite,
   printr,
-  stringr
+  stringr,
+  DT
 Remotes:
   rstudio/radix

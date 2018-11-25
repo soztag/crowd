@@ -165,10 +165,27 @@ About half of the participants (`r sum(crowddata$perm_contract)`) would like to 
 The participants were surveyed on 28 items concerning expectations towards work, under two separate contexts: work in general, and crowdwork.
 The items were slightly reworded to fit the two contexts.
 
+```{r items-scores, layout="l-body-outset", fig.cap="Items, Wordings and Average Scores"}
+quest %>% 
+  dplyr::filter(section == "expect_work" | section == "expect_crowd") %>% 
+  select(item = "var", german = "var_german", context = "section") %>% 
+  spread(key = context, value = german) %>% 
+  bind_cols(average_work = colMeans(crowddata$exp_work, na.rm = TRUE)) %>% 
+  bind_cols(average_crowd = colMeans(crowddata$exp_crowd, na.rm = TRUE)) %>% 
+  bind_cols(average_diff = colMeans(crowddata$exp_work - crowddata$exp_crowd, na.rm = TRUE)) %>% 
+  DT::datatable(
+    rownames = FALSE,
+    options = list(
+      pageLength = 5
+    )
+  ) %>% 
+  DT::formatRound(columns = 4:6)
+```
 
 It should be noted that the items between the two batteries (work and crowdwork) are not strictly comparable.
-These differences are frequently above and beyond, or unrelated to the context.
-For example, item 
+These differences are sometimes above and beyond, or unrelated to the change context.
+For example, item `fair` is worded "to be treated fairly" for the crowdwork context, and "to be treated fairly *at work*" (emphasis added) for the regular work context.
+Such subtle shifts in emphasis may contribute small shifts in ratings, or may, in any event, make it hard to compare the ratings between the two contexts.
 
 
 ```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), layout = "l-screen", fig.width=12, fig.height=10}
@@ -220,6 +237,11 @@ quest %>%
 plot_battery(m = crowddata$exp_crowd, long = long)
 ```
 
+The above figures \@ref(fig:items-scores) and \@ref(fig:battery) show relatively little variance within and across the measured 28 variables in both contexts.
+Most participants rate most of the items as relatively important, or very important.
+Hardly any respondents and hardly any variables include negative ratings ("does not apply at all", "does not apply").
+This does not bode well for a correlation analysis or dimensionality reduction: there is just not enough variance on either the people or variable mode in the data matrix to expect much structure.
+
 
 ```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", layout = "l-screen", fig.width=12, fig.height=10}
 plot_battery(
@@ -227,4 +249,10 @@ plot_battery(
   long = colnames(crowddata$exp_work)
 )
 ```
+
+There is also not much difference in the rankings of the variable compared between the two contexts.
+In figure \@ref(fig:difference), the individual crowdwork scores are subtracted from the work scores, and the results are then counted.
+For example, the counts for a `-3` in figure \@ref(fig:difference) is the number of participants who rate the item in question *3* levels higher in the crowd than in the regular work context.
+There are, alas, very view such substantial differences. 
+Most of the participants rate the statements very similarly for the two contexts.
 
