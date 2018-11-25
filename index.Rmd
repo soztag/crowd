@@ -24,8 +24,6 @@ output:
     toc: true
     toc_depth: 2
     dev: 'svglite'
-    dev.args:
-      user_fonts: 'fontquiver::font_families("Liberation")'
 repository_url: https://github.com/soztag/crowd
 creative_commons: CC BY-SA
 ---
