@@ -171,7 +171,9 @@ quest %>%
   select(item = "var", german = "var_german", context = "section") %>% 
   spread(key = context, value = german) %>% 
   bind_cols(average_work = colMeans(crowddata$exp_work, na.rm = TRUE)) %>% 
+  bind_cols(sd_work = apply(X = crowddata$exp_work, MARGIN = 2, FUN = sd, na.rm=TRUE)) %>% 
   bind_cols(average_crowd = colMeans(crowddata$exp_crowd, na.rm = TRUE)) %>% 
+  bind_cols(sd_work = apply(X = crowddata$exp_crowd, MARGIN = 2, FUN = sd, na.rm=TRUE)) %>% 
   bind_cols(average_diff = colMeans(crowddata$exp_work - crowddata$exp_crowd, na.rm = TRUE)) %>% 
   DT::datatable(
     rownames = FALSE,
@@ -179,7 +181,7 @@ quest %>%
       pageLength = 5
     )
   ) %>% 
-  DT::formatRound(columns = 4:6)
+  DT::formatRound(columns = 4:8)
 ```
 
 It should be noted that the items between the two batteries (work and crowdwork) are not strictly comparable.
