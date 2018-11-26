@@ -188,7 +188,7 @@ For example, item `fair` is worded "to be treated fairly" for the crowdwork cont
 Such subtle shifts in emphasis may contribute small shifts in ratings, or may, in any event, make it hard to compare the ratings between the two contexts.
 
 
-```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), layout = "l-screen", fig.width=12, fig.height=10}
+```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), layout = "l-screen-inset", fig.width=12, fig.height=10}
 plot_battery <- function(m, long) {
   # name long y labels, so they can be used as named vectors to replace existing short labels in the below
   long %>% 
@@ -205,11 +205,11 @@ plot_battery <- function(m, long) {
       mapping = aes(
         x = as.factor(score), 
         y = item, 
-        fill = study,
-        alpha = stat(count)
+        fill = study
       )
     ) +
-    stat_bin_2d() + 
+    stat_bin_2d(mapping = aes(alpha = stat(count))) + 
+    stat_bin_2d(geom = "text", mapping = aes(label = ..count..)) + 
     facet_wrap(vars(study), nrow = 1) + 
     theme(
       panel.grid.major = element_blank(), 
@@ -243,7 +243,7 @@ Hardly any respondents and hardly any variables include negative ratings ("does 
 This does not bode well for a correlation analysis or dimensionality reduction: there is just not enough variance on either the people or variable mode in the data matrix to expect much structure.
 
 
-```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", layout = "l-screen", fig.width=12, fig.height=10}
+```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", layout = "l-screen-inset", fig.width=12, fig.height=10}
 plot_battery(
   m = crowddata$exp_work-crowddata$exp_crowd, 
   long = colnames(crowddata$exp_work)
@@ -258,6 +258,9 @@ Most of the participants rate the statements very similarly for the two contexts
 
 
 # Structure
+
+**Careful: It's not clear that the below results are meaningful.
+Those are statistics for *continuous* variables, which is perhaps not appropriate here.**
 
 ## Correlations
 
