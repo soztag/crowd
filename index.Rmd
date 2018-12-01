@@ -173,7 +173,7 @@ quest %>%
   bind_cols(average_work = colMeans(crowddata$exp_work, na.rm = TRUE)) %>% 
   bind_cols(sd_work = apply(X = crowddata$exp_work, MARGIN = 2, FUN = sd, na.rm=TRUE)) %>% 
   bind_cols(average_crowd = colMeans(crowddata$exp_crowd, na.rm = TRUE)) %>% 
-  bind_cols(sd_work = apply(X = crowddata$exp_crowd, MARGIN = 2, FUN = sd, na.rm=TRUE)) %>% 
+  bind_cols(sd_crowd = apply(X = crowddata$exp_crowd, MARGIN = 2, FUN = sd, na.rm=TRUE)) %>% 
   bind_cols(average_diff = colMeans(crowddata$exp_work - crowddata$exp_crowd, na.rm = TRUE)) %>% 
   DT::datatable(
     rownames = FALSE,
@@ -280,16 +280,26 @@ Somewhat surprisingly given the above small differences, ratings of the two cont
 [^pairwise-complete]: To get meaningful correlations in spite of the frequent missing values, this and all of the below correlations are using pairwise complete observations.
     No systematic analysis was undertaken to check whether and how many observations remain using this procedure, and whether any cases or variables should be excluded entirely.
 
+<!-- TODO really weird observation: the variable pairs right off the diagonal appear to be more highly correlated than the rest; hypothesis would be that this is because this is the order of the vars in the questionnaire; people were just lazy.  -->
+<!-- might be interesting to find a statistical test for this -->
+<!-- it gets worse: if you look at the highly correlated variable pairs asked right after one another in the questionnaire, *some* of them may be considered to substantially overlapping or plausibly correlated, such as `balance_loc` and `balance_time` (at .7). -->
+<!-- But the second highest correlations can be found between `deadline` and `quantity` (at .6), which overlap in content (to have some influence at work), but also simply in their *wording*. -->
+<!-- In the absence of a randomized question order, there is of course no evidence that the observed correlations of consecutive questions is an artefact of wording or order, but the conspicuous pattern of high correlations leaves one highly suspicious of their validity. -->
+<!-- There is, in any event, no reason *why* we should see high correlations between consecutive items. -->
+<!-- The absence of randomized question order here strictly limits any conclusions that may be drawn from the data or its inherent structure. -->
+<!-- TODO correlate the correlations of variables with their proximity on the questionnaire -->
+
+
 ```{r cors-work, fig.cap="Correlations of Work Expectations", layout="l-page", fig.width=9, fig.height=9}
 cors_work <- cor(crowddata$exp_work, use = "pairwise.complete.obs", method = "kendall")
 mean_cors_work <- mean(abs(cors_work[upper.tri(cors_work, diag = FALSE)]))
-GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work)
+GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work, label = TRUE)
 ```
 
 ```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", layout="l-page", fig.width=9, fig.height=9}
 cors_crowdwork <- cor(crowddata$exp_crowd, use = "pairwise.complete.obs", method = "kendall")
 mean_cors_crowdwork <- mean(abs(cors_crowdwork[upper.tri(cors_crowdwork, diag = FALSE)]))
-GGally::ggcorr(data = crowddata$exp_crowd, cor_matrix = cors_crowdwork)
+GGally::ggcorr(data = crowddata$exp_crowd, cor_matrix = cors_crowdwork, label = TRUE)
 ```
 
 As expected, the correlations between the two variables are relatively low for both contexts, with an average absolute Kendall's correlation coefficient of `r mean_cors_work` for the work, and `r mean_cors_crowdwork` crowdwork context.
