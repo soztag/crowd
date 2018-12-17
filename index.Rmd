@@ -261,8 +261,14 @@ Most of the participants rate the statements very similarly for the two contexts
 
 # Structure
 
-**Careful: It's not clear that the below results are meaningful.
-Those are statistics for *continuous* variables, which is perhaps not appropriate here.**
+Because the great majority of participants rated most items as "agree" (`1`) or "strongly agree" (`2`), interpreting the Likert scores as interval-scaled, as is sometimes done, may not be appropriate in this context.
+When z-scored as part of most parametric procedures, the relatively few outlying ratings will be transformed into great *distances*, an interpretation that may not accord with the usage or expectations of participants.
+Such z-scoring is not usually a problem when there are many and widely-used levels or when the normative measurement of the underlying phenomenon is easily accomplished (as for temperature), but in tightly concentrated, discrete distributions such as the present one, z-scoring forces some arbitrary choices.
+For example, a Pearsons correlation coefficient $\rho$ will be heavily swayed by possibly correlated items in the extremes of these faux-continuous, scaled distributions.
+Other (parametric) procedures, such as the Kendall's rank correlation coefficient $\tau$ used below im prove upon this situation somewhat, but also merely imply *another* arbitrary choice in how to weigh the rare extremes (in this case, swayed by the number of ties).
+
+A proper analysis of the data, to the extent that it is worthwhile, will therefore require non-parametric procedures.
+
 
 ## Correlations
 
@@ -280,14 +286,12 @@ Somewhat surprisingly given the above small differences, ratings of the two cont
 [^pairwise-complete]: To get meaningful correlations in spite of the frequent missing values, this and all of the below correlations are using pairwise complete observations.
     No systematic analysis was undertaken to check whether and how many observations remain using this procedure, and whether any cases or variables should be excluded entirely.
 
-<!-- TODO really weird observation: the variable pairs right off the diagonal appear to be more highly correlated than the rest; hypothesis would be that this is because this is the order of the vars in the questionnaire; people were just lazy.  -->
-<!-- might be interesting to find a statistical test for this -->
-<!-- it gets worse: if you look at the highly correlated variable pairs asked right after one another in the questionnaire, *some* of them may be considered to substantially overlapping or plausibly correlated, such as `balance_loc` and `balance_time` (at .7). -->
-<!-- But the second highest correlations can be found between `deadline` and `quantity` (at .6), which overlap in content (to have some influence at work), but also simply in their *wording*. -->
-<!-- In the absence of a randomized question order, there is of course no evidence that the observed correlations of consecutive questions is an artefact of wording or order, but the conspicuous pattern of high correlations leaves one highly suspicious of their validity. -->
-<!-- There is, in any event, no reason *why* we should see high correlations between consecutive items. -->
-<!-- The absence of randomized question order here strictly limits any conclusions that may be drawn from the data or its inherent structure. -->
-<!-- TODO correlate the correlations of variables with their proximity on the questionnaire -->
+A surprising pattern stands out from the correlation coefficient heatmap shown in the above:
+many of the largest correlations are found closely to the diagonal for *adjacent* items, such as `balance_loc` and `balance_time`, correlated at `.7`.
+This artefact, not otherwise easily explained, may reflect an ordering effect, as participants were likely to respond similary to items presented together.
+Because the Likert items (or other questions) were not randomized in the survey, this makes the interpretation difficult, and any correlations or patterns therein suspect: 
+an item pair *may* be correlated simply because of adjacency, but the correlation may also express a substantive association.
+Additionally, adjacent items are also often worded similarly, though the patterns of similarly differ between the two conditions of instruction, such as `deadline` and `quantity` (at .6).
 
 
 ```{r cors-work, fig.cap="Correlations of Work Expectations", layout="l-page", fig.width=9, fig.height=9}
