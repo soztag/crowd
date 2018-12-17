@@ -1,0 +1,118 @@
+id	Aktiviert	Position	Breite	Ausrichtung	Ext. Variablenname	Beschreibung	Quantum-Tabellenname	Fragetyp	Int. Variablenname	Datentyp
+1	Ja	1	11	Links	lfdn	number	lfdn	-	lfdn	Ganzzahl
+2	Ja	12	11	Links	external_lfdn	external lfdn	external_lfdn	-	external_lfdn	Ganzzahl
+3	Ja	23	11	Links	tester	tester	tester	-	tester	Ganzzahl
+4	Ja	34	11	Links	dispcode	disposition code	status	-	status	Ganzzahl
+5	Ja	45	255	Links	lastpage	last page	last_page	-	last_page	Text
+6	Ja	300	15	Links	quality	quality	quality	-	quality	Kommazahl
+7	Ja	315	11	Links	duration	time to complete survey	time_to_complete_survey	-	time_to_complete_survey	Ganzzahl
+8	Ja	326	255	Links	v_1	Textfeld einzeilig	v_1	141	v_1	Text
+9	Ja	581	11	Links	v_2	Mehrfachauswahl untereinander	v_2	111	v_2	Ganzzahl
+10	Ja	592	11	Links	v_7	Mehrfachauswahl untereinander	v_7	111	v_7	Ganzzahl
+11	Ja	603	11	Links	v_12	Mehrfachauswahl untereinander	v_12	111	v_12	Ganzzahl
+12	Ja	614	11	Links	v_17	Mehrfachauswahl untereinander	v_17	111	v_17	Ganzzahl
+13	Ja	625	11	Links	v_22	Mehrfachauswahl untereinander	v_22	111	v_22	Ganzzahl
+14	Ja	636	255	Links	v_35	Textfeld einzeilig	v_35	141	v_35	Text
+15	Ja	891	11	Links	v_37	Einfachauswahl untereinander	v_37	111	v_37	Ganzzahl
+16	Ja	902	255	Links	v_38	Textfeld einzeilig	v_38	141	v_38	Text
+17	Ja	1157	11	Links	v_39	Mehrfachauswahl untereinander	v_39	111	v_39	Ganzzahl
+18	Ja	1168	255	Links	v_45	Textfeld einzeilig	v_45	141	v_45	Text
+19	Ja	1423	255	Links	v_44	Textfeld einzeilig	v_44	141	v_44	Text
+20	Ja	1678	11	Links	v_46	Mehrfachauswahl untereinander	v_46	111	v_46	Ganzzahl
+21	Ja	1689	11	Links	v_52	Einfachauswahl untereinander	v_52	111	v_52	Ganzzahl
+22	Ja	1700	11	Links	v_53	Mehrfachauswahl untereinander	v_53	111	v_53	Ganzzahl
+23	Ja	1711	11	Links	v_203	Mehrfachauswahl untereinander	v_203	111	v_203	Ganzzahl
+24	Ja	1722	11	Links	v_175	meine Arbeit interessant und abwechlungsreich ist.	v_175	311	v_175	Ganzzahl
+25	Ja	1733	11	Links	v_176	ich in meiner Arbeit immer wieder neues dazulerne.	v_176	311	v_176	Ganzzahl
+26	Ja	1744	11	Links	v_177	ich mit anderen Leuten zusammenarbeite.	v_177	311	v_177	Ganzzahl
+27	Ja	1755	11	Links	v_178	ich in schwierigen Situationen angemessene Unterstützung erhalte.	v_178	311	v_178	Ganzzahl
+28	Ja	1766	11	Links	v_179	ich genau weiß, was von mir bei der Arbeit erwartet wird.	v_179	311	v_179	Ganzzahl
+29	Ja	1777	11	Links	v_180	ich mitentscheiden kann, welche Aufgaben ich erfülle.	v_180	311	v_180	Ganzzahl
+30	Ja	1788	11	Links	v_181	ich selbst festlegen kann, wie ich meine Arbeit erledige.	v_181	311	v_181	Ganzzahl
+31	Ja	1799	11	Links	v_182	ich Einfluss auf den Zeitpunkt habe, zu dem Aufgaben erledigt sein müssen.	v_182	311	v_182	Ganzzahl
+32	Ja	1810	11	Links	v_183	ich Einfluss auf die zu erledigende Arbeitsmenge habe.	v_183	311	v_183	Ganzzahl
+33	Ja	1821	11	Links	v_184	ich Einfluss auf die Kriterien habe, anhand derer meine Leistung bewertet wird.	v_184	311	v_184	Ganzzahl
+34	Ja	1832	11	Links	v_185	mein Vorgesetzter meine Leistung anhand von Kriterien bewertet, die ich nachvollziehen kann und welche mir transparent sind.	v_185	311	v_185	Ganzzahl
+35	Ja	1843	11	Links	v_186	bei der Planung von Aufgaben darauf geachtet wird, dass diese realisitisch für mich zu bewältigen sind.	v_186	311	v_186	Ganzzahl
+36	Ja	1854	11	Links	v_187	ich genug Zeit habe, um meine Aufgabe zu erledigen.	v_187	311	v_187	Ganzzahl
+37	Ja	1865	11	Links	v_188	ich Dinge tue, für die ich gut ausgebildet bin.	v_188	311	v_188	Ganzzahl
+38	Ja	1876	11	Links	v_189	ich von meinem Vorgesetzen die Anerkennug erhalte, die ich verdiene.	v_189	311	v_189	Ganzzahl
+39	Ja	1887	11	Links	v_190	ich von meinen Kollegen die Anerkennung erhalte, die ich verdiene.	v_190	311	v_190	Ganzzahl
+40	Ja	1898	11	Links	v_191	ich in meiner Arbeit gerecht behandelt werde.	v_191	311	v_191	Ganzzahl
+41	Ja	1909	11	Links	v_192	wenn ich an meine Ausbildung denke, ich meine aktuelle Tätigkeit für angemessen halte.	v_192	311	v_192	Ganzzahl
+42	Ja	1920	11	Links	v_193	ich einen sicheren Arbeitsplatz habe.	v_193	311	v_193	Ganzzahl
+43	Ja	1931	11	Links	v_194	ich meinen Arbeitsort flexibel an meine privaten Verpflichtungen und Bedürfnisse anpassen kann.	v_194	311	v_194	Ganzzahl
+44	Ja	1942	11	Links	v_195	ich meine Arbeitszeit flexibel an meine privaten Verpflichtungen und Bedürfnisse anpassen kann.	v_195	311	v_195	Ganzzahl
+45	Ja	1953	11	Links	v_196	ich eine klare Trennung zwischen Arbeit und Leben ziehen kann.	v_196	311	v_196	Ganzzahl
+46	Ja	1964	11	Links	v_197	mein Vorgesetzter mir die Kriterien der Aufgabenstellung gründlich erklärt.	v_197	311	v_197	Ganzzahl
+47	Ja	1975	11	Links	v_198	dass ich Einfluss auf die Leistungs- und Ergebnisbewertung habe.	v_198	311	v_198	Ganzzahl
+48	Ja	1986	11	Links	v_199	die Leistungs-und Ergebnisbewertung einheitlich angewandt wird.	v_199	311	v_199	Ganzzahl
+49	Ja	1997	11	Links	v_200	es mir möglich ist, gegen das durch die Leistungs-und Ergebnisbewertung erzielte Ergebnis Widerspruch einzulegen.	v_200	311	v_200	Ganzzahl
+50	Ja	2008	11	Links	v_201	meine Entlohnung für die Arbeit angemessen ist, die ich geleistet habe.	v_201	311	v_201	Ganzzahl
+51	Ja	2019	11	Links	v_202	die Entlohnung den Beitrag widerspiegelt, den ich für die Organisation geleistet habe. 	v_202	311	v_202	Ganzzahl
+52	Ja	2030	11	Links	v_119	meine Tätigkeit als CrowdworkerIn interessant und anwechlungsreich ist.	v_119	311	v_119	Ganzzahl
+53	Ja	2041	11	Links	v_120	ich bei dieser Tätigkeit imner wieder neues dazulerne.	v_120	311	v_120	Ganzzahl
+54	Ja	2052	11	Links	v_121	ich mit anderen CrowdworkerInnen zusammenarbeite.	v_121	311	v_121	Ganzzahl
+55	Ja	2063	11	Links	v_122	ich in schwierigen Situationen angemessene Unterstützung von der Plattform/dem Kunden erhalte.	v_122	311	v_122	Ganzzahl
+56	Ja	2074	11	Links	v_123	ich genau weiß, was von mir erwartet wird.	v_123	311	v_123	Ganzzahl
+57	Ja	2085	11	Links	v_124	ich mitentscheiden kann, welche Aufgaben ich erfülle.	v_124	311	v_124	Ganzzahl
+58	Ja	2096	11	Links	v_125	ich selbst festlegen kann, wie ich meine Arbeit erledige.	v_125	311	v_125	Ganzzahl
+59	Ja	2107	11	Links	v_126	ich Einfluss auf den Zeitpunkt habe, zu dem Aufgaben erledigt sein müssen.	v_126	311	v_126	Ganzzahl
+60	Ja	2118	11	Links	v_127	ich Einfluss auf die zu erledigende Arbeitsmenge habe.	v_127	311	v_127	Ganzzahl
+61	Ja	2129	11	Links	v_128	ich Einfluss auf die Kriterien habe, anhand derer meine Leistung bewertet wird.	v_128	311	v_128	Ganzzahl
+62	Ja	2140	11	Links	v_129	die Plattform/der Kunde meine Leistung bzw. mein Ergebnis anhand von Kriterien bewertet, die ich nachvollziehen kann und welche mir transparent sind.	v_129	311	v_129	Ganzzahl
+63	Ja	2151	11	Links	v_130	bei der Planung von Aufgaben darauf geachtet wird, dass diese realisitisch für mich zu bewältigen sind.	v_130	311	v_130	Ganzzahl
+64	Ja	2162	11	Links	v_131	ich genug Zeit habe, um meine Aufgabe zu erledigen.	v_131	311	v_131	Ganzzahl
+65	Ja	2173	11	Links	v_132	ich Dinge tue, für die ich gut ausgebildet bin.	v_132	311	v_132	Ganzzahl
+66	Ja	2184	11	Links	v_133	ich von der Plattform/dem Kunden die Anerkennung erhalte, die ich verdiene.	v_133	311	v_133	Ganzzahl
+67	Ja	2195	11	Links	v_134	ich von anderen CrowdworkerInnen/der Community die Anerkennung erhalte, die ich verdiene.	v_134	311	v_134	Ganzzahl
+68	Ja	2206	11	Links	v_135	ich gerecht behandelt werde.	v_135	311	v_135	Ganzzahl
+69	Ja	2217	11	Links	v_136	wenn ich an meine Ausbildung denke, ich meine Crowdwork-Tätigkeit für angemessen halte.	v_136	311	v_136	Ganzzahl
+70	Ja	2228	11	Links	v_137	ich eine sichere Auftrags- bzw. Ausschreibungslage habe.	v_137	311	v_137	Ganzzahl
+71	Ja	2239	11	Links	v_138	ich meinen Arbeitsort flexibel an meine privaten Verpflichtungen und Bedürfnisse anpassen kann.	v_138	311	v_138	Ganzzahl
+72	Ja	2250	11	Links	v_139	ich meine Arbeitszeit flexibel an meine privaten Verpflichtungen und Bedürfnisse anpassen kann.	v_139	311	v_139	Ganzzahl
+73	Ja	2261	11	Links	v_140	ich eine klare Trennung zwischen meiner Tätigkeit als CrowdworkerIn und Privatleben ziehen kann.	v_140	311	v_140	Ganzzahl
+74	Ja	2272	11	Links	v_141	die Plattform/der Kunde mir die Kriterien der Aufgabenstellung gründlich erklärt.	v_141	311	v_141	Ganzzahl
+75	Ja	2283	11	Links	v_142	ich Einfluss auf die Leistungs-und Ergebnisbewertung habe.	v_142	311	v_142	Ganzzahl
+76	Ja	2294	11	Links	v_143	die Leistungs-und Ergebnisbewertung einheitlich angewandt wird.	v_143	311	v_143	Ganzzahl
+77	Ja	2305	11	Links	v_144	es mir möglich ist, gegen das durch die Leistungs-und Ergebnisbewertung erzielte Ergebnis Widerspruch einzulegen.	v_144	311	v_144	Ganzzahl
+78	Ja	2316	11	Links	v_145	die Prämie für die Arbeit angemessen ist, die ich geleistet habe.	v_145	311	v_145	Ganzzahl
+79	Ja	2327	11	Links	v_146	die Prämie den Beitrag widerspiegelt, den ich für die Organisation geleistet habe.	v_146	311	v_146	Ganzzahl
+80	Ja	2338	255	Links	v_208	Textfeld einzeilig	v_208	141	v_208	Text
+81	Ja	2593	255	Links	browser	browser-id	user_agent	-	user_agent	Text
+82	Ja	2848	255	Links	referer	http-referer	http_referer	-	http_referer	Text
+83	Ja	3103	11	Links	device_type	device type	device_type	-	device_type	Ganzzahl
+84	Ja	3114	11	Links	participant_browser	participant_browser	participant_browser	-	participant_browser	Ganzzahl
+85	Ja	3125	65535	Links	participant_browser_version	participant_browser_version	participant_browser_version	-	participant_browser_version	Text
+86	Ja	68660	11	Links	participant_os	participant_os	participant_os	-	participant_os	Ganzzahl
+87	Ja	68671	11	Links	participant_device	participant_device	participant_device	-	participant_device	Ganzzahl
+88	Ja	68682	11	Links	participant_brand	participant_brand	participant_brand	-	participant_brand	Ganzzahl
+89	Ja	68693	11	Links	participant_model	participant_model	participant_model	-	participant_model	Ganzzahl
+90	Ja	68704	11	Links	participant_isbot	participant_isbot	participant_isbot	-	participant_isbot	Ganzzahl
+91	Ja	68715	11	Links	participant_continent	participant_continent	participant_continent	-	participant_continent	Ganzzahl
+92	Ja	68726	11	Links	participant_country	participant_country	participant_country	-	participant_country	Ganzzahl
+93	Ja	68737	65535	Links	participant_region	participant_region	participant_region	-	participant_region	Text
+94	Ja	134272	65535	Links	participant_city	participant_city	participant_city	-	participant_city	Text
+95	Ja	199807	65535	Links	participant_latitude	participant_latitude	participant_latitude	-	participant_latitude	Text
+96	Ja	265342	65535	Links	participant_longitude	participant_longitude	participant_longitude	-	participant_longitude	Text
+97	Ja	330877	11	Links	quota	quota	quota	-	quota	Ganzzahl
+98	Ja	330888	255	Links	quota_assignment	quota_assignment	quota_assignment	-	quota_assignment	Text
+99	Ja	331143	65535	Links	page_history	page history	page_history	-	page_history	Text
+100	Ja	396678	11	Links	hflip	hflip	hflip	-	hflip	Ganzzahl
+101	Ja	396689	11	Links	vflip	vflip	vflip	-	vflip	Ganzzahl
+102	Ja	396700	11	Links	output_mode	output mode	output_mode	-	output_mode	Ganzzahl
+103	Ja	396711	11	Links	javascript	javascript	javascript	-	javascript	Ganzzahl
+104	Ja	396722	11	Links	flash	flash	flash	-	flash	Ganzzahl
+105	Ja	396733	32	Links	session_id	session id	session_id	-	session_id	Text
+106	Ja	396765	11	Links	language	language	language	-	language	Ganzzahl
+107	Ja	396776	11	Links	cleaned	datacleaning	datacleaning	-	datacleaning	Ganzzahl
+108	Ja	396855	11	Links	ats	absolute timestamp	dt_begin	-	dt_begin	Absoluter Zeitstempel
+109	Ja	396866	19	Links	datetime	datetime of survey start	dt_begin	-	dt_begin	Datum
+110	Ja	396817	19	Links	date_of_last_access	date of last access	date_of_last_access	-	date_of_last_access	Datum
+111	Ja	396836	19	Links	date_of_first_mail	date of first mail	date_of_first_mail	-	date_of_first_mail	Datum
+112	Ja	396885	11	Links	rts2473781	relative timestamp for page 2473781	dt_send_pg_2473781	-	dt_send_pg_2473781	Relativer Zeitstempel
+113	Ja	396896	11	Links	rts2473782	relative timestamp for page 2473782	dt_send_pg_2473782	-	dt_send_pg_2473782	Relativer Zeitstempel
+114	Ja	396907	11	Links	rts2473783	relative timestamp for page 2473783	dt_send_pg_2473783	-	dt_send_pg_2473783	Relativer Zeitstempel
+115	Ja	396918	11	Links	rts2473784	relative timestamp for page 2473784	dt_send_pg_2473784	-	dt_send_pg_2473784	Relativer Zeitstempel
+116	Ja	396929	11	Links	rts2473785	relative timestamp for page 2473785	dt_send_pg_2473785	-	dt_send_pg_2473785	Relativer Zeitstempel
+117	Ja	396940	11	Links	rts2473786	relative timestamp for page 2473786	dt_send_pg_2473786	-	dt_send_pg_2473786	Relativer Zeitstempel
