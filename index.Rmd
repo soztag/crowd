@@ -295,18 +295,31 @@ Additionally, adjacent items are also often worded similarly, though the pattern
 
 
 ```{r cors-work, fig.cap="Correlations of Work Expectations", layout="l-page", fig.width=9, fig.height=9}
-cors_work <- cor(crowddata$exp_work, use = "pairwise.complete.obs", method = "kendall")
+cor.prob.all <- function(x, dfr = nrow(x) - 2) {
+  R <- cor(x, use="pairwise.complete.obs", method="kendall")
+  r2 <- R^2
+  Fstat <- r2 * dfr/(1 - r2)
+  R <- 1 - pf(Fstat, 1, dfr)
+  R[row(R) == col(R)] <- 0
+  R
+}
 mean_cors_work <- mean(abs(cors_work[upper.tri(cors_work, diag = FALSE)]))
+cors_work <- cor(crowddata$exp_work, use = "pairwise.complete.obs", method = "kendall")
+cors_work[cor.prob.all(x = crowddata$exp_work) > 0.01] <- NA
 GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work, label = TRUE)
 ```
 
 ```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", layout="l-page", fig.width=9, fig.height=9}
 cors_crowdwork <- cor(crowddata$exp_crowd, use = "pairwise.complete.obs", method = "kendall")
 mean_cors_crowdwork <- mean(abs(cors_crowdwork[upper.tri(cors_crowdwork, diag = FALSE)]))
+cors_crowdwork[cor.prob.all(x = crowddata$exp_crowd) > 0.01] <- NA
 GGally::ggcorr(data = crowddata$exp_crowd, cor_matrix = cors_crowdwork, label = TRUE)
 ```
 
 As expected, the correlations between the two variables are relatively low for both contexts, with an average absolute Kendall's correlation coefficient of `r mean_cors_work` for the work, and `r mean_cors_crowdwork` crowdwork context.
+The minimum significance of `.99` chosen in the above plots should be considered generous in this case; given the high number of pairs, there are likely to be some correlations just by chance.
+
+
 
 
 ## Dimensionality Reduction
