@@ -303,8 +303,8 @@ cor.prob.all <- function(x, dfr = nrow(x) - 2) {
   R[row(R) == col(R)] <- 0
   R
 }
-mean_cors_work <- mean(abs(cors_work[upper.tri(cors_work, diag = FALSE)]))
 cors_work <- cor(crowddata$exp_work, use = "pairwise.complete.obs", method = "kendall")
+mean_cors_work <- mean(abs(cors_work[upper.tri(cors_work, diag = FALSE)]))
 cors_work[cor.prob.all(x = crowddata$exp_work) > 0.01] <- NA
 GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work, label = TRUE)
 ```
