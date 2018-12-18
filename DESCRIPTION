@@ -16,6 +16,8 @@ Imports:
   GGally,
   paran,
   psych,
-  ggrepel
+  ggrepel,
+  pensieve
 Remotes:
   rstudio/radix
+  maxheld83/pensieve
