@@ -294,7 +294,7 @@ an item pair *may* be correlated simply because of adjacency, but the correlatio
 Additionally, adjacent items are also often worded similarly, though the patterns of similarly differ between the two conditions of instruction, such as `deadline` and `quantity` (at .6).
 
 
-```{r cors-work, fig.cap="Correlations of Work Expectations", layout="l-page", fig.width=9, fig.height=9}
+```{r cors-work, fig.cap="Correlations of Work Expectations", layout = "l-page", fig.width=10, fig.height=10}
 cor.prob.all <- function(x, dfr = nrow(x) - 2) {
   R <- cor(x, use="pairwise.complete.obs", method="kendall")
   r2 <- R^2
@@ -309,7 +309,7 @@ cors_work[cor.prob.all(x = crowddata$exp_work) > 0.01] <- NA
 GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work, label = TRUE)
 ```
 
-```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", layout="l-page", fig.width=9, fig.height=9}
+```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", layout = "l-page", fig.width=10, fig.height=10}
 cors_crowdwork <- cor(crowddata$exp_crowd, use = "pairwise.complete.obs", method = "kendall")
 mean_cors_crowdwork <- mean(abs(cors_crowdwork[upper.tri(cors_crowdwork, diag = FALSE)]))
 cors_crowdwork[cor.prob.all(x = crowddata$exp_crowd) > 0.01] <- NA
@@ -322,7 +322,7 @@ The minimum significance of `.99` chosen in the above plots should be considered
 
 ## Dimensionality Reduction
 
-```{r paran, cache=TRUE, include = FALSE}
+```{r paran, cache=TRUE, include = FALSE, eval = FALSE}
 find_paran <- function(x) {
   # x <- crowddata$exp_work
   res <- NULL
@@ -349,7 +349,7 @@ find_paran <- function(x) {
     dataMatrix = as_fac, 
     percentiles = .95, 
     use = "pairwise.complete.obs",
-    nReplicates = 20, 
+    nReplicates = 100, 
     algorithm = "polychoric"
   )
   adj_evs <- res$pcapa$pa$observed$eigenValues - res$pcapa$pa$percentiles$eigenValues
@@ -371,9 +371,11 @@ parans <- map(
   ),
   .f = find_paran
 )
+readr::write_rds(x = parans, path = "parans.rds")
 ```
 
 ```{r screes, fig.cap=c("Adjusted Scree Plot for Work", "Adjusted Scree Plot for Crowd")}
+parans <- readr::read_rds(path = "parans.rds")
 psych::plot.poly.parallel(x = parans$work$psych$pa, fa = "pc")
 psych::plot.poly.parallel(x = parans$crowd$psych$pa, fa = "pc")
 ```
@@ -404,12 +406,30 @@ pcares <- map(
 )
 ```
 
-```{r loaplot, fig.cap=c("Loadings for Work Condition", "Loadings for Crowd Condition")}
-pensieve:::plot.QLoas(unclass(pcares$work$loadings), by = "people")
+```{r loaplot-work, fig.cap="Loadings for Work Condition", fig.height=10, fig.width=10, layout = "l-page"}
+pensieve:::plot.QLoas(unclass(pcares$work$loadings))
+unclass(pcares$work$loadings) %>% 
+  as.tibble() %>% 
+  ggplot(mapping = aes(x = MR1, y = MR2, label = paste(1:28, colnames(crowddata$exp_work)))) + 
+  geom_point() + 
+  ggrepel::geom_label_repel() + 
+  xlim(-1,1) + ylim(-1,1)
+```
+
+```{r loaplot-crowd, fig.cap="Loadings for Crowd Condition", fig.height=10, fig.width=10, layout = "l-page"}
 pensieve:::plot.QLoas(unclass(pcares$crowd$loadings))
+unclass(pcares$crowd$loadings) %>% 
+  as.tibble() %>% 
+  ggplot(mapping = aes(x = MR1, y = MR2, label = paste(1:28, colnames(crowddata$exp_crowd)))) + 
+  geom_point() + 
+  ggrepel::geom_label_repel() + 
+  xlim(-1,1) + ylim(-1,1)
 ```
 
 The above presented, unrotated loadings reveal a strong first *general* unipolar factor for both work and crowd contexts, loading somewhat discriminately on all variables.
-A second, bipolar factor loads only on 
+A second, bipolar factor loads only on some variables.
 
+Unfortunately, and in line with the above correlations, many of the highly loading variables are also adjacent in the survey, possibly reflecting mere ordering artefacts. 
 
+Because these potential artefacts cannot be remedied, there is remains a real risk that the extracted factors are, in fact, little *but* reflections of the question order.
+This potential defect renders any further analysis and rotation moot.

@@ -16,6 +16,6 @@ Imports:
   GGally,
   paran,
   psych,
-  pcaPA
+  ggrepel
 Remotes:
   rstudio/radix
