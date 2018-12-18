@@ -320,17 +320,13 @@ As expected, the correlations between the two variables are relatively low for b
 The minimum significance of `.99` chosen in the above plots should be considered generous in this case; given the high number of pairs, there are likely to be some correlations just by chance.
 
 
-
-
 ## Dimensionality Reduction
 
-```{r}
-paran_work <- paran::paran(
-  iterations = 10000, 
-  centile = 95, 
-  mat = cor(crowddata$exp_work, use = "pairwise.complete.obs"), 
-  n = 230
-)
-r2_work <- sum(paran_work$Ev[1:paran_work$Retained])/28
-pca_work <- psych::principal(r = crowddata$exp_work, nfactors = paran_work$Retained, rotate = "none")
+```{r paran, include=FALSE, eval=FALSE}
+psych_pa_res <- psych::fa.parallel.poly(x = crowddata$exp_crowd, n.iter = 10000, sim = FALSE, fa = "pc", global = 5)
+
+as_fac <- as.data.frame(crowddata$exp_crowd)
+as_fac <- purrr::map_df(.x = as_fac, .f = as.ordered)
+pcapa_pa_res <- pcaPA::CalculatePAOrdered(dataMatrix = as_fac, percentiles = .95, use = "pairwise.complete.obs", nReplicates = 1000, algorithm = "polychoric")
+pcapa_pa_res$observed$eigenValues - pcapa_pa_res$percentiles$eigenValues
 ```
