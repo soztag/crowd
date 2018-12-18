@@ -385,3 +385,31 @@ It should be noted that while the parallel analysis retention criteria (de-biase
 The *adjusted* Eigenvalues -- the part not readily explained by random chance -- sum to `r parans$work$adj_r2` and `r parans$crowd$adj_r2` percent of the variance, respectively.
 
 There appears to be a somewhat more pronounced pattern under the crowd condition.
+
+```{r pca, include=FALSE, warning=FALSE}
+pcares <- map(
+  .x = list(
+    work = crowddata$exp_work, 
+    crowd = crowddata$exp_crowd
+  ),
+  .f = function(x) {
+    psych::fa(
+      r = x,
+      nfactors = 2,
+      rotate = "none",
+      use = "pairwise.complete.obs",
+      cor = "poly"
+    )
+  }
+)
+```
+
+```{r loaplot, fig.cap=c("Loadings for Work Condition", "Loadings for Crowd Condition")}
+pensieve:::plot.QLoas(unclass(pcares$work$loadings), by = "people")
+pensieve:::plot.QLoas(unclass(pcares$crowd$loadings))
+```
+
+The above presented, unrotated loadings reveal a strong first *general* unipolar factor for both work and crowd contexts, loading somewhat discriminately on all variables.
+A second, bipolar factor loads only on 
+
+
