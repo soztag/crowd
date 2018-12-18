@@ -15,6 +15,7 @@ Imports:
   reshape2,
   GGally,
   paran,
-  psych
+  psych,
+  pcaPA
 Remotes:
   rstudio/radix

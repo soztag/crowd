@@ -322,11 +322,66 @@ The minimum significance of `.99` chosen in the above plots should be considered
 
 ## Dimensionality Reduction
 
-```{r paran, include=FALSE, eval=FALSE}
-psych_pa_res <- psych::fa.parallel.poly(x = crowddata$exp_crowd, n.iter = 10000, sim = FALSE, fa = "pc", global = 5)
+```{r paran, cache=TRUE, include = FALSE}
+find_paran <- function(x) {
+  # x <- crowddata$exp_work
+  res <- NULL
+  
+  # psych
+  res$psych <- NULL
+  res$psych$pa <- psych::fa.parallel.poly(
+    x = x, 
+    n.iter = 100,  # otherwise too expensive
+    sim = FALSE,  # resample instead
+    fa = "pc", 
+    global = 5  # likert levels
+  )
+  res$psych$n <- sum(res$psych$pa$pc.values - res$psych$pa$pc.sim$mean > 1)
+  
+  # pcaPA
+  as_fac <- as.data.frame(x)
+  as_fac <- purrr::map_df(
+    .x = as_fac, 
+    .f = as.ordered
+  )
+  res$pcapa <- NULL
+  res$pcapa$pa <- pcaPA::CalculatePAOrdered(
+    dataMatrix = as_fac, 
+    percentiles = .95, 
+    use = "pairwise.complete.obs",
+    nReplicates = 20, 
+    algorithm = "polychoric"
+  )
+  adj_evs <- res$pcapa$pa$observed$eigenValues - res$pcapa$pa$percentiles$eigenValues
+  res$pcapa$n <- sum(adj_evs > 1)
 
-as_fac <- as.data.frame(crowddata$exp_crowd)
-as_fac <- purrr::map_df(.x = as_fac, .f = as.ordered)
-pcapa_pa_res <- pcaPA::CalculatePAOrdered(dataMatrix = as_fac, percentiles = .95, use = "pairwise.complete.obs", nReplicates = 1000, algorithm = "polychoric")
-pcapa_pa_res$observed$eigenValues - pcapa_pa_res$percentiles$eigenValues
+  # overall
+  res$n <- mean(x = c(res$pcapa$n, res$psych$n))
+  res$n <- round(x = res$n)
+  
+  res$r2 <- sum(res$pcapa$pa$observed$eigenValues[1:res$n])/28*100
+  res$adj_r2 <- sum(adj_evs[1:res$n])/28*100
+  
+  return(res)
+}
+parans <- map(
+  .x = list(
+    work = crowddata$exp_work, 
+    crowd = crowddata$exp_crowd
+  ),
+  .f = find_paran
+)
 ```
+
+```{r screes, fig.cap=c("Adjusted Scree Plot for Work", "Adjusted Scree Plot for Crowd")}
+psych::plot.poly.parallel(x = parans$work$psych$pa, fa = "pc")
+psych::plot.poly.parallel(x = parans$crowd$psych$pa, fa = "pc")
+```
+
+
+Concordant with the above low (Kendall's $\tau$) correlations, a Monte-Carlo  parallel analysis based on polychoric correlations suggests that there may be, at best, `r parans$work$n` and `r parans$crowd$n` factors to be retained, explaining a combined `r parans$work$r2` and -- notably higher -- `r parans$crowd$r2` percent of the variance for work and crowd, respectively.
+The parallel analysis was conducted using resampling and simulation, as well as listwise and pairwise complete observations (as in the above), all with similar results.
+It should be noted that while the parallel analysis retention criteria (de-biased Kaiser-Guttman) curtails overfitting by the *number* of parameters (here, factors), the effect *size* (here, eigenvalues or explained variance) is still biased upwards.
+The *adjusted* Eigenvalues -- the part not readily explained by random chance -- sum to `r parans$work$adj_r2` and `r parans$crowd$adj_r2` percent of the variance, respectively.
+
+There appears to be a somewhat more pronounced pattern under the crowd condition.
