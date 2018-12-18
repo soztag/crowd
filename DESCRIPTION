@@ -19,5 +19,5 @@ Imports:
   ggrepel,
   pensieve
 Remotes:
-  rstudio/radix
+  rstudio/radix,
   maxheld83/pensieve
