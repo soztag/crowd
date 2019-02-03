@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
 )
 options(digits = 1)  # display only 1 decimal in knitr output
 options(scipen = 999)
-options(knitr.kable.NA = 'Keine Angabe oder Fehlwert')
+options(knitr.kable.NA = 'Keine Angabe o. Fehlwert')
 
 # dependencies ====
 library(tidyverse)
