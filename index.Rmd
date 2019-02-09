@@ -10,8 +10,8 @@ author:
     url: https://www.maxheld.de
     affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
     affiliation_url: http://soziologie.phil.fau.de
-  - name: "Verena Kasztantowicz"
-    url: http://verenakasztantowicz.de/
+  - name: "Verena Held"
+    url: http://verenaheld.in/
     affiliation: Humboldt-Universität zu Berlin
     affiliation_url: https://www.erziehungswissenschaften.hu-berlin.de/de/grundschulpaed/abteilung-grundschulpaedagogik/lern-bereiche/deutsch
   - name: "Sabine Pfeiffer"
