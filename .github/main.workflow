@@ -1,4 +1,4 @@
-workflow "Render and Deploy" {
+workflow "Render and Deploy RMarkdown Website" {
   on = "push"
   resolves = [
     "Render", 
@@ -20,11 +20,11 @@ action "Render" {
   ]
   uses = "maxheld83/ghactions/Rscript-byod@master"
   args = [
-    "-ermarkdown::render_site()"
+    "-e \"rmarkdown::render_site()\""
   ]
 }
 
-action "Master" {
+action "Filter master" {
   needs = [
     "Render"
   ]
@@ -36,14 +36,21 @@ action "Master" {
 
 action "Deploy" {
   needs = [
-    "Master"
+    "Filter master"
   ]
-  uses = "maxheld83/ghpages@v0.1.2"
+  uses = "maxheld83/rsync@v0.1.1"
+  args = [
+    "$GITHUB_WORKSPACE/_site", 
+    "pfs400wm@karli.rrze.uni-erlangen.de:/proj/websource/docs/FAU/fakultaet/phil/www.datascience.phil.fau.de/websource/crowd"
+  ]
   env = {
-    BUILD_DIR = "_site"
+    HOST_NAME = "karli.rrze.uni-erlangen.de"
+    HOST_IP = "131.188.16.138"
+    HOST_FINGERPRINT = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFHJVSekYKuF5pMKyHe1jS9mUkXMWoqNQe0TTs2sY1OQj379e6eqVSqGZe+9dKWzL5MRFpIiySRKgvxuHhaPQU4="
   }
   secrets = [
-    "GH_PAT"
+    "SSH_PRIVATE_KEY", 
+    "SSH_PUBLIC_KEY"
   ]
 }
 
