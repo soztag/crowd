@@ -9,5 +9,13 @@ navbar:
   - icon: fa-university
     text: FAU
     href: https://www.soziologie.phil.fau.de
-output_dir: _site
-
+output:
+  bookdown::html_document2:
+    theme: cosmo
+    toc: yes
+    toc_depth: 3
+    toc_float: no
+    smart: yes
+    fig_caption: yes
+    lib_dir: site_libs
+    self_contained: no

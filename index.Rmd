@@ -1,11 +1,14 @@
 ---
 title: "Crowdworking"
-description: |
-  A study of german crowdworkers on three select platforms.
+subtitle: "A study of german crowdworkers on three select platforms."
 author: 
   - name: "Sandra Kawalec"
     url: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=13&ved=2ahUKEwjxwKCI1u3eAhUS_KQKHZlACtAQFjAMegQIAhAB&url=https%3A%2F%2Fde.linkedin.com%2Fin%2Fsandra-kawalec-024a2711b&usg=AOvVaw2GrC229sMO4AU3MUoOTfV7
     affiliation: IG Metall
+  - name: "Sabine Pfeiffer"
+    url: https://www.sabine-pfeiffer.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
   - name: "Maximilian Held"
     url: https://www.maxheld.de
     affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
@@ -14,18 +17,7 @@ author:
     url: http://verenaheld.in/
     affiliation: Humboldt-Universität zu Berlin
     affiliation_url: https://www.erziehungswissenschaften.hu-berlin.de/de/grundschulpaed/abteilung-grundschulpaedagogik/lern-bereiche/deutsch
-  - name: "Sabine Pfeiffer"
-    url: https://www.sabine-pfeiffer.de
-    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
-    affiliation_url: http://soziologie.phil.fau.de
 date: "November 25, 2018"
-output: 
-  radix::radix_article:
-    toc: true
-    toc_depth: 2
-    dev: 'svglite'
-repository_url: https://github.com/soztag/crowd
-creative_commons: CC BY-SA
 ---
 
 ```{r setup, cache = FALSE, include=FALSE}
@@ -48,7 +40,7 @@ source(file = "cleaning.R")
 
 ## Demographics
 
-```{r, layout="l-page", fig.cap="Participants by Age, Gender and Platform", fig.width=9}
+```{r, fig.cap="Participants by Age, Gender and Platform", fig.width=9}
 crowddata %>% 
   ggplot(mapping = aes(x = birth, fill = study)) +
   geom_histogram(binwidth = 5) +
@@ -107,7 +99,7 @@ crowddata %>%
 
 Testing and microjob platforms are most popular among the participants, as is also reflected in the many respondents recruited via Applause and Crowdguru.
 
-```{r hours, layout="l-page", fig.cap="Crowdworking Hours per Month", fig.width=9}
+```{r hours, fig.cap="Crowdworking Hours per Month", fig.width=9}
 crowddata %>% 
   filter(study != "atizo") %>% 
   select(study, h_month, h_platform) %>% 
@@ -165,7 +157,7 @@ About half of the participants (`r sum(crowddata$perm_contract)`) would like to 
 The participants were surveyed on 28 items concerning expectations towards work, under two separate contexts: work in general, and crowdwork.
 The items were slightly reworded to fit the two contexts.
 
-```{r items-scores, layout="l-body-outset", fig.cap="Items, Wordings and Average Scores"}
+```{r items-scores, fig.cap="Items, Wordings and Average Scores"}
 quest %>% 
   dplyr::filter(section == "expect_work" | section == "expect_crowd") %>% 
   select(item = "var", german = "var_german", context = "section") %>% 
@@ -190,7 +182,7 @@ For example, item `fair` is worded "to be treated fairly" for the crowdwork cont
 Such subtle shifts in emphasis may contribute small shifts in ratings, or may, in any event, make it hard to compare the ratings between the two contexts.
 
 
-```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), layout = "l-screen-inset", fig.width=12, fig.height=10}
+```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), fig.width=12, fig.height=10}
 plot_battery <- function(m, long) {
   # name long y labels, so they can be used as named vectors to replace existing short labels in the below
   long %>% 
@@ -245,7 +237,7 @@ Hardly any respondents and hardly any variables include negative ratings ("does 
 This does not bode well for a correlation analysis or dimensionality reduction: there is just not enough variance on either the people or variable mode in the data matrix to expect much structure.
 
 
-```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", layout = "l-screen-inset", fig.width=12, fig.height=10}
+```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", fig.width=12, fig.height=10}
 plot_battery(
   m = crowddata$exp_work-crowddata$exp_crowd, 
   long = colnames(crowddata$exp_work)
@@ -294,7 +286,7 @@ an item pair *may* be correlated simply because of adjacency, but the correlatio
 Additionally, adjacent items are also often worded similarly, though the patterns of similarly differ between the two conditions of instruction, such as `deadline` and `quantity` (at .6).
 
 
-```{r cors-work, fig.cap="Correlations of Work Expectations", layout = "l-page", fig.width=10, fig.height=10}
+```{r cors-work, fig.cap="Correlations of Work Expectations", fig.width=10, fig.height=10}
 cor.prob.all <- function(x, dfr = nrow(x) - 2) {
   R <- cor(x, use="pairwise.complete.obs", method="kendall")
   r2 <- R^2
@@ -309,7 +301,7 @@ cors_work[cor.prob.all(x = crowddata$exp_work) > 0.01] <- NA
 GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work, label = TRUE)
 ```
 
-```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", layout = "l-page", fig.width=10, fig.height=10}
+```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", fig.width=10, fig.height=10}
 cors_crowdwork <- cor(crowddata$exp_crowd, use = "pairwise.complete.obs", method = "kendall")
 mean_cors_crowdwork <- mean(abs(cors_crowdwork[upper.tri(cors_crowdwork, diag = FALSE)]))
 cors_crowdwork[cor.prob.all(x = crowddata$exp_crowd) > 0.01] <- NA
@@ -406,7 +398,7 @@ pcares <- map(
 )
 ```
 
-```{r loaplot-work, fig.cap="Loadings for Work Condition", fig.height=10, fig.width=10, layout = "l-page"}
+```{r loaplot-work, fig.cap="Loadings for Work Condition", fig.height=10, fig.width=10}
 pensieve:::plot.QLoas(unclass(pcares$work$loadings))
 unclass(pcares$work$loadings) %>% 
   as.tibble() %>% 
@@ -416,7 +408,7 @@ unclass(pcares$work$loadings) %>%
   xlim(-1,1) + ylim(-1,1)
 ```
 
-```{r loaplot-crowd, fig.cap="Loadings for Crowd Condition", fig.height=10, fig.width=10, layout = "l-page"}
+```{r loaplot-crowd, fig.cap="Loadings for Crowd Condition", fig.height=10, fig.width=10}
 pensieve:::plot.QLoas(unclass(pcares$crowd$loadings))
 unclass(pcares$crowd$loadings) %>% 
   as.tibble() %>% 
