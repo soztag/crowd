@@ -16,7 +16,7 @@ navbar:
       - icon: fa-file-word
         text: Word
         href: crowd_de.docx
-      - icon: fa-file_code
+      - icon: fa-file-code
         text: LaTeX (Springer)
         href: crowd_de.tex
   - text: "Appendix (english)"
