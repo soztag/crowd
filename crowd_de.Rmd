@@ -109,16 +109,14 @@ Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 
 ## Quantitative Methodik und Sampling
 <!-- TODO Sandra as per https://github.com/soztag/crowd/issues/15 -->
 
-```{r setup, cache = FALSE, include=FALSE}
-source(file = "setup.R")
-```
-
 ```{r import, include=FALSE, eval=FALSE}
 source(file = "import.R")
 ```
 
-```{r cleaning, include=FALSE}
+```{r setup, cache = FALSE, include=FALSE}
+source(file = "setup.R")
 source(file = "cleaning.R")
+source(file = "analysis.R")
 ```
 
 Die erhobenen Daten wurden von der Befragungsplattform ["Unipark"](https://www.unipark.com/) heruntergeladen, umfangreich bereinigt und rekodiert.
@@ -129,8 +127,19 @@ Die vollständigen Skripte zur Reproduktion der Ergebnisse aus den Rohdaten find
 
 `r nrow(crowddata)` Cordworker beantworteten den Fragebogen, davon jeweils `r table(crowddata$study)` rekrutiert über den Anwendungstester [Applause](https://www.applause.com), die Innovations- und Marktforschungsplatform  [Atizo](https://www.atizo.com) sowie den generischen Anbieter [Crowdguru](https://www.crowdguru.de).
 In etwa gleich viele der Beteiligten gaben weibliches und männliches Geschlecht an (jeweils `r table(crowddata$gender)`) bei einem Median Alter von `r 2017 - median(crowddata$birth, na.rm = TRUE)`.
-Über der Hälfte der Teilnehmer_innen berichten einen tertiären Bildungsabschluss: Die Stichprobe erscheint damit relativ gebildet, allerdings mag ein Teil dieses Effektes durch die jüngere Altersstruktur erkärt sein.
+Über der Hälfte der Teilnehmer_innen berichten einen tertiären Bildungsabschluss: 
+Die Stichprobe erscheint damit relativ gebildet, allerdings mag ein Teil dieses Effektes durch die jüngere Altersstruktur erkärt sein.
 Ebenfalls über der Hälte der Antworteten ist regular beschäftigt, wobei die Frage unklar formuliert ist und möglicherweise die untersuchte Crowdarbeit hier inkludiert wird.
+Neben diesen und weiteren soziodemografischen Daten wurden auch Arbeitsumfang und -zeiten auf den Crowdarbeitsplattformen erfasst.
+
+Im Mittelpunkt der unten stehenden Analyse stehen allerdings die Antworten auf eine `r ncol(crowddata$exp_crowd)`-Item Batterie zur Erwartungen an Crowdarbeit.
+<!-- TODO need source for the item battery -->
+Diese Einstellungen mittels einer 5-stufigen Likertskala erhoben, und in ähnlichen Formulierungen auch in Bezug auf konventionelle Erwerbsarbeit abgefragt.
+Allerdings stimmen die *meisten* Befragten den *meisten* Items "ziemlich" oder "stark" zu.
+Die resultierende geringe Varianz erfordert eine kategoriale Interpretation der Daten und verhindert die zuverlässige Diagnose von *möglichen* Mustern in den Antworten.
+Da die Fragen nicht randominisiert wurden erschweren mögliche Reihenfolgenartefakte sowie geändertete Formulierungen weiter die Interpretation etwaiger Kovarianzen.
+Schließlich ist die Studie -- folgend ihrem explorativen Charakter -- nicht geeignet für schließende Vergleiche zwischen Fragen, Gruppen oder Bedigungen.
+Im folgenden stellen wir daher kursorisch auf rein deskriptive Zählungen ab.
 
 
 # Leistungsgerechtigkeit im Kontrast Erwerbsarbeit vs. Crowdarbeit
@@ -142,14 +151,34 @@ Dies hängt mit unter damit zusammen, dass für die meisten der Befragten Crowdw
 Dieser Anspruch stellt neben jenen an Autonomie, Mitbestimmung und Würde den am häufigsten gestellten in den Interviews. 
 Die Dimensionen bzw. die Bezugspunkte hierfür sind die Kritik an der Höhe der Prämien im Verhältnis zur Leistungsverausgabung, die Aufgabenbeschreibung, die Leistungsbewertung und das Fehlen einer Entlohnungssicherheit. 
 
+```{r battery, fig.cap="Erwartungen an Crowdarbeit", fig.width=12, fig.height=10}
+interesting <- NULL
+interesting$pay <- c("wage_organisation", "wage")
+interesting$briefing <- c("transparent_tasks", "expectations")
+interesting$assessment <- c(
+  "dissent_eval", 
+  "consistent_eval", 
+  "influence_eval", 
+  "evaluation", 
+  "transparent_eval"
+)
+interesting$planning <- c("safe_job")
+
+quest %>%
+  dplyr::filter(section == "expect_crowd") %>% 
+  pull(var_german) %>% 
+  {.} -> long
+plot_battery(m = crowddata$exp_crowd[,unlist(interesting)], long = long)
+```
+
 In Bezug auf die **Höhe der Prämien** im Verhältnis zur Verausgabung der Arbeitskraft wird die Kritik zum Ausdruck gebracht, dass die geleistete Arbeitszeit keiner angemessenen Bezahlung entspricht. 
 Berichtet wird sogar über einen Stundenlohn von 10 Cent im Falle von Microjobs.
-Auf Design-Plattformen erfordert die Erhöhung der Wahrscheinlichkeit eines Erfolges das Einreichen von mehreren – bis zu 20 – Designs. 
+Auf Design-Plattformen erfordert die Erhöhung der Wahrscheinlichkeit eines Erfolges das Einreichen von mehreren -– bis zu 20 -– Designs. 
 Die in Summe benötigte Arbeitszeit, um innerhalb eines Wettbewerbs konkurrenzfähig zu bleiben, wird in die Gewinnprämie nicht eingerechnet, weshalb auch in Begriffen der Ausbeutung argumentiert wird. 
 Vielfach wird betont, dass die Gefahr besteht, dass die für einen Wettbewerb investierte Arbeitszeit nicht mehr selbst kontrollierbar ist, weshalb die Befragten den Anspruch an sich selbst stellen, ihrer Leistungsverausgabung Grenzen zu setzen. 
 Der Adressat der Kritik an zu geringen Prämien ist nicht die Plattform, sondern der Kunde bzw. der Auftraggeber. 
 Die Gewinne, welche diese durch Crowdwork erzielen, stehen nicht im Verhältnis zur Prämierung und entwerten so die Leistung der Arbeitskraft.
-<!-- TODO Max: Hier passen die Items 1, 2 und 7 -->
+<!-- TODO Max: pay items -->
 
 Dass es gar nicht erst zu einer Prämierung der erbrachten Leistung kommt, liegt nicht nur am Konkurrenzprinzip von Crowdwork, sondern auch an der **unklaren Aufgabenbeschreibung**. 
 Dies trifft sowohl auf Design- und Ideenplattformen zu, welche nach dem Prinzip des Wettbewerbs organisiert sind, als auch auf Testing- und Microjob-Plattformen. 
@@ -157,7 +186,7 @@ Missbilligt wird, dass das Briefing für die jeweiligen Aufgaben zu ungenau ist.
 Dies führt dazu, dass die eingereichten Ergebnisse abgelehnt werden mit der Begründung, diese würden nicht den Kundenwünschen entsprechen. 
 Im Fall der Möglichkeit das eingereichte Ergebnis zu korrigieren, ohne jedoch genauere Verbesserungsvorschläge zu erhalten, lehnen dies viele Crowdworker ab, da sie befürchten weiterhin abgelehnt zu werden und so unbezahlte Arbeit geleistet zu haben. 
 Die Angst vor der Ablehnung des eingereichten Ergebnisses ist im Falle von Testing- und Microjobs sehr hoch, denn bei einer Ablehnungsquote von mehr als 10% wird der Crowdworker von der Plattform für einige Zeit gesperrt und darf so keine weiteren Aufgaben mehr bearbeiten. 
-<!-- TODO Max: Hier passen die Items 6 und 24 -->
+<!-- TODO Max: briefing items -->
 
 Auch wenn die Leistung der Community dem Briefing entspricht kann es dazu kommen, dass das Ergebnis abgelehnt wird. 
 Dies liegt an der nicht **objektiven Leistungsbewertung**. 
@@ -169,15 +198,15 @@ Dies empfinden die Befragten auch als ungerecht, da sie zu subjektiv vollzogen w
 Überhaupt orientiert sich die Leistungsbewertung an dem Status des Crowdworkers, welcher in einer öffentlichen Rangliste dargestellt wird. 
 Die hohe Stellung im Punktesystem führt dazu, dass man eher prämiert und öfter für Wettbewerbe eingeladen wird. 
 Von den Befragten kritisiert wird, dass der Rang nicht die wirkliche Leistung des Crowdworkers widerspiegelt.
-<!-- TODO Max: Hier passen die Items 3, 4, 5, 18, 19 -->
+<!-- TODO Max: asessment items -->
 
-Die fehlende Planungssicherheit in Bezug auf ein stetiges Einkommen stellt die letzte Dimension der Leistungsgerechtigkeit dar. 
+Die **fehlende Planungssicherheit** in Bezug auf ein stetiges Einkommen stellt die letzte Dimension der Leistungsgerechtigkeit dar. 
 Hier geht nicht darum, dass die Leistungsverausgabung nicht im Verhältnis zur ausgeschriebenen Prämie steht, sondern darum, man sich nicht darauf verlassen kann, dass die erbrachte Leistung überhaupt prämiert wird. 
 Viele der Crowdworker kritisieren, dass sie viel Zeit für eine Ausschreibung investieren und dennoch nicht prämiert werden. 
 Darüber hinaus werden viele Wettbewerbe sporadisch durchgeführt, sodass man einer finanziellen Nichtplanbarkeit ausgesetzt ist. 
 Beim Crowdwork kann man sich nicht auf regelmäßige Einkünfte und auf eine stete Auftragslage verlassen. 
 Dies ist mitunter der Grund, warum die meisten Befragten Crowdwork nur als Nebenerwerb nutzen. 
-<!-- TODO Max: Hier haben wir leider nur ein passendes Item 10 -->
+<!-- TODO Max: planning -->
 
 **Anm. Sandra: Abschnitt ist vielleicht besser für das Fazit geeignet**
 

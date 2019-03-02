@@ -24,16 +24,14 @@ output:
     fig_caption: yes
 ---
 
-```{r setup, cache = FALSE, include=FALSE}
-source(file = "setup.R")
-```
-
 ```{r import, include=FALSE, eval=FALSE}
 source(file = "import.R")
 ```
 
-```{r cleaning, include=FALSE}
+```{r setup, cache = FALSE, include=FALSE}
+source(file = "setup.R")
 source(file = "cleaning.R")
+source(file = "analysis.R")
 ```
 
 
@@ -187,41 +185,6 @@ Such subtle shifts in emphasis may contribute small shifts in ratings, or may, i
 
 
 ```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), fig.width=12, fig.height=10}
-plot_battery <- function(m, long) {
-  # name long y labels, so they can be used as named vectors to replace existing short labels in the below
-  long %>% 
-    set_names(value = colnames(crowddata$exp_work)) %>% 
-    stringr::str_wrap(width = 65) %>% 
-    {.} -> long
-  
-  # munge data
-  m %>% 
-    as_tibble() %>% 
-    add_column(study = crowddata$study) %>% 
-    gather(key = "item", value = "score", -study) %>% 
-    ggplot(
-      mapping = aes(
-        x = as.factor(score), 
-        y = item, 
-        fill = study
-      )
-    ) +
-    stat_bin_2d(mapping = aes(alpha = stat(count))) + 
-    stat_bin_2d(geom = "text", mapping = aes(label = ..count..)) + 
-    facet_wrap(vars(study), nrow = 1) + 
-    theme(
-      panel.grid.major = element_blank(), 
-      panel.grid.minor = element_blank(),
-      panel.background = element_blank(),
-      legend.position = "bottom"
-    ) +
-    xlab("Agreement with Statement") +
-    ylab(label = NULL) +
-    scale_fill_discrete(name = "Platforms") + 
-    guides(fill = FALSE) + 
-    scale_y_discrete(labels = long)
-}
-
 quest %>%
   dplyr::filter(section == "expect_work") %>% 
   pull(var_german) %>% 
@@ -239,7 +202,6 @@ The above figures \@ref(fig:items-scores) and \@ref(fig:battery) show relatively
 Most participants rate most of the items as relatively important, or very important.
 Hardly any respondents and hardly any variables include negative ratings ("does not apply at all", "does not apply").
 This does not bode well for a correlation analysis or dimensionality reduction: there is just not enough variance on either the people or variable mode in the data matrix to expect much structure.
-
 
 ```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", fig.width=12, fig.height=10}
 plot_battery(
