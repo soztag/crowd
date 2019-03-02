@@ -109,6 +109,29 @@ Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 
 ## Quantitative Methodik und Sampling
 <!-- TODO Sandra as per https://github.com/soztag/crowd/issues/15 -->
 
+```{r setup, cache = FALSE, include=FALSE}
+source(file = "setup.R")
+```
+
+```{r import, include=FALSE, eval=FALSE}
+source(file = "import.R")
+```
+
+```{r cleaning, include=FALSE}
+source(file = "cleaning.R")
+```
+
+Die erhobenen Daten wurden von der Befragungsplattform ["Unipark"](https://www.unipark.com/) heruntergeladen, umfangreich bereinigt und rekodiert.
+Neben einigen Fehlwerten wurden einzelne Eingaben wegen Unplausibilität ausgeschlossen.
+Die vollständigen Skripte zur Reproduktion der Ergebnisse aus den Rohdaten finden Sie umfangreich kommentiert auf [`http://datascience.phil.fau.de/crowd/`](http://datascience.phil.fau.de/crowd/).
+
+<!-- TODO need universe and sampling here, as per https://github.com/soztag/crowd/issues/19 -->
+
+`r nrow(crowddata)` Cordworker beantworteten den Fragebogen, davon jeweils `r table(crowddata$study)` rekrutiert über den Anwendungstester [Applause](https://www.applause.com), die Innovations- und Marktforschungsplatform  [Atizo](https://www.atizo.com) sowie den generischen Anbieter [Crowdguru](https://www.crowdguru.de).
+In etwa gleich viele der Beteiligten gaben weibliches und männliches Geschlecht an (jeweils `r table(crowddata$gender)`) bei einem Median Alter von `r 2017 - median(crowddata$birth, na.rm = TRUE)`.
+Über der Hälfte der Teilnehmer_innen berichten einen tertiären Bildungsabschluss: Die Stichprobe erscheint damit relativ gebildet, allerdings mag ein Teil dieses Effektes durch die jüngere Altersstruktur erkärt sein.
+Ebenfalls über der Hälte der Antworteten ist regular beschäftigt, wobei die Frage unklar formuliert ist und möglicherweise die untersuchte Crowdarbeit hier inkludiert wird.
+
 
 # Leistungsgerechtigkeit im Kontrast Erwerbsarbeit vs. Crowdarbeit
 <!-- TODO 8500 chars -->
@@ -178,19 +201,6 @@ Und mehr noch:
 Da aufgrund des Konkurrenzprinzips gar nicht garantiert werden kann, dass die erbrachte Leistung überhaupt prämiert wird, verschwinden zusätzlich zur verausgabten Arbeitskraft eines jeden auch die erbrachten Ergebnisse aller nicht prämierten Crowdworker.
 
 Leistungsgerechtigkeit als Gerechtigkeitsprinzip, so lässt sich festhalten, wird im Falle von Crowdwork in Form von Kritik am bestehenden ergebnis- und konkurrenzbasierten System formuliert. 
-
-
-```{r setup, cache = FALSE, include=FALSE}
-source(file = "setup.R")
-```
-
-```{r import, include=FALSE, eval=FALSE}
-source(file = "import.R")
-```
-
-```{r cleaning, include=FALSE}
-source(file = "cleaning.R")
-```
 
 
 # Fazit
