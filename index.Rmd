@@ -10,7 +10,10 @@ output:
   <p>
   Expectations of german crowdworkers on three selected platforms.
   </p>
-  <p><a class="btn btn-primary btn-lg" href="crowd_de.html">Deutscher Artikel</a><a class="btn btn-primary btn-lg" href="appendix.html">English Appendix</a></p>
+  <p>
+  <a class="btn btn-primary btn-lg" href="crowd_de.html">Deutscher Artikel</a>
+  <a class="btn btn-primary btn-lg" href="appendix.html">English Appendix</a>
+  </p>
   
 ## Abstract {-}
 ```{r, child="README.md"}
