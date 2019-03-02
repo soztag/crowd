@@ -1,0 +1,55 @@
+---
+title: "Crowdworking"
+subtitle: "Erwartungen von deutschen Crowdworker_innen auf drei ausgewählten Plattformen."
+titlerunning: Erwartungen an Crowdworking
+authorrunning: Kawalec, Pfeiffer & Held
+thanks: | 
+    Grants or other notes about the article that should go on the front 
+    page should be placed here. 
+    General acknowledgments should be placed at the
+    end of the article.
+author: 
+  - name: "Sandra Kawalec"
+  - name: "Sabine Pfeiffer"
+    url: https://www.sabine-pfeiffer.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
+    address: Lehrstuhl für Soziologie Technik--Arbeit--Gesellschaft, Friedrich-Alexander Universität Erlangen-Nürnberg
+    email: info@sabine-pfeiffer.de
+  - name: "Maximilian Held"
+    url: https://www.maxheld.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
+    address: Lehrstuhl für Soziologie Technik--Arbeit--Gesellschaft, Friedrich-Alexander Universität Erlangen-Nürnberg
+    email: info@maxheld.de
+date: "2. März 2019"
+keywords:
+- crowdwork
+
+abstract: |
+  Deutscher Abstract (fehlt noch).
+
+bibliography: library.bib
+
+output:
+  bookdown::html_document2:
+    toc: yes
+    toc_depth: 3
+    toc_float: no
+    smart: yes
+    fig_caption: yes
+---
+
+```{r setup, cache = FALSE, include=FALSE}
+source(file = "setup.R")
+```
+
+```{r import, include=FALSE, eval=FALSE}
+source(file = "import.R")
+```
+
+```{r cleaning, include=FALSE}
+source(file = "cleaning.R")
+```
+
+

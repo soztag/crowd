@@ -1,0 +1,431 @@
+---
+title: "Methodological Appendix"
+subtitle: "Complete quantitative analysis."
+author: 
+  - name: "Maximilian Held"
+    url: https://www.maxheld.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
+    address: Lehrstuhl für Soziologie Technik--Arbeit--Gesellschaft, Friedrich-Alexander Universität Erlangen-Nürnberg
+    email: info@maxheld.de
+  - name: "Verena Held"
+    url: http://verenaheld.in/
+    affiliation: Humboldt-Universität zu Berlin
+    affiliation_url: https://www.erziehungswissenschaften.hu-berlin.de/de/grundschulpaed/abteilung-grundschulpaedagogik/lern-bereiche/deutsch
+    address: Institut für Grundschulpädagogik, Humboldt-Universität zu Berlin
+    email: info@verenaheld.in
+date: "March 2, 2019"
+output:
+  bookdown::html_document2:
+    toc: yes
+    toc_depth: 3
+    toc_float: no
+    smart: yes
+    fig_caption: yes
+---
+
+```{r setup, cache = FALSE, include=FALSE}
+source(file = "setup.R")
+```
+
+```{r import, include=FALSE, eval=FALSE}
+source(file = "import.R")
+```
+
+```{r cleaning, include=FALSE}
+source(file = "cleaning.R")
+```
+
+
+# Descriptives
+
+`r nrow(crowddata)` crowdworkers participated in this study, with `r table(crowddata$study)` from the [Applause](https://www.applause.com) application testing, [Atizo](https://www.atizo.com) innovation and market research and generic [Crowdguru](https://www.crowdguru.de) crowdsourcing platforms respectively.
+
+
+## Demographics
+
+```{r, fig.cap="Participants by Age, Gender and Platform", fig.width=9}
+crowddata %>% 
+  ggplot(mapping = aes(x = birth, fill = study)) +
+  geom_histogram(binwidth = 5) +
+  facet_grid(vars(gender), vars(study)) +
+  scale_x_continuous(breaks = seq(1940,2000,10))  +
+  theme(legend.position = "bottom")
+```
+
+Perhaps surprisingly, the crowdworkers surveyed here include young and old, with a mean age around `r 2017 - mean(crowddata$birth, na.rm = TRUE)` years. 
+The typical participant is in early middle age, with a median age of `r 2017 - median(crowddata$birth, na.rm = TRUE)` years, also indicating a skew towards younger participants overall, and few older outliers.
+The platform Crowdguru draws relatively more female participants, while Applause draws more male respondents.
+Across all three platforms, there are roughly equal numbers of female and male respondents (`r table(crowddata$gender)`, respectively).
+
+```{r education}
+crowddata %>% 
+  count(education) %>% 
+  knitr::kable(caption = "Educational Attainment")
+```
+
+```{r include=FALSE}
+crowddata %>% 
+  filter(education == "Fachhochschulabschluss" | education == "Universitätsabschluss") %>% 
+  nrow() %>% 
+  divide_by(nrow(crowddata))
+# percent of people
+```
+
+Participants are, overall, relatively educated, with over half reporting a tertiary degree, though this may, in part, be explained by the age structure of participants.
+
+Only `r sum(crowddata$disability_care)` participants report caring for a sick, old or disabled person in their household, and `r sum(crowddata$children)` have children.
+
+```{r employment}
+crowddata %>% 
+  count(employment) %>% 
+  knitr::kable(caption = "Employment Status")
+```
+
+More than half of the participants are in some kind of regular employment, though it is unclear whether participants understood the question to include their crowdworking.
+
+Participants report having had, on arithmetic average, `r mean(crowddata$sum_employer, na.rm = TRUE)` separate employers or periods of self-employment, though the typical respondent only reports `r median(crowddata$sum_employer, na.rm = TRUE)`, reflecting some outliers with great declared fluctuation.
+In addition, responses of more than 50, or 0 employers were dropped from the analysis, because both are likely erroneous entries.
+
+The surveyed crowdworkers assessed their professional life overall optimistically with `r table(crowddata$profession_dev)` responding "as on the rise", "unchanging" and "on the decline".
+
+
+## Current Work
+
+Study subjects said they worked, on arithmetic average, for `r mean(crowddata$sum_platforms, na.rm = TRUE)` platforms, with a range from `r min(crowddata$sum_platforms, na.rm = TRUE)` to `r max(crowddata$sum_platforms, na.rm = TRUE)`.
+There were again a few erroneous entries.
+
+```{r platforms}
+crowddata %>% 
+  count(platforms) %>% 
+  knitr::kable(caption = "Type of Platform")
+```
+
+Testing and microjob platforms are most popular among the participants, as is also reflected in the many respondents recruited via Applause and Crowdguru.
+
+```{r hours, fig.cap="Crowdworking Hours per Month", fig.width=9}
+crowddata %>% 
+  filter(study != "atizo") %>% 
+  select(study, h_month, h_platform) %>% 
+  gather(h_month, h_platform, key = "platform", value = "hours") %>% 
+  na.omit() %>% 
+  ggplot(mapping = aes(x = hours, color = study, fill = study, linetype = platform)) + 
+  geom_density(alpha = 0.2, trim = TRUE) +
+  # facet_wrap(vars(study), ncol = 1) + 
+  xlab(label = "Hours of Work per Month") +
+  scale_linetype_discrete(
+    breaks = c("h_month", "h_platform"),
+    labels = c("All platforms", "This platform")
+  ) +
+  theme(legend.position = "bottom")
+```
+
+On arithmetic average, participants worked `r mean(crowddata$h_month, na.rm=TRUE)` hours per month (median `r median(crowddata$h_month, na.rm=TRUE)`), but there is a substantial amount of spread (standard deviation `r sd(crowddata$h_month, na.rm=TRUE)`).
+Figure \@ref(fig:hours) displays the probability density estimates for reported hours worked on *all*, and the platform in question. ^[There are too few non-missing responses for the Atizo crowdworkers to meaningfully include in this graph.]
+The figure suggests that the working hours are more broadly spread out for respondents from Crowdguru, with more participants working shorter hours for Applause.
+In both cases, the amount of hours worked on the platform in question tracks quite closely the amount of hours crowdworked in total, with an arithmetic average of only `r mean(crowddata$h_month - crowddata$h_platform, na.rm = TRUE)` worked *outside* of the studied platforms.
+The density estimate of the hours worked on the platform in question can sometimes be higher than the overall hours; this is because the estimate is an *aggregate* statistic.
+At the individual level, all participants who reported higher hours worked on the platform in question than on all crowdworking platforms were dropped on both variables. [^dropped-both]
+
+[^dropped-both]: Because it was impossible to figure out which of the two numbers was entered erroneously, both were dropped from the analysis for these participants.
+
+```{r time-of-day}
+crowddata %>% 
+  count(time_of_day) %>% 
+  knitr::kable(caption = "Predominant Working Hours")
+```
+
+There appears to be a slight preference for working in the evening, though most study subjects responded *not* working at fixed time during the day.
+
+```{r time-of-week}
+crowddata %>% 
+  count(time_of_week) %>% 
+  knitr::kable(caption = "Predominant Working Days")
+```
+
+Similarly, most respondends reported working throughout the week, including weekends.
+
+```{r workspace}
+crowddata %>% 
+  count(workspace) %>% 
+  knitr::kable(caption = "Predominant Working Locations")
+```
+
+The overwhelming majority of all participants said they worked from home.
+
+About half of the participants (`r sum(crowddata$perm_contract)`) would like to do their current crowdworking as a permanent, regular job.
+
+
+## Work and Crowdwork Expectations
+
+The participants were surveyed on 28 items concerning expectations towards work, under two separate contexts: work in general, and crowdwork.
+The items were slightly reworded to fit the two contexts.
+
+```{r items-scores, fig.cap="Items, Wordings and Average Scores"}
+quest %>% 
+  dplyr::filter(section == "expect_work" | section == "expect_crowd") %>% 
+  select(item = "var", german = "var_german", context = "section") %>% 
+  spread(key = context, value = german) %>% 
+  bind_cols(average_work = colMeans(crowddata$exp_work, na.rm = TRUE)) %>% 
+  bind_cols(sd_work = apply(X = crowddata$exp_work, MARGIN = 2, FUN = sd, na.rm=TRUE)) %>% 
+  bind_cols(average_crowd = colMeans(crowddata$exp_crowd, na.rm = TRUE)) %>% 
+  bind_cols(sd_crowd = apply(X = crowddata$exp_crowd, MARGIN = 2, FUN = sd, na.rm=TRUE)) %>% 
+  bind_cols(average_diff = colMeans(crowddata$exp_work - crowddata$exp_crowd, na.rm = TRUE)) %>% 
+  DT::datatable(
+    rownames = FALSE,
+    options = list(
+      pageLength = 5
+    )
+  ) %>% 
+  DT::formatRound(columns = 4:8)
+```
+
+It should be noted that the items between the two batteries (work and crowdwork) are not strictly comparable.
+These differences are sometimes above and beyond, or unrelated to the change context.
+For example, item `fair` is worded "to be treated fairly" for the crowdwork context, and "to be treated fairly *at work*" (emphasis added) for the regular work context.
+Such subtle shifts in emphasis may contribute small shifts in ratings, or may, in any event, make it hard to compare the ratings between the two contexts.
+
+
+```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), fig.width=12, fig.height=10}
+plot_battery <- function(m, long) {
+  # name long y labels, so they can be used as named vectors to replace existing short labels in the below
+  long %>% 
+    set_names(value = colnames(crowddata$exp_work)) %>% 
+    stringr::str_wrap(width = 65) %>% 
+    {.} -> long
+  
+  # munge data
+  m %>% 
+    as_tibble() %>% 
+    add_column(study = crowddata$study) %>% 
+    gather(key = "item", value = "score", -study) %>% 
+    ggplot(
+      mapping = aes(
+        x = as.factor(score), 
+        y = item, 
+        fill = study
+      )
+    ) +
+    stat_bin_2d(mapping = aes(alpha = stat(count))) + 
+    stat_bin_2d(geom = "text", mapping = aes(label = ..count..)) + 
+    facet_wrap(vars(study), nrow = 1) + 
+    theme(
+      panel.grid.major = element_blank(), 
+      panel.grid.minor = element_blank(),
+      panel.background = element_blank(),
+      legend.position = "bottom"
+    ) +
+    xlab("Agreement with Statement") +
+    ylab(label = NULL) +
+    scale_fill_discrete(name = "Platforms") + 
+    guides(fill = FALSE) + 
+    scale_y_discrete(labels = long)
+}
+
+quest %>%
+  dplyr::filter(section == "expect_work") %>% 
+  pull(var_german) %>% 
+  {.} -> long
+plot_battery(m = crowddata$exp_work, long = long)
+
+quest %>%
+  dplyr::filter(section == "expect_crowd") %>% 
+  pull(var_german) %>% 
+  {.} -> long
+plot_battery(m = crowddata$exp_crowd, long = long)
+```
+
+The above figures \@ref(fig:items-scores) and \@ref(fig:battery) show relatively little variance within and across the measured 28 variables in both contexts.
+Most participants rate most of the items as relatively important, or very important.
+Hardly any respondents and hardly any variables include negative ratings ("does not apply at all", "does not apply").
+This does not bode well for a correlation analysis or dimensionality reduction: there is just not enough variance on either the people or variable mode in the data matrix to expect much structure.
+
+
+```{r difference, fig.cap="Work - Crowd Expectations (Heatmap of Counts)", fig.width=12, fig.height=10}
+plot_battery(
+  m = crowddata$exp_work-crowddata$exp_crowd, 
+  long = colnames(crowddata$exp_work)
+)
+```
+
+There is also not much difference in the rankings of the variable compared between the two contexts.
+In figure \@ref(fig:difference), the individual crowdwork scores are subtracted from the work scores, and the results are then counted.
+For example, the counts for a `-3` in figure \@ref(fig:difference) is the number of participants who rate the item in question *3* levels higher in the crowd than in the regular work context.
+There are, alas, very view such substantial differences. 
+Most of the participants rate the statements very similarly for the two contexts.
+
+
+# Structure
+
+Because the great majority of participants rated most items as "agree" (`1`) or "strongly agree" (`2`), interpreting the Likert scores as interval-scaled, as is sometimes done, may not be appropriate in this context.
+When z-scored as part of most parametric procedures, the relatively few outlying ratings will be transformed into great *distances*, an interpretation that may not accord with the usage or expectations of participants.
+Such z-scoring is not usually a problem when there are many and widely-used levels or when the normative measurement of the underlying phenomenon is easily accomplished (as for temperature), but in tightly concentrated, discrete distributions such as the present one, z-scoring forces some arbitrary choices.
+For example, a Pearsons correlation coefficient $\rho$ will be heavily swayed by possibly correlated items in the extremes of these faux-continuous, scaled distributions.
+Other (parametric) procedures, such as the Kendall's rank correlation coefficient $\tau$ used below im prove upon this situation somewhat, but also merely imply *another* arbitrary choice in how to weigh the rare extremes (in this case, swayed by the number of ties).
+
+A proper analysis of the data, to the extent that it is worthwhile, will therefore require non-parametric procedures.
+
+
+## Correlations
+
+```{r}
+cor_conds <- cor(
+  x = reshape2::melt(crowddata$exp_crowd)$value,
+  y = reshape2::melt(crowddata$exp_work)$value,
+  use = "pairwise.complete.obs",
+  method = "kendall"
+)
+```
+
+Somewhat surprisingly given the above small differences, ratings of the two contexts only display middling correlations of around `r cor_conds`, though these are still fairly high for *individual* level data (each data point is a person-variable rating). [^pairwise-complete]
+
+[^pairwise-complete]: To get meaningful correlations in spite of the frequent missing values, this and all of the below correlations are using pairwise complete observations.
+    No systematic analysis was undertaken to check whether and how many observations remain using this procedure, and whether any cases or variables should be excluded entirely.
+
+A surprising pattern stands out from the correlation coefficient heatmap shown in the above:
+many of the largest correlations are found closely to the diagonal for *adjacent* items, such as `balance_loc` and `balance_time`, correlated at `.7`.
+This artefact, not otherwise easily explained, may reflect an ordering effect, as participants were likely to respond similary to items presented together.
+Because the Likert items (or other questions) were not randomized in the survey, this makes the interpretation difficult, and any correlations or patterns therein suspect: 
+an item pair *may* be correlated simply because of adjacency, but the correlation may also express a substantive association.
+Additionally, adjacent items are also often worded similarly, though the patterns of similarly differ between the two conditions of instruction, such as `deadline` and `quantity` (at .6).
+
+
+```{r cors-work, fig.cap="Correlations of Work Expectations", fig.width=10, fig.height=10}
+cor.prob.all <- function(x, dfr = nrow(x) - 2) {
+  R <- cor(x, use="pairwise.complete.obs", method="kendall")
+  r2 <- R^2
+  Fstat <- r2 * dfr/(1 - r2)
+  R <- 1 - pf(Fstat, 1, dfr)
+  R[row(R) == col(R)] <- 0
+  R
+}
+cors_work <- cor(crowddata$exp_work, use = "pairwise.complete.obs", method = "kendall")
+mean_cors_work <- mean(abs(cors_work[upper.tri(cors_work, diag = FALSE)]))
+cors_work[cor.prob.all(x = crowddata$exp_work) > 0.01] <- NA
+GGally::ggcorr(data = crowddata$exp_work, cor_matrix = cors_work, label = TRUE)
+```
+
+```{r cors-crowdwork, fig.cap="Correlations of Crowdwork Expectations", fig.width=10, fig.height=10}
+cors_crowdwork <- cor(crowddata$exp_crowd, use = "pairwise.complete.obs", method = "kendall")
+mean_cors_crowdwork <- mean(abs(cors_crowdwork[upper.tri(cors_crowdwork, diag = FALSE)]))
+cors_crowdwork[cor.prob.all(x = crowddata$exp_crowd) > 0.01] <- NA
+GGally::ggcorr(data = crowddata$exp_crowd, cor_matrix = cors_crowdwork, label = TRUE)
+```
+
+As expected, the correlations between the two variables are relatively low for both contexts, with an average absolute Kendall's correlation coefficient of `r mean_cors_work` for the work, and `r mean_cors_crowdwork` crowdwork context.
+The minimum significance of `.99` chosen in the above plots should be considered generous in this case; given the high number of pairs, there are likely to be some correlations just by chance.
+
+
+## Dimensionality Reduction
+
+```{r paran, cache=TRUE, include = FALSE, eval = FALSE}
+find_paran <- function(x) {
+  # x <- crowddata$exp_work
+  res <- NULL
+  
+  # psych
+  res$psych <- NULL
+  res$psych$pa <- psych::fa.parallel.poly(
+    x = x, 
+    n.iter = 100,  # otherwise too expensive
+    sim = FALSE,  # resample instead
+    fa = "pc", 
+    global = 5  # likert levels
+  )
+  res$psych$n <- sum(res$psych$pa$pc.values - res$psych$pa$pc.sim$mean > 1)
+  
+  # pcaPA
+  as_fac <- as.data.frame(x)
+  as_fac <- purrr::map_df(
+    .x = as_fac, 
+    .f = as.ordered
+  )
+  res$pcapa <- NULL
+  res$pcapa$pa <- pcaPA::CalculatePAOrdered(
+    dataMatrix = as_fac, 
+    percentiles = .95, 
+    use = "pairwise.complete.obs",
+    nReplicates = 100, 
+    algorithm = "polychoric"
+  )
+  adj_evs <- res$pcapa$pa$observed$eigenValues - res$pcapa$pa$percentiles$eigenValues
+  res$pcapa$n <- sum(adj_evs > 1)
+
+  # overall
+  res$n <- mean(x = c(res$pcapa$n, res$psych$n))
+  res$n <- round(x = res$n)
+  
+  res$r2 <- sum(res$pcapa$pa$observed$eigenValues[1:res$n])/28*100
+  res$adj_r2 <- sum(adj_evs[1:res$n])/28*100
+  
+  return(res)
+}
+parans <- map(
+  .x = list(
+    work = crowddata$exp_work, 
+    crowd = crowddata$exp_crowd
+  ),
+  .f = find_paran
+)
+readr::write_rds(x = parans, path = "parans.rds")
+```
+
+```{r screes, fig.cap=c("Adjusted Scree Plot for Work", "Adjusted Scree Plot for Crowd")}
+parans <- readr::read_rds(path = "parans.rds")
+psych::plot.poly.parallel(x = parans$work$psych$pa, fa = "pc")
+psych::plot.poly.parallel(x = parans$crowd$psych$pa, fa = "pc")
+```
+
+
+Concordant with the above low (Kendall's $\tau$) correlations, a Monte-Carlo  parallel analysis based on polychoric correlations suggests that there may be, at best, `r parans$work$n` and `r parans$crowd$n` factors to be retained, explaining a combined `r parans$work$r2` and -- notably higher -- `r parans$crowd$r2` percent of the variance for work and crowd, respectively.
+The parallel analysis was conducted using resampling and simulation, as well as listwise and pairwise complete observations (as in the above), all with similar results.
+It should be noted that while the parallel analysis retention criteria (de-biased Kaiser-Guttman) curtails overfitting by the *number* of parameters (here, factors), the effect *size* (here, eigenvalues or explained variance) is still biased upwards.
+The *adjusted* Eigenvalues -- the part not readily explained by random chance -- sum to `r parans$work$adj_r2` and `r parans$crowd$adj_r2` percent of the variance, respectively.
+
+There appears to be a somewhat more pronounced pattern under the crowd condition.
+
+```{r pca, include=FALSE, warning=FALSE}
+pcares <- map(
+  .x = list(
+    work = crowddata$exp_work, 
+    crowd = crowddata$exp_crowd
+  ),
+  .f = function(x) {
+    psych::fa(
+      r = x,
+      nfactors = 2,
+      rotate = "none",
+      use = "pairwise.complete.obs",
+      cor = "poly"
+    )
+  }
+)
+```
+
+```{r loaplot-work, fig.cap="Loadings for Work Condition", fig.height=10, fig.width=10}
+pensieve:::plot.QLoas(unclass(pcares$work$loadings))
+unclass(pcares$work$loadings) %>% 
+  as.tibble() %>% 
+  ggplot(mapping = aes(x = MR1, y = MR2, label = paste(1:28, colnames(crowddata$exp_work)))) + 
+  geom_point() + 
+  ggrepel::geom_label_repel() + 
+  xlim(-1,1) + ylim(-1,1)
+```
+
+```{r loaplot-crowd, fig.cap="Loadings for Crowd Condition", fig.height=10, fig.width=10}
+pensieve:::plot.QLoas(unclass(pcares$crowd$loadings))
+unclass(pcares$crowd$loadings) %>% 
+  as.tibble() %>% 
+  ggplot(mapping = aes(x = MR1, y = MR2, label = paste(1:28, colnames(crowddata$exp_crowd)))) + 
+  geom_point() + 
+  ggrepel::geom_label_repel() + 
+  xlim(-1,1) + ylim(-1,1)
+```
+
+The above presented, unrotated loadings reveal a strong first *general* unipolar factor for both work and crowd contexts, loading somewhat discriminately on all variables.
+A second, bipolar factor loads only on some variables.
+
+Unfortunately, and in line with the above correlations, many of the highly loading variables are also adjacent in the survey, possibly reflecting mere ordering artefacts. 
+
+Because these potential artefacts cannot be remedied, there is remains a real risk that the extracted factors are, in fact, little *but* reflections of the question order.
+This potential defect renders any further analysis and rotation moot.

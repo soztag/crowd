@@ -1,13 +1,19 @@
 name: crowd
 title: "Crowdworking"
+description: |
+  Expectations of german crowdworkers on three selected platforms.
 navbar:
-  title: crowd
+  title: "crowd"
   left:
-  - icon: fa-file-pdf
-    href: de.pdf
-  - icon: fa-file-word
-    href: de.docx
-  - text: Appendix
+  - text: "Artikel (german)"
+    menu:
+      - icon: fa-html5
+        href: crowd_de.html
+      - icon: fa-file-pdf
+        href: crowd_de.pdf
+      - icon: fa-file-word
+        href: crowd_de.docx
+  - text: "Appendix (english)"
     href: appendix.html
   right:
   - icon: fa-github
@@ -26,8 +32,3 @@ exclude: [
 output:
   bookdown::html_document2:
     theme: cosmo
-    toc: yes
-    toc_depth: 3
-    toc_float: no
-    smart: yes
-    fig_caption: yes
