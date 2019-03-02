@@ -40,15 +40,15 @@ output:
     fig_caption: yes
 ---
 
-## Einleitung
+# Einleitung
 
 
-## Theorie
+# Theorie
 
 
-## Empirische Basis und Methoden
+# Empirische Basis und Methoden
 
-### Kontext und Plattformtypologie
+## Kontext und Plattformtypologie
 
 Die sowohl qualitativ wie auch quantitativ angelegte Untersuchung verfolgte das Ziel, die Anspruchshaltungen der Crowdworker bezüglich der Arbeitswelt zu ermitteln. 
 Hierbei wurde ein exploratives Vorgehen gewählt, da es zur Zeit der Erhebung keinerlei empirische Befunde gab, welche das methodische Vorgehen hätten strukturieren können. 
@@ -82,7 +82,7 @@ Alle vier Plattform-Typen zeichnen sich durch ein Ranking der Community aus: Je 
 Eine höhere Position geht dabei mit einer höheren Wahrscheinlichkeit einher, für einen nächsten Wettbewerb eingeladen zu werden und künftig höhere Prämien zu erzielen.
 
 
-### Qualitative Methodik und Sampling
+## Qualitative Methodik und Sampling
 
 Auf Grundlage der Ergebnisse der ersten explorativen Erhebungsphase wurde die Forschungsstrategie konkretisiert. 
 In Sinne des theoretischen Samplings (Glaser/Strauss 2009) wurden zunächst mittels der minimalen Kontrastrierung Personen befragt, welche auf diesen Plattformtypen tätig sind befragt. 
@@ -95,7 +95,7 @@ Bei der Auswertung und Art und Weise des Kodier-Verfahrens wurde die Methode der
 Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 2016 und 2018 im deutschsprachigen Raum geführt worden sind. 
 
 
-### Quantitative Methodik und Sampling
+## Quantitative Methodik und Sampling
 
 Der Anspruch auf Leistungsgerechtigkeit, somit jener auf ein gerechtes Tauschverhältnis zwischen der Leistung der Arbeitskraft und der Gegenleistung, unterliegt im Falle von Crowdwork keinem so hohen Institutionalisierungsgrad wie in einem Beschäftigungsverhältnis, welches auf einem Arbeitsvertrag basiert. 
 Die Ergebnisse der Anspruchsanalyse von Crowdworkern macht jedoch deutlich, dass diese sehr wohl einen Anspruch auf Leistungsgerechtigkeit formulieren.
