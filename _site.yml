@@ -16,6 +16,13 @@ navbar:
   - icon: fa-university
     text: FAU
     href: https://www.soziologie.phil.fau.de
+exclude: [
+  "Dockerfile",
+  "data",
+  "survey",
+  "publishing",
+  "library.bib"
+]
 output:
   bookdown::html_document2:
     theme: cosmo
@@ -24,5 +31,3 @@ output:
     toc_float: no
     smart: yes
     fig_caption: yes
-    lib_dir: site_libs
-    self_contained: no
