@@ -8,11 +8,17 @@ navbar:
   - text: "Artikel (german)"
     menu:
       - icon: fa-html5
+        text: HTML
         href: crowd_de.html
       - icon: fa-file-pdf
+        text: PDF (Springer)
         href: crowd_de.pdf
       - icon: fa-file-word
+        text: Word
         href: crowd_de.docx
+      - icon: fa-file_code
+        text: LaTeX (Springer)
+        href: crowd_de.tex
   - text: "Appendix (english)"
     href: appendix.html
   right:
