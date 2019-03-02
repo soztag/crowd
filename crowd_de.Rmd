@@ -72,7 +72,7 @@ Die Motivation der Auftraggeber ist es, mittels eines Ideenwettbewerbs ein Probl
 Die Ideationsphase basiert auf einem ergebnisorientierten Wettbewerb: Unter den von der Crowd eingereichten Ideen wird/werden nur der beste/die besten prämiert. 
 Die durchschnittliche Prämie liegt bei 250 Euro.
 
-Bei Testing-Plattformen geht es darum, dass Anwendungen, Webseiten, oder Apps der von der Community getestet werden. 
+Auf Testing-Plattformen werden Anwendungen oder Webseiten von der Community getestet. 
 Die Vorteile der Auftraggeber, diese Tätigkeit von einer Crowd bearbeiten zu lassen, liegen darin, dass sie innerhalb von wenigen Tagen und realitätsnah abgewickelt und von den potentiellen Endverbrauchern im Voraus beurteilt werden können. 
 Die Aktivitäten der Tester beziehen sich auf das funktionale Testing, das Testen von Kernfunktionen einer Anwendung und das Usability-Testing. 
 Der Arbeitsprozess unterliegt einem zeitlichen Wettbewerbsprinzip: Wer zuerst einen Fehler in der Anwendung findet, wird prämiert. 
@@ -100,13 +100,14 @@ In Sinne des theoretischen Samplings (Glaser/Strauss 2009) wurden zunächst mitt
 In einem weiteren Schritt und durch die maximale Kontrastreierung wuden die je einem Plattform-Typen zugehörigen Crowdworker im Hinblick auf Unterschiede ausgewählt. 
 Der Feldzugang erfolgte über die in der ersten Erhebungsphase befragten Experten, soziale Netzwerke sowie im Sinne des Schneeballverfahrens (Przyborski/Wohrab-Sahr 2010) die persönlichen Netzwerke der befragten Crowdworker. 
 Die Methode der Erhebung stellten neben den qualitativen Experteninterviews der ersten Phase offene leitfadengestützte Interviews mit Crowdworkern dar. 
-Dem hauotsächlichen Auswertungsschritt lag ein Kodier-Verfahren mit Hilfe des Auswertungsprogramms MAXQDA des empirischen Materials zugrunde. 
+Dem hauptsächlichen Auswertungsschritt lag ein Kodier-Verfahren mit Hilfe des Auswertungsprogramms MAXQDA des empirischen Materials zugrunde. 
 Nach der Aufzeichnung der Interviews wurden diese vollständig transkribiert und die befragten Personen anonymisiert. 
 Bei der Auswertung und Art und Weise des Kodier-Verfahrens wurde die Methode der Grounded Theory (ebd.) angewendet. 
 Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 2016 und 2018 im deutschsprachigen Raum geführt worden sind. 
 
 
 ## Quantitative Methodik und Sampling
+<!-- TODO Sandra as per https://github.com/soztag/crowd/issues/15 -->
 
 
 # Leistungsgerechtigkeit im Kontrast Erwerbsarbeit vs. Crowdarbeit
@@ -128,7 +129,7 @@ Die Gewinne, welche diese durch Crowdwork erzielen, stehen nicht im Verhältnis 
 <!-- TODO Max: Hier passen die Items 1, 2 und 7 -->
 
 Dass es gar nicht erst zu einer Prämierung der erbrachten Leistung kommt, liegt nicht nur am Konkurrenzprinzip von Crowdwork, sondern auch an der **unklaren Aufgabenbeschreibung**. 
-Dies trifft sowohl auf Design- und Ideenplattformen zu, welche nach dem Prinzip des Wettbewerbs organisiert sind zu, als auch auf Testing-, und Microjob-Plattformen. 
+Dies trifft sowohl auf Design- und Ideenplattformen zu, welche nach dem Prinzip des Wettbewerbs organisiert sind, als auch auf Testing- und Microjob-Plattformen. 
 Missbilligt wird, dass das Briefing für die jeweiligen Aufgaben zu ungenau ist.
 Dies führt dazu, dass die eingereichten Ergebnisse abgelehnt werden mit der Begründung, diese würden nicht den Kundenwünschen entsprechen. 
 Im Fall der Möglichkeit das eingereichte Ergebnis zu korrigieren, ohne jedoch genauere Verbesserungsvorschläge zu erhalten, lehnen dies viele Crowdworker ab, da sie befürchten weiterhin abgelehnt zu werden und so unbezahlte Arbeit geleistet zu haben. 
@@ -158,13 +159,15 @@ Dies ist mitunter der Grund, warum die meisten Befragten Crowdwork nur als Neben
 **Anm. Sandra: Abschnitt ist vielleicht besser für das Fazit geeignet**
 
 Vergleicht man diese Ergebnisse mit den aktuellen Befunden in der sozialwissenschaftlichen Literatur, so ergibt in Bezug auf den Anspruch auf Leistungsgerechtigkeit eine Gemeinsamkeit: 
-Das Verständnis der Crowdworker bezieht sich auf einen Begriff von Leistungsgerechtigkeit, welcher aufwandsbezogen bedeutet wird. 
+Das Verständnis der Crowdworker bezieht sich auf einen Begriff von Leistungsgerechtigkeit, welcher aufwandsbezogen gedeutet wird. 
 Als Aufwand gilt das konkrete Leistungsverhalten. 
 Berufliche Kompetenzen, Qualifikation sowie Verantwortung als Maßstab von Leistung spielen hingegen keine Rolle. 
 Dies kann damit begründet werden, dass sowohl berufliche Kompetenzen als auch Qualifikationen keine Voraussetzungen dafür sind, sich als Crowdworker auf einer Plattform zu registrieren. 
 Auch werden die individuellen Qualifikationen und Fähigkeiten von der Plattform weder abgefragt, noch überprüft. 
-Was zählt, ist lediglich das eingereichte Ergebnis. Da Crowdworker keine Verantwortung oder Pflichten für die Plattform oder die Community übernehmen, ist dieser Aspekt ebenfalls obsolet. 
-Zudem gehen die Crowdworker keinen Arbeitsvertrag mit der Plattform oder den Auftraggebern ein. Die Höhe der ausgeschriebenen Prämie ist für alle Community-Mitglieder die gleiche, unabhängig davon, ob einer einen Hochschulabschluss oder eine abgeschlossene Ausbildung vorweisen kann. 
+Was zählt, ist lediglich das eingereichte Ergebnis. 
+Da Crowdworker keine Verantwortung oder Pflichten für die Plattform oder die Community übernehmen, ist dieser Aspekt ebenfalls obsolet. 
+Zudem gehen die Crowdworker keinen Arbeitsvertrag mit der Plattform oder den Auftraggebern ein. 
+Die Höhe der ausgeschriebenen Prämie ist für alle Community-Mitglieder die gleiche, unabhängig davon, ob einer einen Hochschulabschluss oder eine abgeschlossene Ausbildung vorweisen kann. 
 Der individuelle Beitrag bzw. die persönliche Leistung hinter dem eingereichten Ergebnis verschwindet. 
 
 Und dennoch bzw. gerade deshalb berufen sich die Befragten auf den Anspruch der aufwandsbezogenen Leistungsgerechtigkeit. 
