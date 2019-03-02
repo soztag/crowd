@@ -1,4 +1,11 @@
-<div class="jumbotron" style="color:white; min-height: 700px; background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(img/Turk-engraving4.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+---
+output:
+  bookdown::html_document2:
+    css: custom.css
+---
+
+
+<div class="jumbotron" style="color:white; background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) )">
   <h1>Crowdwork</h1>
   <p>
   Expectations of german crowdworkers on three selected platforms.
@@ -7,13 +14,12 @@
     <a class="btn btn-primary btn-lg" href="crowd_de.html">Deutscher Artikel</a>
     <a class="btn btn-primary btn-lg" href="appendix.html">English Appendix</a>
   </p>
+  
+## Abstract {-}
+```{r, child="README.md"}
+```
+  
   <p><small><sub>
     Image Credit: Wolfgang von Kempelen's "The Turkish Chess Player" via [Wikipedia](https://en.wikipedia.org/wiki/File:Turk-engraving4.jpg) (Public Domain)
   </sub></small></p>
 </div>
-
-
-## Abstract {-}
-
-```{r, child="README.md"}
-```
