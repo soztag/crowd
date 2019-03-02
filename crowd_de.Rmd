@@ -40,6 +40,128 @@ output:
     fig_caption: yes
 ---
 
+## Einleitung
+
+
+## Theorie
+
+
+## Empirische Basis und Methoden
+
+### Kontext und Plattformtypologie
+
+Die sowohl qualitativ wie auch quantitativ angelegte Untersuchung verfolgte das Ziel, die Anspruchshaltungen der Crowdworker bezüglich der Arbeitswelt zu ermitteln. 
+Hierbei wurde ein exploratives Vorgehen gewählt, da es zur Zeit der Erhebung keinerlei empirische Befunde gab, welche das methodische Vorgehen hätten strukturieren können. 
+In einer ersten Phase wurde über qualitative Experteninterviews (Gläser/Laudel 2010) das empirische Feld erschlossen. 
+Die Befragung mit wissenschaftlichen und interessenpolitischen Akteuren und Betreibern von Online-Plattformen ergab, dass es vier Typen von Crowdwork-Plattformen gibt: Innovations-, Testing-, Microjob- und Designplattformen. 
+
+Innovations-Plattformen unterstützen ihre Kunden im Innovationsprozess entlang der gesamten Wertschöpfungskette: von der Ideengenerierung, der Konkretisierung und Validierung hin zur Umsetzung der Innovation. 
+Die Crowd-Community fungiert hierbei nicht nur als Ideengeber, sondern evaluiert und testet die jeweiligen Produkte. 
+Die Motivation der Auftraggeber ist es, mittels eines Ideenwettbewerbs ein Problem lösen zu lassen und dabei das Wissen der Crowd für interne Innovationsprozesse zu nutzen. 
+Die Ideationsphase basiert auf einem ergebnisorientierten Wettbewerb: Unter den von der Crowd eingereichten Ideen wird/werden nur der beste/die besten prämiert. 
+Die durchschnittliche Prämie liegt bei 250 Euro.
+
+Bei Testing-Plattformen geht es darum, dass Anwendungen, Webseiten, oder Apps der von der Community getestet werden. 
+Die Vorteile der Auftraggeber, diese Tätigkeit von einer Crowd bearbeiten zu lassen, liegen darin, dass sie innerhalb von wenigen Tagen und realitätsnah abgewickelt und von den potentiellen Endverbrauchern im Voraus beurteilt werden können. 
+Die Aktivitäten der Tester beziehen sich auf das funktionale Testing, das Testen von Kernfunktionen einer Anwendung und das Usability-Testing. 
+Der Arbeitsprozess unterliegt einem zeitlichen Wettbewerbsprinzip: Wer zuerst einen Fehler in der Anwendung findet, wird prämiert. 
+Die Prämienhöhen unterscheiden sich erheblich und hängen von dem Schweregrad der Aufgabe ab.
+
+Im Falle von Design-Plattformen geht es darum, Logo-, Web-, und Flyer-Designs zu erstellen. 
+Den Vorteil für die Auftraggeber stellen die große Auswahl an den von der Crowd eingereichten Designs und kostengünstige und schnelle Ergebnisse dar. 
+Der Arbeitsprozess basiert auch hier auf einem ergebnisorientierten Wettbewerb: Nur das Beste Design wird prämiert. 
+Über die Höhe der Prämie entscheidet der Aufraggeber. 
+Diese liegt in den Kategorien 200 bis 1000 Euro. 
+
+Bei Microtask-Plattformen werden die Aufträge der Kunden von der Crowd in kleinen Arbeitspaketen bearbeitet. 
+Hierzu zählen Aufgaben wie das Recherchieren, Übersetzen und das Erstellen von Contents sowie von Produktbeschreibungen. 
+Die Motivation der Auftraggeber auf die Community zurückzugreifen stellt das schnelle Abwickeln von Aufgaben dar. 
+Der Erfolg und somit die Prämierung der Leistung basieren auf dem Zeit- und Qualitätsprinzip: Wird der Crowdworker den Anforderungen nicht gerecht oder erledigt die Aufgabe nicht im vorgegebenen Rahmen, wird sein Ergebnis abgelehnt. 
+Die Höhe der Prämie variiert stark und hängt von dem Vorgaben des Auftraggebers ab. 
+Alle vier Plattform-Typen zeichnen sich durch ein Ranking der Community aus: Je mehr Wettbewerbe ein Crowdworker gewinnt, desto höher steigt er in der Ranking-Liste auf. 
+Eine höhere Position geht dabei mit einer höheren Wahrscheinlichkeit einher, für einen nächsten Wettbewerb eingeladen zu werden und künftig höhere Prämien zu erzielen.
+
+
+### Qualitative Methodik und Sampling
+
+Auf Grundlage der Ergebnisse der ersten explorativen Erhebungsphase wurde die Forschungsstrategie konkretisiert. 
+In Sinne des theoretischen Samplings (Glaser/Strauss 2009) wurden zunächst mittels der minimalen Kontrastrierung Personen befragt, welche auf diesen Plattformtypen tätig sind befragt. 
+In einem weiteren Schritt und durch die maximale Kontrastreierung wuden die je einem Plattform-Typen zugehörigen Crowdworker im Hinblick auf Unterschiede ausgewählt. 
+Der Feldzugang erfolgte über die in der ersten Erhebungsphase befragten Experten, soziale Netzwerke sowie im Sinne des Schneeballverfahrens (Przyborski/Wohrab-Sahr 2010) die persönlichen Netzwerke der befragten Crowdworker. 
+Die Methode der Erhebung stellten neben den qualitativen Experteninterviews der ersten Phase offene leitfadengestützte Interviews mit Crowdworkern dar. 
+Dem hauotsächlichen Auswertungsschritt lag ein Kodier-Verfahren mit Hilfe des Auswertungsprogramms MAXQDA des empirischen Materials zugrunde. 
+Nach der Aufzeichnung der Interviews wurden diese vollständig transkribiert und die befragten Personen anonymisiert. 
+Bei der Auswertung und Art und Weise des Kodier-Verfahrens wurde die Methode der Grounded Theory (ebd.) angewendet. 
+Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 2016 und 2018 im deutschsprachigen Raum geführt worden sind. 
+
+
+### Quantitative Methodik und Sampling
+
+Der Anspruch auf Leistungsgerechtigkeit, somit jener auf ein gerechtes Tauschverhältnis zwischen der Leistung der Arbeitskraft und der Gegenleistung, unterliegt im Falle von Crowdwork keinem so hohen Institutionalisierungsgrad wie in einem Beschäftigungsverhältnis, welches auf einem Arbeitsvertrag basiert. 
+Die Ergebnisse der Anspruchsanalyse von Crowdworkern macht jedoch deutlich, dass diese sehr wohl einen Anspruch auf Leistungsgerechtigkeit formulieren.
+Dies hängt mit unter damit zusammen, dass für die meisten der Befragten Crowdwork als Einkommensquelle fungiert. 
+Dieser Anspruch stellt neben jenen an Autonomie, Mitbestimmung und Würde den am häufigsten gestellten in den Interviews. 
+Die Dimensionen bzw. die Bezugspunkte hierfür sind die Kritik an der Höhe der Prämien im Verhältnis zur Leistungsverausgabung, die Aufgabenbeschreibung, die Leistungsbewertung und das Fehlen einer Entlohnungssicherheit. 
+
+In Bezug auf die **Höhe der Prämien** im Verhältnis zur Verausgabung der Arbeitskraft wird die Kritik zum Ausdruck gebracht, dass die geleistete Arbeitszeit keiner angemessenen Bezahlung entspricht. 
+Berichtet wird sogar über einen Stundenlohn von 10 Cent im Falle von Microjobs.
+Auf Design-Plattformen erfordert die Erhöhung der Wahrscheinlichkeit eines Erfolges das Einreichen von mehreren – bis zu 20 – Designs. 
+Die in Summe benötigte Arbeitszeit, um innerhalb eines Wettbewerbs konkurrenzfähig zu bleiben, wird in die Gewinnprämie nicht eingerechnet, weshalb auch in Begriffen der Ausbeutung argumentiert wird. 
+Vielfach wird betont, dass die Gefahr besteht, dass die für einen Wettbewerb investierte Arbeitszeit nicht mehr selbst kontrollierbar ist, weshalb die Befragten den Anspruch an sich selbst stellen, ihrer Leistungsverausgabung Grenzen zu setzen. 
+Der Adressat der Kritik an zu geringen Prämien ist nicht die Plattform, sondern der Kunde bzw. der Auftraggeber. 
+Die Gewinne, welche diese durch Crowdwork erzielen, stehen nicht im Verhältnis zur Prämierung und entwerten so die Leistung der Arbeitskraft.
+<!-- TODO Max: Hier passen die Items 1, 2 und 7 -->
+
+Dass es gar nicht erst zu einer Prämierung der erbrachten Leistung kommt, liegt nicht nur am Konkurrenzprinzip von Crowdwork, sondern auch an der **unklaren Aufgabenbeschreibung**. 
+Dies trifft sowohl auf Design- und Ideenplattformen zu, welche nach dem Prinzip des Wettbewerbs organisiert sind zu, als auch auf Testing-, und Microjob-Plattformen. 
+Missbilligt wird, dass das Briefing für die jeweiligen Aufgaben zu ungenau ist.
+Dies führt dazu, dass die eingereichten Ergebnisse abgelehnt werden mit der Begründung, diese würden nicht den Kundenwünschen entsprechen. 
+Im Fall der Möglichkeit das eingereichte Ergebnis zu korrigieren, ohne jedoch genauere Verbesserungsvorschläge zu erhalten, lehnen dies viele Crowdworker ab, da sie befürchten weiterhin abgelehnt zu werden und so unbezahlte Arbeit geleistet zu haben. 
+Die Angst vor der Ablehnung des eingereichten Ergebnisses ist im Falle von Testing- und Microjobs sehr hoch, denn bei einer Ablehnungsquote von mehr als 10% wird der Crowdworker von der Plattform für einige Zeit gesperrt und darf so keine weiteren Aufgaben mehr bearbeiten. 
+<!-- TODO Max: Hier passen die Items 6 und 24 -->
+
+Auch wenn die Leistung der Community dem Briefing entspricht kann es dazu kommen, dass das Ergebnis abgelehnt wird. 
+Dies liegt an der nicht **objektiven Leistungsbewertung**. 
+Die Zurückweisung der eingereichten Ergebnisse wird nach nicht vorab definierten Kriterien vollzogen. 
+Die Ablehnung wird auf das subjektive Urteilsvermögen des Qualitätsmanagements der Plattform zurückgeführt. 
+Vor allem auf Innovationsplattformen würden oft keine der eingereichten Ideen prämiert werden, da es erst keinen Bewertungsprozess geben würde. 
+Darüber hinaus gibt es auf einigen Plattformen die Möglichkeit, dass die Community das beste Ergebnis bewertet. 
+Dies empfinden die Befragten auch als ungerecht, da sie zu subjektiv vollzogen werden. 
+Überhaupt orientiert sich die Leistungsbewertung an dem Status des Crowdworkers, welcher in einer öffentlichen Rangliste dargestellt wird. 
+Die hohe Stellung im Punktesystem führt dazu, dass man eher prämiert und öfter für Wettbewerbe eingeladen wird. 
+Von den Befragten kritisiert wird, dass der Rang nicht die wirkliche Leistung des Crowdworkers widerspiegelt.
+<!-- TODO Max: Hier passen die Items 3, 4, 5, 18, 19 -->
+
+Die fehlende Planungssicherheit in Bezug auf ein stetiges Einkommen stellt die letzte Dimension der Leistungsgerechtigkeit dar. 
+Hier geht nicht darum, dass die Leistungsverausgabung nicht im Verhältnis zur ausgeschriebenen Prämie steht, sondern darum, man sich nicht darauf verlassen kann, dass die erbrachte Leistung überhaupt prämiert wird. 
+Viele der Crowdworker kritisieren, dass sie viel Zeit für eine Ausschreibung investieren und dennoch nicht prämiert werden. 
+Darüber hinaus werden viele Wettbewerbe sporadisch durchgeführt, sodass man einer finanziellen Nichtplanbarkeit ausgesetzt ist. 
+Beim Crowdwork kann man sich nicht auf regelmäßige Einkünfte und auf eine stete Auftragslage verlassen. 
+Dies ist mitunter der Grund, warum die meisten Befragten Crowdwork nur als Nebenerwerb nutzen. 
+<!-- TODO Max: Hier haben wir leider nur ein passendes Item 10 -->
+
+**Anm. Sandra: Abschnitt ist vielleicht besser für das Fazit geeignet**
+
+Vergleicht man diese Ergebnisse mit den aktuellen Befunden in der sozialwissenschaftlichen Literatur, so ergibt in Bezug auf den Anspruch auf Leistungsgerechtigkeit eine Gemeinsamkeit: 
+Das Verständnis der Crowdworker bezieht sich auf einen Begriff von Leistungsgerechtigkeit, welcher aufwandsbezogen bedeutet wird. 
+Als Aufwand gilt das konkrete Leistungsverhalten. 
+Berufliche Kompetenzen, Qualifikation sowie Verantwortung als Maßstab von Leistung spielen hingegen keine Rolle. 
+Dies kann damit begründet werden, dass sowohl berufliche Kompetenzen als auch Qualifikationen keine Voraussetzungen dafür sind, sich als Crowdworker auf einer Plattform zu registrieren. 
+Auch werden die individuellen Qualifikationen und Fähigkeiten von der Plattform weder abgefragt, noch überprüft. 
+Was zählt, ist lediglich das eingereichte Ergebnis. Da Crowdworker keine Verantwortung oder Pflichten für die Plattform oder die Community übernehmen, ist dieser Aspekt ebenfalls obsolet. 
+Zudem gehen die Crowdworker keinen Arbeitsvertrag mit der Plattform oder den Auftraggebern ein. Die Höhe der ausgeschriebenen Prämie ist für alle Community-Mitglieder die gleiche, unabhängig davon, ob einer einen Hochschulabschluss oder eine abgeschlossene Ausbildung vorweisen kann. 
+Der individuelle Beitrag bzw. die persönliche Leistung hinter dem eingereichten Ergebnis verschwindet. 
+
+Und dennoch bzw. gerade deshalb berufen sich die Befragten auf den Anspruch der aufwandsbezogenen Leistungsgerechtigkeit. 
+Da die Höhe der Prämie nicht der dahinterliegenden geleisteten Arbeitszeit entspricht, wird die Kritik laut, die Arbeitsleitung verschwinde hinter dem Ergebnis. 
+Unklare Aufgabenbeschreibungen und nicht objektive Leistungsbewertungen verstärken zudem das Ungerechtigkeitsgefühl hinsichtlich einer Ablehnung der eingereichten Arbeit. 
+Das Festhalten am aufwandsbezogenem Leistungsbegriff -- und gerade nicht am ergebnisbezogenem -- äußert sich hier ebenfalls in der Kritik, dass die Leistungsbewertung und somit das prämierte Ergebnis von der Stellung des Crowdworkers im öffentlichen Ranking abhängig ist und nicht die Leistung an sich zählt.  
+Und mehr noch: 
+Da aufgrund des Konkurrenzprinzips gar nicht garantiert werden kann, dass die erbrachte Leistung überhaupt prämiert wird, verschwinden zusätzlich zur verausgabten Arbeitskraft eines jeden auch die erbrachten Ergebnisse aller nicht prämierten Crowdworker.
+
+Leistungsgerechtigkeit als Gerechtigkeitsprinzip, so lässt sich festhalten, wird im Falle von Crowdwork in Form von Kritik am bestehenden ergebnis- und konkurrenzbasierten System formuliert. 
+
+
 ```{r setup, cache = FALSE, include=FALSE}
 source(file = "setup.R")
 ```
@@ -51,5 +173,3 @@ source(file = "import.R")
 ```{r cleaning, include=FALSE}
 source(file = "cleaning.R")
 ```
-
-
