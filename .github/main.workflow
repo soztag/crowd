@@ -20,7 +20,7 @@ action "Render" {
   ]
   uses = "maxheld83/ghactions/Rscript-byod@master"
   args = [
-    "-e \"rmarkdown::render_site(encoding = 'UTF-8')\""
+    "render.R"
   ]
 }
 
@@ -53,4 +53,3 @@ action "Deploy" {
     "SSH_PUBLIC_KEY"
   ]
 }
-
