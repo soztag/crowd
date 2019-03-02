@@ -2,6 +2,13 @@ name: crowd
 title: "Crowdworking"
 navbar:
   title: crowd
+  left:
+  - icon: fa-file-pdf
+    href: de.pdf
+  - icon: fa-file-word
+    href: de.docx
+  - text: Appendix
+    href: appendix.html
   right:
   - icon: fa-github
     text: Source
