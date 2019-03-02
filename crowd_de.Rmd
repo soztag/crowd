@@ -40,13 +40,24 @@ output:
     fig_caption: yes
 ---
 
-# Einleitung
+# Alles neu...? Zur Einleitung
+<!-- TODO 2500 chars -->
+
+# Jenseits von Betrieb und Beschäftigung: CrowdArbeit
+<!-- TODO 5000 chars -->
+
+## Forschungsstand Crowd
 
 
-# Theorie
+## Theoriefokus AK/AV/Betrieb
+
+
+## Entwicklung der Fragestellung
 
 
 # Empirische Basis und Methoden
+<!-- TODO 6000 chars -->
+
 
 ## Kontext und Plattformtypologie
 
@@ -96,6 +107,10 @@ Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 
 
 
 ## Quantitative Methodik und Sampling
+
+
+# Leistungsgerechtigkeit im Kontrast Erwerbsarbeit vs. Crowdarbeit
+<!-- TODO 8500 chars -->
 
 Der Anspruch auf Leistungsgerechtigkeit, somit jener auf ein gerechtes Tauschverhältnis zwischen der Leistung der Arbeitskraft und der Gegenleistung, unterliegt im Falle von Crowdwork keinem so hohen Institutionalisierungsgrad wie in einem Beschäftigungsverhältnis, welches auf einem Arbeitsvertrag basiert. 
 Die Ergebnisse der Anspruchsanalyse von Crowdworkern macht jedoch deutlich, dass diese sehr wohl einen Anspruch auf Leistungsgerechtigkeit formulieren.
@@ -173,3 +188,7 @@ source(file = "import.R")
 ```{r cleaning, include=FALSE}
 source(file = "cleaning.R")
 ```
+
+
+# Fazit
+<!-- TODO 2000 chars -->
