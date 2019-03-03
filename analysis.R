@@ -1,13 +1,20 @@
-plot_battery <- function(m, long) {
+plot_battery <- function(m, items = NULL, condition = "expect_crowd") {
   # name long y labels, so they can be used as named vectors to replace existing short labels in the below
-  long %>% 
-    set_names(value = colnames(crowddata$exp_work)) %>% 
-    stringr::str_wrap(width = 65) %>% 
+  if (is.null(items)) {
+    items <- colnames(m)
+  }
+  
+  quest %>% 
+    dplyr::filter(section == condition) %>% 
+    dplyr::filter(var %in% items) %>% 
+    pull(var_german) %>% 
+    stringr::str_wrap(width = 45) %>%
+    set_names(value = items) %>% 
     {.} -> long
   
   # munge data
-  m %>% 
-    as_tibble() %>% 
+  m[, items] %>% 
+    as_tibble() %>%
     add_column(study = crowddata$study) %>% 
     gather(key = "item", value = "score", -study) %>% 
     ggplot(

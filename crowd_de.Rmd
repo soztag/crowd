@@ -163,13 +163,14 @@ interesting$assessment <- c(
   "transparent_eval"
 )
 interesting$planning <- c("safe_job")
-
-quest %>%
-  dplyr::filter(section == "expect_crowd") %>% 
-  pull(var_german) %>% 
-  {.} -> long
-plot_battery(m = crowddata$exp_crowd[,unlist(interesting)], long = long)
+plot_battery(m = crowddata$exp_crowd, items = unlist(interesting))
 ```
+
+```{r difference, fig.cap="Erwartungen an Reguläre Beschäftigung - Crowdwork", fig.width=12, fig.height=10}
+m <- crowddata$exp_work - crowddata$exp_crowd
+plot_battery(m = m, items = unlist(interesting))
+```
+
 
 In Bezug auf die **Höhe der Prämien** im Verhältnis zur Verausgabung der Arbeitskraft wird die Kritik zum Ausdruck gebracht, dass die geleistete Arbeitszeit keiner angemessenen Bezahlung entspricht. 
 Berichtet wird sogar über einen Stundenlohn von 10 Cent im Falle von Microjobs.
