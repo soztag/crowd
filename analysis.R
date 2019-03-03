@@ -49,7 +49,8 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
     panel.grid.major = element_blank(), 
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    legend.position = "bottom"
+    legend.position = "bottom",
+    legend.box = "vertical"
   )
   g <- g + scale_y_discrete(labels = long, limits = items)
   g <- g + ylab(NULL)
