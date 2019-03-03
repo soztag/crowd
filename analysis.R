@@ -50,9 +50,16 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
     scale_y_discrete(labels = long) %>% 
     {.} -> g
   
+  if (lang == "de") {
+    g <- g + labs(alpha = "Anzahl der Antworten")
+  } else {
+    g <- g + labs(alpha = "Count")
+  }
+  
   if (diff) {
     if (lang == "de") {
       g <- g + xlab("Unterschied in der Zustimmung")
+      
     } else {
       g <- g + xlab("Difference in Agreement")
     }
