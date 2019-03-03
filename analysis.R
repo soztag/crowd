@@ -57,6 +57,10 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
   }
   
   if (diff) {
+    g <- g + labs(
+      subtitle = "In meiner Erwerbsarbeit / In meiner Tätigkeit als CrowdworkerIn ist es mir wichtig, dass ..."
+      # subtitle = as_vector(quest[quest$section == "expect_crowd", "section_intro_german"])[1]
+    )
     if (lang == "de") {
       g <- g + xlab("Unterschied in der Zustimmung")
       
@@ -64,6 +68,10 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
       g <- g + xlab("Difference in Agreement")
     }
   } else {
+    g <- g + labs(
+      subtitle = "Bei meiner Tätigkeit als CrowdworkerIn ist es mir wichtig, dass ..."
+      # subtitle = as_vector(quest[quest$section == "expect_crowd", "section_intro_german"])[1]
+    )
     g <- g + xlab(NULL)
     g <- g + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
     if (lang == "de") {
