@@ -19,6 +19,9 @@ navbar:
       - icon: fa-file-code
         text: LaTeX (Springer)
         href: crowd_de.tex
+      - icon: fa-file-image
+        text: Plots
+        href: crowd_de_files/
   - text: "Appendix (english)"
     href: appendix.html
   right:
