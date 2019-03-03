@@ -52,7 +52,7 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
     legend.position = "bottom"
   )
   g <- g + scale_y_discrete(labels = long, limits = items)
-  g
+  g <- g + ylab(NULL)
   
   if (is.null(concepts)) {
     # color by platform, but no guide

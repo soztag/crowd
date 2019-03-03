@@ -150,6 +150,7 @@ Die Ergebnisse der Anspruchsanalyse von Crowdworkern macht jedoch deutlich, dass
 Dies hängt mit unter damit zusammen, dass für die meisten der Befragten Crowdwork als Einkommensquelle fungiert. 
 Dieser Anspruch stellt neben jenen an Autonomie, Mitbestimmung und Würde den am häufigsten gestellten in den Interviews. 
 Die Dimensionen bzw. die Bezugspunkte hierfür sind die Kritik an der Höhe der Prämien im Verhältnis zur Leistungsverausgabung, die Aufgabenbeschreibung, die Leistungsbewertung und das Fehlen einer Entlohnungssicherheit. 
+Die diesen Dimensionen zugehörigen Items sind auch in den unten stehenden Abbildungen \@ref(fig:crowd)) und \@ref(fig:diff)) zur Illustration eingefärbt; eine quantitative Validierung der Dimensionen etwa im Sinne einer konfirmatorischen Faktoranalyse ist allerdings mit den vorliegenden Daten nicht möglich.
 
 ```{r crowd, fig.cap="Erwartungen an Crowdarbeit", fig.width=12, fig.height=10}
 interesting <- NULL
@@ -189,7 +190,7 @@ Berichtet wird sogar über einen Stundenlohn von 10 Cent im Falle von Microjobs.
 Auf Design-Plattformen erfordert die Erhöhung der Wahrscheinlichkeit eines Erfolges das Einreichen von mehreren -– bis zu 20 -– Designs. 
 Die in Summe benötigte Arbeitszeit, um innerhalb eines Wettbewerbs konkurrenzfähig zu bleiben, wird in die Gewinnprämie nicht eingerechnet, weshalb auch in Begriffen der Ausbeutung argumentiert wird. 
 Vielfach wird betont, dass die Gefahr besteht, dass die für einen Wettbewerb investierte Arbeitszeit nicht mehr selbst kontrollierbar ist, weshalb die Befragten den Anspruch an sich selbst stellen, ihrer Leistungsverausgabung Grenzen zu setzen. 
-Dementsprechend zeigt Abbildung \@ref(fig:crowd) auch in der quantitativen Befragung starke Zustimmung für die Items `r get_items(interesting$pay)`.
+Dementsprechend zeigt Abbildung \@ref(fig:crowd) auch in der quantitativen Befragung starke Zustimmung für die Items `r get_items(interesting$Prämien)`.
 Allerdings scheint angemessene Bezahlung genauso auch hinsichtlich konventioneller Beschäftigung vielen Teilnehmenden wichtig zu sein (siehe Abbildung \@ref(fig:diff)).
 Der Adressat der Kritik an zu geringen Prämien ist nicht die Plattform, sondern der Kunde bzw. der Auftraggeber. 
 Die Gewinne, welche diese durch Crowdwork erzielen, stehen nicht im Verhältnis zur Prämierung und entwerten so die Leistung der Arbeitskraft.
@@ -200,7 +201,8 @@ Missbilligt wird, dass das Briefing für die jeweiligen Aufgaben zu ungenau ist.
 Dies führt dazu, dass die eingereichten Ergebnisse abgelehnt werden mit der Begründung, diese würden nicht den Kundenwünschen entsprechen. 
 Im Fall der Möglichkeit das eingereichte Ergebnis zu korrigieren, ohne jedoch genauere Verbesserungsvorschläge zu erhalten, lehnen dies viele Crowdworker ab, da sie befürchten weiterhin abgelehnt zu werden und so unbezahlte Arbeit geleistet zu haben. 
 Die Angst vor der Ablehnung des eingereichten Ergebnisses ist im Falle von Testing- und Microjobs sehr hoch, denn bei einer Ablehnungsquote von mehr als 10% wird der Crowdworker von der Plattform für einige Zeit gesperrt und darf so keine weiteren Aufgaben mehr bearbeiten. 
-<!-- TODO Max: briefing items -->
+Auch die quantitativen Daten deuten auf die besondere Wichtigkeit von klaren Aufgabenbeschreibungen hin.
+Items `r get_items(interesting$Aufgabenbeschreibung)` werden als wichtig eingeschätzt, möglicherweise sogar *wichtiger* als in regulärer Beschäftigung (siehe Abbildung \@ref(fig:diff)).
 
 Auch wenn die Leistung der Community dem Briefing entspricht kann es dazu kommen, dass das Ergebnis abgelehnt wird. 
 Dies liegt an der nicht **objektiven Leistungsbewertung**. 
@@ -212,7 +214,7 @@ Dies empfinden die Befragten auch als ungerecht, da sie zu subjektiv vollzogen w
 Überhaupt orientiert sich die Leistungsbewertung an dem Status des Crowdworkers, welcher in einer öffentlichen Rangliste dargestellt wird. 
 Die hohe Stellung im Punktesystem führt dazu, dass man eher prämiert und öfter für Wettbewerbe eingeladen wird. 
 Von den Befragten kritisiert wird, dass der Rang nicht die wirkliche Leistung des Crowdworkers widerspiegelt.
-<!-- TODO Max: asessment items -->
+Die quantitativen Daten zu den Items `r get_items(interesting$Leistungsbewertung)` deuten ebenfalls auf die Wichtigkeit des Themas hin, allerdings werden die Einflussmöglichkeiten auf die Leistungsbewertung im Vergleich zu anderen Aspekten der Leistungsgerechtigkeit hier scheinbar als relativ weniger wichtig eingeschätzt (siehe Abbildung \@ref(fig:crowd)).
 
 Die **fehlende Planungssicherheit** in Bezug auf ein stetiges Einkommen stellt die letzte Dimension der Leistungsgerechtigkeit dar. 
 Hier geht nicht darum, dass die Leistungsverausgabung nicht im Verhältnis zur ausgeschriebenen Prämie steht, sondern darum, man sich nicht darauf verlassen kann, dass die erbrachte Leistung überhaupt prämiert wird. 
@@ -220,7 +222,7 @@ Viele der Crowdworker kritisieren, dass sie viel Zeit für eine Ausschreibung in
 Darüber hinaus werden viele Wettbewerbe sporadisch durchgeführt, sodass man einer finanziellen Nichtplanbarkeit ausgesetzt ist. 
 Beim Crowdwork kann man sich nicht auf regelmäßige Einkünfte und auf eine stete Auftragslage verlassen. 
 Dies ist mitunter der Grund, warum die meisten Befragten Crowdwork nur als Nebenerwerb nutzen. 
-<!-- TODO Max: planning -->
+Zur Dimension der Planungssicherheit liegt im Fragebogen nur das Item `r get_items(interesting$Planungssicherheit)` vor, was ebenfalls als wichtig eingeschätzt wird.
 
 **Anm. Sandra: Abschnitt ist vielleicht besser für das Fazit geeignet**
 
