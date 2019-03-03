@@ -153,21 +153,22 @@ Die Dimensionen bzw. die Bezugspunkte hierfür sind die Kritik an der Höhe der 
 
 ```{r crowd, fig.cap="Erwartungen an Crowdarbeit", fig.width=12, fig.height=10}
 interesting <- NULL
-interesting$pay <- c("wage_organisation", "wage")
-interesting$briefing <- c("transparent_tasks", "expectations")
-interesting$assessment <- c(
+interesting$`Prämien` <- c("wage_organisation", "wage")
+interesting$`Aufgabenbeschreibung` <- c("transparent_tasks", "expectations")
+interesting$Leistungsbewertung <- c(
   "dissent_eval", 
   "consistent_eval", 
   "influence_eval", 
   "evaluation", 
   "transparent_eval"
 )
-interesting$planning <- c("safe_job")
+interesting$Planungssicherheit <- c("safe_job")
 plot_battery(
   m = crowddata$exp_crowd, 
   items = unlist(interesting), 
   width = 35, 
-  lang = "de"
+  lang = "de",
+  concepts = interesting
 )
 ```
 
@@ -178,6 +179,7 @@ plot_battery(
   items = unlist(interesting), 
   width = 35, 
   lang = "de", 
+  concepts = interesting,
   diff = TRUE
 )
 ```

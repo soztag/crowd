@@ -1,54 +1,65 @@
-plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en", width = 80, diff = FALSE) {
+plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en", width = 80, diff = FALSE, concepts = NULL) {
   # name long y labels, so they can be used as named vectors to replace existing short labels in the below
   if (is.null(items)) {
     items <- colnames(m)
   }
   
-  if (lang == "de") {
-    # take german short titles in this case
-    shorts <- quest %>% 
-      dplyr::filter(section == "expect_crowd") %>% 
-      dplyr::filter(var %in% items) %>% 
-      pull(short_german)
-  } else {
-    shorts <- items
-  }
-  
   quest %>% 
     dplyr::filter(section == condition) %>% 
     dplyr::filter(var %in% items) %>% 
-    pull(var_german) %>% 
-    stringr::str_wrap(width = width) %>%
-    paste0(shorts, ":\n", .) %>%
-    set_names(value = items) %>% 
-    {.} -> long
+    dplyr::mutate(var_german = stringr::str_wrap(string = var_german, width = width)) %>% 
+    {.} -> df
+  long <- glue::glue_data(
+    .x = df, 
+    "...{var_german}", 
+    "({short_german}/{var})", 
+    .sep = "\n"
+  )
+  long <- rlang::set_names(x = long, nm = df$var)
   
   # munge data
   m[, items] %>% 
-    as_tibble() %>%
+    as_tibble() %>% 
     add_column(study = crowddata$study) %>% 
     gather(key = "item", value = "score", -study) %>% 
-    ggplot(
-      mapping = aes(
-        x = as.factor(score), 
-        y = item, 
-        fill = study
-      )
-    ) +
-    stat_bin_2d(mapping = aes(alpha = stat(count))) + 
-    stat_bin_2d(geom = "text", mapping = aes(label = ..count..)) + 
-    facet_wrap(vars(study), nrow = 1) + 
-    theme(
-      panel.grid.major = element_blank(), 
-      panel.grid.minor = element_blank(),
-      panel.background = element_blank(),
-      legend.position = "bottom"
-    ) +
-    ylab(label = NULL) +
-    scale_fill_discrete(name = "Platforms") + 
-    guides(fill = FALSE) + 
-    scale_y_discrete(labels = long) %>% 
-    {.} -> g
+    {.} -> m
+  if (!is.null(concepts)) {
+    concepts <- reshape2::melt(interesting)  # helpful to melt existing list
+    colnames(concepts) <- c("item", "concept")
+    concepts$item <- as.character(concepts$item)
+    m <- dplyr::inner_join(x = m, y = concepts, by = "item")
+  } else {
+    # ugly hack
+    m$concept <- m$study
+  }
+  
+  # plotting
+  g <- ggplot(
+    data = m,
+    mapping = aes(
+      x = as.factor(score), 
+      y = item,
+      fill = concept
+    )
+  )
+  g <- g + stat_bin_2d(mapping = aes(alpha = stat(count)))
+  g <- g + stat_bin_2d(geom = "text", mapping = aes(label = ..count..))
+  g <- g + facet_wrap(vars(study), nrow = 1)
+  g <- g + theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "bottom"
+  )
+  g <- g + scale_y_discrete(labels = long, limits = items)
+  g
+  
+  if (is.null(concepts)) {
+    # color by platform, but no guide
+    g <- g + scale_fill_discrete(name = "Platforms") + guides(fill = FALSE) 
+  } else {
+    g <- g + scale_fill_discrete(name = "Dimension der Leistungsgerechtigkeit")
+  }
   
   if (lang == "de") {
     g <- g + labs(alpha = "Anzahl der Antworten")
