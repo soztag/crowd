@@ -95,3 +95,27 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
   
   g
 }
+
+get_item <- function(item) {
+  assert_choice(x = item, choices = colnames(crowddata$exp_crowd))
+  quest %>% 
+    dplyr::filter(section == "expect_crowd") %>% 
+    dplyr::filter(var == item) %>% 
+    pull(short_german) %>% 
+    purrr::as_vector() %>% 
+    {.} -> handle_de
+  quest %>% 
+    dplyr::filter(section == "expect_crowd") %>% 
+    dplyr::filter(var == item) %>% 
+    pull(var_german) %>% 
+    purrr::as_vector() %>% 
+    {.} -> wording_de
+  
+  
+  glue::glue("`{handle_de}`^[*'Bei meiner Tätigkeit ist es mir wichtig, dass {wording_de}'*]")
+}
+
+get_items <- function(items) {
+  purrr::map_chr(.x = items, .f = get_item) %>% 
+    glue::glue_collapse(sep = ", ", last = " und ")
+}

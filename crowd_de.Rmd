@@ -97,7 +97,7 @@ Eine höhere Position geht dabei mit einer höheren Wahrscheinlichkeit einher, f
 
 Auf Grundlage der Ergebnisse der ersten explorativen Erhebungsphase wurde die Forschungsstrategie konkretisiert. 
 In Sinne des theoretischen Samplings (Glaser/Strauss 2009) wurden zunächst mittels der minimalen Kontrastrierung Personen befragt, welche auf diesen Plattformtypen tätig sind befragt. 
-In einem weiteren Schritt und durch die maximale Kontrastreierung wuden die je einem Plattform-Typen zugehörigen Crowdworker im Hinblick auf Unterschiede ausgewählt. 
+In einem weiteren Schritt und durch die maximale Kontrastrierung wuden die je einem Plattform-Typen zugehörigen Crowdworker im Hinblick auf Unterschiede ausgewählt. 
 Der Feldzugang erfolgte über die in der ersten Erhebungsphase befragten Experten, soziale Netzwerke sowie im Sinne des Schneeballverfahrens (Przyborski/Wohrab-Sahr 2010) die persönlichen Netzwerke der befragten Crowdworker. 
 Die Methode der Erhebung stellten neben den qualitativen Experteninterviews der ersten Phase offene leitfadengestützte Interviews mit Crowdworkern dar. 
 Dem hauptsächlichen Auswertungsschritt lag ein Kodier-Verfahren mit Hilfe des Auswertungsprogramms MAXQDA des empirischen Materials zugrunde. 
@@ -125,16 +125,16 @@ Die vollständigen Skripte zur Reproduktion der Ergebnisse aus den Rohdaten find
 
 <!-- TODO need universe and sampling here, as per https://github.com/soztag/crowd/issues/19 -->
 
-`r nrow(crowddata)` Cordworker beantworteten den Fragebogen, davon jeweils `r table(crowddata$study)` rekrutiert über den Anwendungstester [Applause](https://www.applause.com), die Innovations- und Marktforschungsplatform  [Atizo](https://www.atizo.com) sowie den generischen Anbieter [Crowdguru](https://www.crowdguru.de).
+`r nrow(crowddata)` Crowdworker beantworteten den Fragebogen, davon jeweils `r table(crowddata$study)` rekrutiert über den Anwendungstester [Applause](https://www.applause.com), die Innovations- und Marktforschungsplatform  [Atizo](https://www.atizo.com) sowie den generischen Anbieter [Crowdguru](https://www.crowdguru.de).
 In etwa gleich viele der Beteiligten gaben weibliches und männliches Geschlecht an (jeweils `r table(crowddata$gender)`) bei einem Median Alter von `r 2017 - median(crowddata$birth, na.rm = TRUE)`.
 Über der Hälfte der Teilnehmer_innen berichten einen tertiären Bildungsabschluss: 
 Die Stichprobe erscheint damit relativ gebildet, allerdings mag ein Teil dieses Effektes durch die jüngere Altersstruktur erkärt sein.
 Ebenfalls über der Hälte der Antworteten ist regular beschäftigt, wobei die Frage unklar formuliert ist und möglicherweise die untersuchte Crowdarbeit hier inkludiert wird.
 Neben diesen und weiteren soziodemografischen Daten wurden auch Arbeitsumfang und -zeiten auf den Crowdarbeitsplattformen erfasst.
 
-Im Mittelpunkt der unten stehenden Analyse stehen allerdings die Antworten auf eine `r ncol(crowddata$exp_crowd)`-Item Batterie zur Erwartungen an Crowdarbeit.
+Im Mittelpunkt der unten stehenden Analyse stehen allerdings die Antworten auf eine `r ncol(crowddata$exp_crowd)`-Itembatterie zu Erwartungen an Crowdarbeit.
 <!-- TODO need source for the item battery -->
-Diese Einstellungen mittels einer 5-stufigen Likertskala erhoben, und in ähnlichen Formulierungen auch in Bezug auf konventionelle Erwerbsarbeit abgefragt.
+Diese Einstellungen wurden mittels einer 5-stufigen Likertskala erhoben, und in ähnlichen Formulierungen auch in Bezug auf konventionelle Erwerbsarbeit abgefragt.
 Allerdings stimmen die *meisten* Befragten den *meisten* Items "ziemlich" oder "stark" zu.
 Die resultierende geringe Varianz erfordert eine kategoriale Interpretation der Daten und verhindert die zuverlässige Diagnose von *möglichen* Mustern in den Antworten.
 Da die Fragen nicht randominisiert wurden erschweren mögliche Reihenfolgenartefakte sowie geändertete Formulierungen weiter die Interpretation etwaiger Kovarianzen.
@@ -151,7 +151,7 @@ Dies hängt mit unter damit zusammen, dass für die meisten der Befragten Crowdw
 Dieser Anspruch stellt neben jenen an Autonomie, Mitbestimmung und Würde den am häufigsten gestellten in den Interviews. 
 Die Dimensionen bzw. die Bezugspunkte hierfür sind die Kritik an der Höhe der Prämien im Verhältnis zur Leistungsverausgabung, die Aufgabenbeschreibung, die Leistungsbewertung und das Fehlen einer Entlohnungssicherheit. 
 
-```{r battery, fig.cap="Erwartungen an Crowdarbeit", fig.width=12, fig.height=10}
+```{r crowd, fig.cap="Erwartungen an Crowdarbeit", fig.width=12, fig.height=10}
 interesting <- NULL
 interesting$pay <- c("wage_organisation", "wage")
 interesting$briefing <- c("transparent_tasks", "expectations")
@@ -171,7 +171,7 @@ plot_battery(
 )
 ```
 
-```{r difference, fig.cap="Erwartungen an Reguläre Beschäftigung - Crowdwork", fig.width=12, fig.height=10}
+```{r diff, fig.cap="Erwartungen an Reguläre Beschäftigung - Crowdwork", fig.width=12, fig.height=10}
 m <- crowddata$exp_work - crowddata$exp_crowd
 plot_battery(
   m = m, 
@@ -187,9 +187,10 @@ Berichtet wird sogar über einen Stundenlohn von 10 Cent im Falle von Microjobs.
 Auf Design-Plattformen erfordert die Erhöhung der Wahrscheinlichkeit eines Erfolges das Einreichen von mehreren -– bis zu 20 -– Designs. 
 Die in Summe benötigte Arbeitszeit, um innerhalb eines Wettbewerbs konkurrenzfähig zu bleiben, wird in die Gewinnprämie nicht eingerechnet, weshalb auch in Begriffen der Ausbeutung argumentiert wird. 
 Vielfach wird betont, dass die Gefahr besteht, dass die für einen Wettbewerb investierte Arbeitszeit nicht mehr selbst kontrollierbar ist, weshalb die Befragten den Anspruch an sich selbst stellen, ihrer Leistungsverausgabung Grenzen zu setzen. 
+Dementsprechend zeigt Abbildung \@ref(fig:crowd) auch in der quantitativen Befragung starke Zustimmung für die Items `r get_items(interesting$pay)`.
+Allerdings scheint angemessene Bezahlung genauso auch hinsichtlich konventioneller Beschäftigung vielen Teilnehmenden wichtig zu sein (siehe Abbildung \@ref(fig:diff)).
 Der Adressat der Kritik an zu geringen Prämien ist nicht die Plattform, sondern der Kunde bzw. der Auftraggeber. 
 Die Gewinne, welche diese durch Crowdwork erzielen, stehen nicht im Verhältnis zur Prämierung und entwerten so die Leistung der Arbeitskraft.
-<!-- TODO Max: pay items -->
 
 Dass es gar nicht erst zu einer Prämierung der erbrachten Leistung kommt, liegt nicht nur am Konkurrenzprinzip von Crowdwork, sondern auch an der **unklaren Aufgabenbeschreibung**. 
 Dies trifft sowohl auf Design- und Ideenplattformen zu, welche nach dem Prinzip des Wettbewerbs organisiert sind, als auch auf Testing- und Microjob-Plattformen. 
