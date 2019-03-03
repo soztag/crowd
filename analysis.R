@@ -1,4 +1,4 @@
-plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en", width = 80) {
+plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en", width = 80, diff = FALSE) {
   # name long y labels, so they can be used as named vectors to replace existing short labels in the below
   if (is.null(items)) {
     items <- colnames(m)
@@ -44,9 +44,39 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
       panel.background = element_blank(),
       legend.position = "bottom"
     ) +
-    xlab("Agreement with Statement") +
     ylab(label = NULL) +
     scale_fill_discrete(name = "Platforms") + 
     guides(fill = FALSE) + 
-    scale_y_discrete(labels = long)
+    scale_y_discrete(labels = long) %>% 
+    {.} -> g
+  
+  if (diff) {
+    if (lang == "de") {
+      g <- g + xlab("Unterschied in der Zustimmung")
+    } else {
+      g <- g + xlab("Difference in Agreement")
+    }
+  } else {
+    g <- g + xlab(NULL)
+    g <- g + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+    if (lang == "de") {
+      g <- g + scale_x_discrete(labels = c(
+        "Trifft gar nicht zu",
+        "Trifft wenig zu",
+        "Teils, teils",
+        "Trifft ziemlich zu",
+        "Trifft völlig zu"
+      ))
+    } else {
+      g <- g + scale_x_discrete(labels = c(
+        "Strongly disagree",
+        "Disagree",
+        "Undecided",
+        "Agree",
+        "Strongly agree"
+      ))
+    }
+  }
+  
+  g
 }
