@@ -183,6 +183,7 @@ colnames(crowddata$exp_crowd) <- colnames(crowddata$exp_work)
 tibble::tibble(
   var = character(), 
   var_german = character(),
+  short_german = character(),
   section = character(),
   section_intro_german = character()
 ) %>%  
@@ -268,6 +269,36 @@ quest[9:16, c("section_intro_german")] <- "Nun würden wir gerne etwas über Ihr
 quest %<>%
   add_row(
     var = colnames(crowddata$exp_work),
+    short_german = c(
+      "interessante_arbeit",
+      "lernen",
+      "kooperation",
+      "unterstuetzung",
+      "erwartungen",
+      "mitbestimmung",
+      "autonomie",
+      "zeitpunkt",
+      "arbeitsmenge",
+      "kriterien_einfluss",
+      "kriterien_transparent",
+      "realistische_planung",
+      "genug_zeit",
+      "ausbildung",
+      "anerkennung_chef",
+      "anerkennung_kollegen",
+      "gerecht",
+      "angemessen",
+      "sicherheit",
+      "anpassen_ort",
+      "anpassen_zeit",
+      "trennung",
+      "klare_aufgaben",
+      "bewertung_einfluss",
+      "bewertung_konsistent",
+      "bewertung_widerspruch",
+      "entlohnung_angemessen",
+      "entlohnung_leistung"
+    ),
     section = "expect_work",
     section_intro_german = "Bitte denken Sie an Ihre aktuelle Erwerbstätigkeit. Sollten Sie zur Zeit keiner Erwerbstätigkeit nachgehen, so denken Sie bitte an Ihren letzten Job. Sollten Sie bisher noch nicht als ArbeitnehmerIn tätig gewesen sein, so stellen Sie sich bitte Ihren künftigen Job vor. Die folgenden Fragen beziehen sich ausschließlich auf diese Tätigkeit und fokussieren Ihre subjektiven Erwartungen an Arbeit. \n In meiner Erwerbsarbeit ist es mir wichtig, dass... \n Die Stärke Ihrer Zustimmung erfolgt auf einer 6-stufigen Skala."
   )
@@ -281,6 +312,7 @@ quest[quest$section == "expect_work", "var_german"] <- rawdat$atizo %>%
 quest %<>%
   add_row(
     var = colnames(crowddata$exp_work),
+    short_german = as_vector(quest[quest$section == "expect_work", "short_german"]),
     section = "expect_crowd",
     section_intro_german = "Bitte denken Sie nun an Ihre Aktivität auf Internet-Plattformen. Die folgenden Fragen beziehen sich ausschließlich (!) auf Ihre Tätigkeit als CrowdworkerIn. Dabei interessiert uns wieder, wie wichtig Ihnen folgende Ausssagen zu Ansprüchen an Crowdarbeit sind. \n Bei meiner Tätigketit als CrowdwokerIn ist es mir wichtig, dass..."
   )

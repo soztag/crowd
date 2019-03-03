@@ -1,14 +1,25 @@
-plot_battery <- function(m, items = NULL, condition = "expect_crowd") {
+plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en", width = 80) {
   # name long y labels, so they can be used as named vectors to replace existing short labels in the below
   if (is.null(items)) {
     items <- colnames(m)
+  }
+  
+  if (lang == "de") {
+    # take german short titles in this case
+    shorts <- quest %>% 
+      dplyr::filter(section == "expect_crowd") %>% 
+      dplyr::filter(var %in% items) %>% 
+      pull(short_german)
+  } else {
+    shorts <- items
   }
   
   quest %>% 
     dplyr::filter(section == condition) %>% 
     dplyr::filter(var %in% items) %>% 
     pull(var_german) %>% 
-    stringr::str_wrap(width = 45) %>%
+    stringr::str_wrap(width = width) %>%
+    paste0(shorts, ":\n", .) %>%
     set_names(value = items) %>% 
     {.} -> long
   
