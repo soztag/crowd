@@ -152,7 +152,7 @@ Dieser Anspruch stellt neben jenen an Autonomie, Mitbestimmung und Würde den am
 Die Dimensionen bzw. die Bezugspunkte hierfür sind die Kritik an der Höhe der Prämien im Verhältnis zur Leistungsverausgabung, die Aufgabenbeschreibung, die Leistungsbewertung und das Fehlen einer Entlohnungssicherheit. 
 Die diesen Dimensionen zugehörigen Items sind auch in den unten stehenden Abbildungen \@ref(fig:crowd)) und \@ref(fig:diff)) zur Illustration eingefärbt; eine quantitative Validierung der Dimensionen etwa im Sinne einer konfirmatorischen Faktoranalyse ist allerdings mit den vorliegenden Daten nicht möglich.
 
-```{r crowd, fig.cap="Erwartungen an Crowdarbeit", fig.width=12, fig.height=10, out.width="1\\linewidth"}
+```{r crowd, fig.cap="Erwartungen an Crowdarbeit", fig.width=12, fig.height=10}
 interesting <- NULL
 interesting$`Prämien` <- c("wage_organisation", "wage")
 interesting$`Aufgabenbeschreibung` <- c("transparent_tasks", "expectations")
@@ -173,7 +173,7 @@ plot_battery(
 )
 ```
 
-```{r diff, fig.cap="Erwartungen an Reguläre Beschäftigung - Crowdwork", fig.width=12, fig.height=10, out.width="1\\linewidth"}
+```{r diff, fig.cap="Erwartungen an Reguläre Beschäftigung - Crowdwork", fig.width=12, fig.height=10}
 m <- crowddata$exp_work - crowddata$exp_crowd
 plot_battery(
   m = m, 
