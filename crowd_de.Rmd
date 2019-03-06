@@ -45,31 +45,32 @@ output:
 
 # Jenseits von Betrieb und Beschäftigung: CrowdArbeit
 
-## Forschungsstand
+Der Begriff  geht auf den Wissenschaftler und Journalisten Jeff Howe zurück, welcher im Jahr 2006 erstmals das "Crowdsourcing" als unternehmerische Strategie wie folgt definierte:
 
-Das neuartige arbeitsweltliche Phänomen geht auf den Wissenschaftler und Journalisten Jeff Howe zurück, welcher im Jahr 2006 erstmals das "Crowdsourcing" als unternehmerische Strategie wie folgt definierte:
+> "Crowdsourcing is the act of taking a job traditionally performed by a designated agent (usually an employee) and outsourcing it to an undefined, generally large group of people in the form of an open call. (Howe 2006)"
 
-> "Crowdsourcing is the act of taking a job traditionally performed by a designated agent (usually an employee) and outsourcing it to an undefined, generally large group of people in the form of an open call." (Howe 2006)
-
-Im Gegensatz zum Outsourcing, bei welchem bisher intern erbrachte Leistung auch nach außen verlagert werden, werden diese beim Crowdsourcing an eine Masse von unbekannten Akteuren, mittels eines offenen Aufrufrufes auf einer Internetplattform, einem so genannten Intermediär, ausgeschrieben, wobei der Auftraggeber wirtschaftliche Vorteile erlangt und der Crowdworker nicht unbedingt.
+Im Gegensatz zum Outsourcing, bei welchem bisher intern erbrachte Leistungen auch nach außen verlagert werden, werden diese beim Crowdsourcing an eine Masse von unbekannten Akteuren, mittels eines offenen Aufrufes auf einer Internetplattform, einem so genannten Intermediär, ausgeschrieben, wobei der Auftraggeber wirtschaftliche Vorteile erlangt und der Crowdworker nicht unbedingt.
 In der deutschsprachigen Literatur findet man sodann im Jahre 2009 eine erste und erweiterte Definition des Begriffs (Papsdorf 2009). 
-Es herrscht in der aktuellen Literatur keine einheitliche Begriffsverwendung. 
+Es herrscht hierfür jedoch bislang keine einheitliche Begriffsverwendung. 
 Die bekanntesten sind Crowdwork (Flecker et al. 2016, Schmidt 2016, Grahem et al. 2017, Schöpf et al. 2017), Cloudwork (Schmidt 2016), Gigwork bzw. Gig-Economy (Harris/Krueger 2015, Schmidt 2016), On-Demand-Workforce bzw. On-Demand-Economy (Berg 2016, Huws/Joyce 2016, Schmidt 2016) oder Online-Outsourcing (Kuek et al. 2015). 
 Darüber hinaus gibt es einige Studien zum Interpretationsrahmen dieser neuen Form der Erwerbsarbeit. 
 Sie wird als eine neue Form der Kunden- bzw. Userarbeit gedeutet (Kleemann/Voß/Rieder 2008, Papsdorf 2009), als Reorganisations-Strategie (Kawalec/Menz 2013), als neue Landnahme (Boes 2015), als Open Innovation (Chesbrough 2003, Reichwald/Piller 2009), als neue Form der Selbstständigkeit (Pongratz/Bormann 2017) oder als neues Geschäftsmodell (Schmidt 2016). 
-Darüber hinaus beschäftigen sich weitere Publikationen mit den Chancen und Risiken von Crowdwork auf den politischen Ebenen des Arbeitsrechts (Cherry 2014, Däubler 2014, Schröder 2015), des Datenschutzes (Höller 2015), der Ethik (Schmidt 2014, Küppers 2017, Menz/Tomazik 2017), der betrieblichen Interessenspolitik (Klebe 2014, Wedde 2015) und der Gewerkschaften (Benner 2014, Cohen 2014, Rio Antas 2014, Brandl 2015, Schwemmle 2015, Fuß 2017). Des Weiteren existieren zahlreiche quantitative deutschsprachige und internationale Untersuchungen zur Beschaffenheit (Kuek et al. 2015, Ipeirotis 2010, Ross et al. 2010, Harris/Krueger 2015, Huws/Joyce 2016, ZEW 2016, Ver.di 2017, Pongratz/Bormann 2017, Leimeister et al. 2016) und der Motivation der Crowd (Berg 2016, Graham et al. 2017, Flecker et al. 2016), sowie den damit verbundenen Arbeitsbedingungen (Berg 2016, Graham et al. 2017, Schröpf et al. 2017, ArbeitGestalten 2016, Al Ani/Stumpp). 
+Weitere Publikationen beschäftigen sich mit den Chancen und Risiken von Crowdwork auf den politischen Ebenen des Arbeitsrechts (Cherry 2014, Däubler 2014, Schröder 2015), des Datenschutzes (Höller 2015), der Ethik (Schmidt 2014, Küppers 2017, Menz/Tomazik 2017), der betrieblichen Interessenspolitik (Klebe 2014, Wedde 2015) und der Gewerkschaften (Benner 2014, Cohen 2014, Rio Antas 2014, Brandl 2015, Schwemmle 2015, Fuß 2017). 
+Des Weiteren existieren zahlreiche quantitative deutschsprachige und internationale Untersuchungen zur Beschaffenheit (Kuek et al. 2015, Ipeirotis 2010, Ross et al. 2010, Harris/Krueger 2015, Huws/Joyce 2016, ZEW 2016, Ver.di 2017, Pongratz/Bormann 2017, Leimeister et al. 2016) und der Motivation der Crowd (Berg 2016, Graham et al. 2017, Flecker et al. 2016), sowie den damit verbundenen Arbeitsbedingungen (Berg 2016, Graham et al. 2017, Schröpf et al. 2017, ArbeitGestalten 2016, Al Ani/Stumpp). 
 
 
 ## Theoriefokus
 
-In der vorliegenden Studie verwenden wir den Begriff Crowdwork bzw. CrowdArbeit auf der subjektiven Ebene als neue Form der Erwerbsarbeit. Der Fokus liegt dabei auf der Frage nach dem subjektiven Gerechtigkeitsansprüchen an Crowdwork und im Speziellen nach dem Verständnis von Leistungsgerechtigkeit. 
+In der vorliegenden Studie verwenden wir den Begriff Crowdwork bzw. CrowdArbeit auf der subjektiven Ebene und als neue Form der Erwerbsarbeit. 
+Der Fokus liegt dabei auf der Frage nach den subjektiven Gerechtigkeitsansprüchen an Crowdwork und im Speziellen nach dem subjektiven Verständnis von Leistungsgerechtigkeit. 
 Die Frage nach den Legitimationsgrundlagen von Erwerbsarbeit hat ihre Wurzeln in der Forschung zum Arbeitsnehmerbewusstsein der 1950er bis 1970er Jahre (Schelsky 1957, Popitz et al. 2018, Kern/Schumann 1985). 
 Die aktuelle Forschung zu der Frage nach Ansprüchen und Legitimationsgrundlagen von Arbeit ist sehr neu und diagnostiziert, dass die Verletzung von Gerechtigkeitsansprüchen am Arbeitsplatz durchaus wahrgenommen und kritisiert wird. 
-Legitimationskonflikte bleiben jedoch aus (Kratzer et al. 2015). Aktuelle Untersuchungen zu den normativen Grundlagen der Arbeitswelt, deren Gültigkeit in Form von subjektiven Ansprüchen geltend gemacht werden, bestehen aus drei einschlägigen Werken. 
-Dabei diagnostiziert Francois Dubet die Gleichheit, die Leistung und due Autonomie als Gerechtigkeitsprinzipien von Arbeit (Dubet 2008). 
+Legitimationskonflikte bleiben jedoch aus (Kratzer et al. 2015). 
+Aktuelle Untersuchungen zu den normativen Grundlagen der Arbeitswelt, deren Gültigkeit in Form von subjektiven Ansprüchen geltend gemacht werden, bestehen aus drei einschlägigen Werken. 
+Dabei diagnostiziert Francois Dubet die Gleichheit, die Leistung und die Autonomie als Gerechtigkeitsprinzipien von Arbeit (Dubet 2008). 
 Die empirischen Befunde von Hürtgen und Voswinkel zeigen ebenfalls drei zentrale Ansprüche auf: 
-Leistungsgerechtigkeit, Menschenrecht und Sozialwesen (Hürtgen/Voswinkel 2014). 
-Die Wissenschaftler des ISF München und des SOFI Göttingen identifizieren in ihrer qualtativ angelegten Studie sechs Gerechtigkeitsansprüche an Erwerbsarbeit: 
+Leistungsgerechtigkeit, Menschenrecht und Sozialwesen (Hürtgen/Voswinkel 2014).
+Die Wissenschaftler des ISF München und des SOFI Göttingen identifizieren in ihrer qualitativ angelegten Studie sechs Gerechtigkeitsansprüche an Erwerbsarbeit: 
 Würde, Leistungsgerechtigkeit, Selbstverwirklichung, Beteiligung, Fürsorge sowie Rationalitätsansprüche (Kratzer et al. 2015). 
 
 
@@ -78,19 +79,21 @@ Würde, Leistungsgerechtigkeit, Selbstverwirklichung, Beteiligung, Fürsorge sow
 Der aktuelle Stand der Literatur zu den neuen Phänomen Crowdsourcing bzw. Crowdwork zeigt, dass diese sich vordergründig der Frage nach der Begriffsklärung, eines geeigneten Interpretationsrahmens, der Beschaffenheit und Motivation der Crowd sowie den Arbeitsbedingungen dieser neuen Form der Arbeit widmen. 
 Dabei sind die meisten von ihnen quantitativ angelegte Studien. 
 Es fehlen umfangreiche und vor allem qualitative Untersuchungen, welche die subjektive Erfahrungswelt der Crowdworker in den Blick nehmen. 
-Die drei einschlägigen Studien zum Gerechtigkeitsempfinden am Arbeitsplatz zielen auf Erwerbstätige, welche einer Beschäftigung nachgehen, seien es Normalarbeitsbeschäftigte, oder jene in atypischen Arbeitsverhältnissen. 
-Doch eben diese Arbeitsverhältnisse kennzeichnet ein Arbeitsvertrag und die damit verbundenen institutionalisierten Rechte und Pflichten aus. 
+Die drei einschlägigen Studien zum Gerechtigkeitsempfinden am Arbeitsplatz zielen auf Erwerbstätige, welche einer regulären Beschäftigung nachgehen, seien es Normalarbeitsbeschäftigte, oder jene in atypischen Arbeitsverhältnissen. Doch eben diese Arbeitsverhältnisse kennzeichnet ein Arbeitsvertrag und die damit verbundenen institutionalisierten Rechte und Pflichten aus. 
 Ganz anders verhält es sich bei Crowdwork. 
 Der Crowdworker unterliegt lediglich den Bestimmungen der Plattform, auf welcher er tätig ist. 
 Diese sind in den allgemeinen Geschäftsbedingungen festgesetzt und meist zu seinem Nachteil konzipiert. 
-Und gerade ein Arbeitsvertrag, welcher das Tauschverhältnis zwischen der Leistung der Arbeitskraft und der Gegenleistung reguliert, bleibt völlig aus. Dem Leistungsprinzip unterliegt bisher ein Beschäftigungsverhältnis, das in Regelwerke und Rechtnormen eingegliedert ist, wie das Arbeitsrecht oder der Tarifvertrag. 
+Und gerade ein Arbeitsvertrag, welcher das Tauschverhältnis zwischen der Leistung der Arbeitskraft und der Gegenleistung reguliert, bleibt völlig aus.
+Dem Leistungsprinzip unterliegt bisher ein Beschäftigungsverhältnis, das in Regelwerke und Rechtnormen eingegliedert ist, wie das Arbeitsrecht oder der Tarifvertrag. 
 Dabei liegt dem Begriff von Leistung meist ein aufwandsbezogener Begriff zugrunde, welcher auf dem konkreten Leistungsverhalten, der beruflichen Qualifikation und der Verantwortung basiert. 
-Crowdwork zeichnet sich jedoch durch einen ergebnisorientierten Wettbewerb aus: Nur derjenige erhält die Prämie, welcher das beste und/oder schnellste Ergebnis abgeliefert hat. 
+Crowdwork zeichnet sich jedoch durch einen ergebnisorientierten Wettbewerb aus:
+Nur derjenige erhält die Prämie, welcher das beste und/oder schnellste Ergebnis abgeliefert hat. 
 Die Leistung (als zeitlicher Aufwand) sowie die Fähigkeiten und Qualifikationen dieser Personengruppe verschwinden hinter dem eingereichten Ergebnis. 
 Neben den Gerechtigkeitsansprüchen, welche keiner rechtlichen Institutionalisierung unterliegen wie Selbstverwirklichung, Würde und Beteiligung – wobei letztere in prekären Beschäftigungsverhältnissen ebenfalls kaum Wirkungsmacht hat – zielt unsere Fragestellung auf den Anspruch auf Leistungsgerechtigkeit. 
 Welche normativen Ansprüche hegen Crowdworker jenseits von Betrieb und Beschäftigungsverhältnis? 
 Entspricht Crowdwork den bisherigen subjektiven Ansprüchen an Arbeit und werden diese realisiert? 
-Oder stoßen sie bei dieser Form der Arbeit auf Kritik? Orientiert sich das Verständnis von Leistungsgerechtigkeit der Crowdworker immer noch – wie bei den bisherigen Befunden der Erwerbstätigen – an dem Aufwand oder doch gemäß des Prinzips dieser Form von Arbeit an dem Ergebnis? 
+Oder stoßen sie bei dieser Form der Arbeit auf Kritik? 
+Orientiert sich das Verständnis von Leistungsgerechtigkeit der Crowdworker immer noch -- wie bei den bisherigen Befunden der Erwerbstätigen -- an dem Aufwand oder doch gemäß des Prinzips dieser Form von Arbeit an dem Ergebnis? 
 
 
 # Empirische Basis und Methoden
