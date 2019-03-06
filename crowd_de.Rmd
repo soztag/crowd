@@ -41,7 +41,26 @@ output:
 ---
 
 # Alles neu...? Zur Einleitung
-<!-- TODO 2500 chars -->
+
+Crowdwork ist eines der der neuen arbeitsweltlichen Phänomene welches verdeutlicht, dass sich die Arbeit im Zuge immer besserer und innovativer Informations- und Kommunikationstechnologien im Kontext der Globalisierung in einem historischen Wandel befindet. 
+Das Prinzip dieser Arbeitsform ist ein ergebnisorientierter Wettbewerb: 
+Ein Auftraggeber stellt eine Aufgabe auf einer Internet-Plattform zur Bearbeitung bereit. 
+Die auf dieser Online-Plattform registrierte Community reicht entsprechende Ergebnisse ein, von welchem vor das Beste prämiert wird. 
+Die Virulenz von Crowdwork zeigen prominente Unternehmen, welche es nachhaltig zur Abwicklung ihrer Aufgaben nutzen: 
+IBM lies bis vor kurzem seine Anwendungen von der Crowd entwickeln, Bosch verbessert in Zusammenarbeit mit seinen Kunden auf einer entsprechenden Plattform die Services, die NASA lässt den Mars kartographieren und Firmen wie Haribo, Ritter Sport oder McDonnald's lassen von der Community neue Produkte erstellen. 
+Der Vorteil für Auftraggeber stellen kostengünstige Ergebnisse dar sowie die Möglichkeit, auf einen weltweiten Wissens-Pool der einzelnen Personen zugreifen zu können. 
+Crowdworker profitieren davon, zeit- und ortsflexibel Tätigkeiten nachzugehen, ihre Fähigkeiten und Fertigkeiten zu erweitern und einen Erwerb zu erzielen.
+
+In Deutschland sind schätzungsweise 500 000 bis eine Million Menschen auf jenen Plattformen registriert. 
+Letztere erwirtschaften einen Umsatz von 200 Millionen Euro (Ver.di 2017). 
+
+Crowdwork stellt eine der neuen Arbeitsformen dar, welche am meisten mit den bisherigen Modellen von Arbeit bricht, da ehemals wirkmächtige Institutionen obsolet werden: das Arbeitsrecht, welches beispielsweise über Lohnfortzahlungen gute Arbeitsbedingungen für Subjekte sichert hat aufgrund des Fehlens eines Arbeitsvertrages keine Wirkungsmacht mehr; betriebliche Sozialleistungen, wie die Beiträge zur Kranken- und Rentenversicherung sind nicht gegeben; ein reguläres Einkommen bzw. eine sichere Auftragslage ist nicht garantiert; aufgrund des Fehlens einer Tarifbindung und eines Betriebsverfassungsgesetzes gibt es keine gesetzliche Möglichkeit der Mitbestimmung über die Rahmenbedingungen der eigenen Arbeit. 
+Mehr noch: 
+Der Betrieb als Ort der Sozialität, in welchem Kollegialität, Anerkennung und Wertschätzung erlebt werden verschwindet.
+
+Die gesellschaftlichen Vorstellungen von Arbeit und somit auch normativen Ansprüche an jene, welche letztlich als Legitimationsgrundlage von Arbeit dienen, waren stets von diesen Institutionen geprägt -- Leistungsgerechtigkeit, Autonomie, Würde oder Selbstverwirklichung. 
+Der vorliegende Artikel klärt die Frage, welches Verständnis von Leistungsgerechtigkeit Crowdworker jenseits von Betrieb und Beschäftigungsverhältnis entwickeln. 
+
 
 # Jenseits von Betrieb und Beschäftigung: CrowdArbeit
 
