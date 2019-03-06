@@ -263,8 +263,6 @@ Beim Crowdwork kann man sich nicht auf regelmäßige Einkünfte und auf eine ste
 Dies ist mitunter der Grund, warum die meisten Befragten Crowdwork nur als Nebenerwerb nutzen. 
 Zur Dimension der Planungssicherheit liegt im Fragebogen nur das Item `r get_items(interesting$Planungssicherheit)` vor, was ebenfalls als wichtig eingeschätzt wird.
 
-**Anm. Sandra: Abschnitt ist vielleicht besser für das Fazit geeignet**
-
 Vergleicht man diese Ergebnisse mit den aktuellen Befunden in der sozialwissenschaftlichen Literatur, so ergibt in Bezug auf den Anspruch auf Leistungsgerechtigkeit eine Gemeinsamkeit: 
 Das Verständnis der Crowdworker bezieht sich auf einen Begriff von Leistungsgerechtigkeit, welcher aufwandsbezogen gedeutet wird. 
 Als Aufwand gilt das konkrete Leistungsverhalten. 
@@ -288,4 +286,23 @@ Leistungsgerechtigkeit als Gerechtigkeitsprinzip, so lässt sich festhalten, wir
 
 
 # Fazit
-<!-- TODO 2000 chars -->
+
+Vergleicht man diese Ergebnisse mit den aktuellen Befunden in der sozialwissenschaftlichen Literatur, so ergibt in Bezug auf den Anspruch auf Leistungsgerechtigkeit eine Gemeinsamkeit: 
+Das Verständnis der Crowdworker bezieht sich auf einen Begriff von Leistungsgerechtigkeit, welcher aufwandsbezogen bedeutet wird. Als Aufwand gilt das konkrete Leistungsverhalten. 
+Berufliche Kompetenzen, Qualifikation sowie Verantwortung als Maßstab von Leistung spielen hingegen keine Rolle. 
+Dies kann damit begründet werden, dass sowohl berufliche Kompetenzen als auch Qualifikationen keine Voraussetzungen dafür sind, sich als Crowdworker auf einer Plattform zu registrieren. 
+Auch werden die individuellen Qualifikationen und Fähigkeiten von der Plattform weder abgefragt, noch überprüft. 
+Was zählt, ist lediglich das eingereichte Ergebnis. 
+Da Crowdworker keine Verantwortung oder Pflichten für die Plattform oder die Community übernehmen, ist dieser Aspekt ebenfalls obsolet. 
+Zudem gehen die Crowdworker keinen Arbeitsvertrag mit der Plattform oder den Auftraggebern ein. 
+Die Höhe der ausgeschriebenen Prämie ist für alle Community-Mitglieder die gleiche, unabhängig davon, ob einer einen Hochschulabschluss oder eine abgeschlossene Ausbildung vorweisen kann. 
+Der individuelle Beitrag bzw. die persönliche Leistung hinter dem eingereichten Ergebnis verschwindet. 
+
+Und dennoch bzw. gerade deshalb berufen sich die Befragten auf den Anspruch der aufwandsbezogenen Leistungsgerechtigkeit. 
+Da die Höhe der Prämie nicht der dahinterliegenden geleisteten Arbeitszeit entspricht, wird die Kritik laut, die Arbeitsleistung verschwinde hinter dem Ergebnis. 
+Unklare Aufgabenbeschreibungen und nicht objektive Leistungsbewertungen verstärken zudem das Ungerechtigkeitsgefühl hinsichtlich einer Ablehnung der eingereichten Arbeit. 
+Das Festhalten am aufwandsbezogenem Leistungsbegriff -- und gerade nicht am ergebnisbezogenem -- äußert sich hier ebenfalls in der Kritik, dass die Leistungsbewertung und somit das prämierte Ergebnis von der Stellung des Crowdworkers im öffentlichen Ranking abhängig ist und nicht die Leistung an sich zählt.
+Und mehr noch: 
+Da aufgrund des Konkurrenzprinzips gar nicht garantiert werden kann, dass die erbrachte Leistung überhaupt prämiert wird, verschwinden zusätzlich zur verausgabten Arbeitskraft eines jeden auch die erbrachten Ergebnisse aller nicht prämierten Crowdworker.
+
+Leistungsgerechtigkeit als Gerechtigkeitsprinzip, so lässt sich festhalten, wird im Falle von Crowdwork in Form von Kritik am bestehenden ergebnis- und konkurrenzbasierten System formuliert. 
