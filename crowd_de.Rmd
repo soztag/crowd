@@ -52,7 +52,7 @@ Der Vorteil für Auftraggeber stellen kostengünstige Ergebnisse dar sowie die M
 Crowdworker profitieren davon, zeit- und ortsflexibel Tätigkeiten nachzugehen, ihre Fähigkeiten und Fertigkeiten zu erweitern und einen Erwerb zu erzielen.
 
 In Deutschland sind schätzungsweise 500 000 bis eine Million Menschen auf jenen Plattformen registriert. 
-Letztere erwirtschaften einen Umsatz von 200 Millionen Euro (Ver.di 2017). 
+Letztere erwirtschaften einen Umsatz von 200 Millionen Euro [@Ver.di2017]. 
 
 Crowdwork stellt eine der neuen Arbeitsformen dar, welche am meisten mit den bisherigen Modellen von Arbeit bricht, da ehemals wirkmächtige Institutionen obsolet werden: das Arbeitsrecht, welches beispielsweise über Lohnfortzahlungen gute Arbeitsbedingungen für Subjekte sichert hat aufgrund des Fehlens eines Arbeitsvertrages keine Wirkungsmacht mehr; betriebliche Sozialleistungen, wie die Beiträge zur Kranken- und Rentenversicherung sind nicht gegeben; ein reguläres Einkommen bzw. eine sichere Auftragslage ist nicht garantiert; aufgrund des Fehlens einer Tarifbindung und eines Betriebsverfassungsgesetzes gibt es keine gesetzliche Möglichkeit der Mitbestimmung über die Rahmenbedingungen der eigenen Arbeit. 
 Mehr noch: 
@@ -307,3 +307,6 @@ Und mehr noch:
 Da aufgrund des Konkurrenzprinzips gar nicht garantiert werden kann, dass die erbrachte Leistung überhaupt prämiert wird, verschwinden zusätzlich zur verausgabten Arbeitskraft eines jeden auch die erbrachten Ergebnisse aller nicht prämierten Crowdworker.
 
 Leistungsgerechtigkeit als Gerechtigkeitsprinzip, so lässt sich festhalten, wird im Falle von Crowdwork in Form von Kritik am bestehenden ergebnis- und konkurrenzbasierten System formuliert. 
+
+
+# Bibliografie {-}
