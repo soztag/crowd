@@ -221,7 +221,7 @@ Im Folgenden stellen wir daher rein kursorisch auf deskriptive Zählungen ab.
 
 Der Anspruch auf Leistungsgerechtigkeit, somit jener auf ein gerechtes Tauschverhältnis zwischen der Leistung der Arbeitskraft und der Gegenleistung, unterliegt im Falle von Crowdwork keinem so hohen Institutionalisierungsgrad wie in einem Beschäftigungsverhältnis, welches auf einem Arbeitsvertrag basiert.
 Die Ergebnisse der Anspruchsanalyse von Crowdworkern macht jedoch deutlich, dass diese sehr wohl einen Anspruch auf Leistungsgerechtigkeit formulieren.
-Dies hängt mit unter damit zusammen, dass für die meisten der Befragten Crowdwork als Einkommensquelle fungiert.
+Dies hängt mit unter damit zusammen, dass für die meisten der Befragten Crowdwork als Einkommensquelle fungiert. 
 Dieser Anspruch stellt neben jenen an Autonomie, Mitbestimmung und Würde den am häufigsten gestellten in den Interviews.
 Die Dimensionen bzw. die Bezugspunkte hierfür sind die Kritik an der Höhe der Prämien im Verhältnis zur Leistungsverausgabung, die Aufgabenbeschreibung, die Leistungsbewertung und das Fehlen einer Entlohnungssicherheit.
 Die diesen Dimensionen zugehörigen Items sind auch in den unten stehenden Abbildungen \@ref(fig:crowd)) und \@ref(fig:diff)) zur Illustration eingefärbt; eine quantitative Validierung der Dimensionen etwa im Sinne einer konfirmatorischen Faktoranalyse ist allerdings mit den vorliegenden Daten nicht möglich.
