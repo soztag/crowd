@@ -11,6 +11,11 @@ thanks: |
     end of the article.
 author:
   - name: "Sandra Kawalec"
+    url: https://soziologie.uni-hohenheim.de/sandra-kawalec
+    affiliation: Universität Hohenheim
+    affiliation_url: https://www.uni-hohenheim.de/
+    address: Lehrstuhl für Soziologie, Universität Hohenheim
+    email: Sandra.Kawalec@uni-hohenheim.de
   - name: "Sabine Pfeiffer"
     url: https://www.sabine-pfeiffer.de
     affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
