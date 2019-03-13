@@ -126,7 +126,7 @@ Orientiert sich das Verständnis von Leistungsgerechtigkeit der Crowdworker imme
 
 Die sowohl qualitativ wie auch quantitativ angelegte Untersuchung verfolgte das Ziel, die Anspruchshaltungen der Crowdworker bezüglich der Arbeitswelt zu ermitteln. 
 Hierbei wurde ein exploratives Vorgehen gewählt, da es zur Zeit der Erhebung keinerlei empirische Befunde gab, welche das methodische Vorgehen hätten strukturieren können. 
-In einer ersten Phase wurde über qualitative Experteninterviews [Gläser/Laudel 2010] das empirische Feld erschlossen. 
+In einer ersten Phase wurde über qualitative Experteninterviews [@Glaser2010] das empirische Feld erschlossen. 
 <!-- TODO missing citation -->
 Die Befragung mit wissenschaftlichen und interessenpolitischen Akteuren und Betreibern von Online-Plattformen ergab, dass es vier Typen von Crowdwork-Plattformen gibt: 
 Innovations-, Testing-, Microjob- und Designplattformen.
@@ -218,7 +218,6 @@ Im Folgenden stellen wir daher rein kursorisch auf deskriptive Zählungen ab.
 
 
 # Leistungsgerechtigkeit im Kontrast Erwerbsarbeit vs. Crowdarbeit
-<!-- TODO 8500 chars -->
 
 Der Anspruch auf Leistungsgerechtigkeit, somit jener auf ein gerechtes Tauschverhältnis zwischen der Leistung der Arbeitskraft und der Gegenleistung, unterliegt im Falle von Crowdwork keinem so hohen Institutionalisierungsgrad wie in einem Beschäftigungsverhältnis, welches auf einem Arbeitsvertrag basiert.
 Die Ergebnisse der Anspruchsanalyse von Crowdworkern macht jedoch deutlich, dass diese sehr wohl einen Anspruch auf Leistungsgerechtigkeit formulieren.
@@ -260,7 +259,7 @@ plot_battery(
 )
 ```
 
-In Bezug auf die *Höhe der Prämien* im Verhältnis zur Verausgabung der Arbeitskraft wird die Kritik zum Ausdruck gebracht, dass die geleistete Arbeitszeit keiner angemessenen Bezahlung entspricht. 
+In Bezug auf die **Höhe der Prämien** im Verhältnis zur Verausgabung der Arbeitskraft wird die Kritik zum Ausdruck gebracht, dass die geleistete Arbeitszeit keiner angemessenen Bezahlung entspricht. 
 Berichtet wird sogar über einen Stundenlohn von 10 Cent im Falle von Microjobs.
 Auf Design-Plattformen erfordert die Erhöhung der Wahrscheinlichkeit eines Erfolges das Einreichen von mehreren -– bis zu 20 -– Designs.
 Die in Summe benötigte Arbeitszeit, um innerhalb eines Wettbewerbs konkurrenzfähig zu bleiben, wird in die Gewinnprämie nicht eingerechnet, weshalb auch in Begriffen der Ausbeutung argumentiert wird.
