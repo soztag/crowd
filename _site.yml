@@ -27,7 +27,7 @@ navbar:
   right:
   - icon: fa-pen
     text: Edit
-    href: https://github.com/soztag/crowd/edit/master/%s
+    href: https://github.com/soztag/crowd/edit/master/crowd_de.Rmd
   - icon: fa-github
     text: Source
     href: https://github.com/soztag/crowd
