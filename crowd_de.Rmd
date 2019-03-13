@@ -1,4 +1,3 @@
-
 ---
 title: "Crowdworking"
 subtitle: "Erwartungen von deutschen Crowdworker_innen auf drei ausgewählten Plattformen."
@@ -48,13 +47,13 @@ output:
 
 # Alles neu...? Zur Einleitung
 
-Crowdwork ist eines der der neuen arbeitsweltlichen Phänomene welches verdeutlicht, dass sich die Arbeit im Zuge immer besserer und innovativer Informations- und Kommunikationstechnologien im Kontext der Globalisierung in einem historischen Wandel befindet.
+Crowdwork ist eines der neuen arbeitsweltlichen Phänomene welches verdeutlicht, dass sich die Arbeit im Zuge immer besserer und innovativer Informations- und Kommunikationstechnologien im Kontext der Globalisierung in einem historischen Wandel befindet.
 Das Prinzip dieser Arbeitsform ist ein ergebnisorientierter Wettbewerb:
 Ein Auftraggeber stellt eine Aufgabe auf einer Internet-Plattform zur Bearbeitung bereit.
-Die auf dieser Online-Plattform registrierte Community reicht entsprechende Ergebnisse ein, von welchem vor das Beste prämiert wird.
-Die Virulenz von Crowdwork zeigen prominente Unternehmen, welche es nachhaltig zur Abwicklung ihrer Aufgaben nutzen:
-IBM lies bis vor kurzem seine Anwendungen von der Crowd entwickeln, Bosch verbessert in Zusammenarbeit mit seinen Kunden auf einer entsprechenden Plattform die Services, die NASA lässt den Mars kartographieren und Firmen wie Haribo, Ritter Sport oder McDonnald's lassen von der Community neue Produkte erstellen.
-Der Vorteil für Auftraggeber stellen kostengünstige Ergebnisse dar sowie die Möglichkeit, auf einen weltweiten Wissens-Pool der einzelnen Personen zugreifen zu können.
+Die auf dieser Online-Plattform registrierte Community reicht entsprechende Ergebnisse ein, von welchem das Beste prämiert wird.
+Die Virulenz von Crowdwork zeigen prominente Unternehmen, welche es zur Abwicklung ihrer Aufgaben nutzen:
+IBM lies bis vor kurzem einzelne Anwendungen von der Crowd entwickeln, Bosch verbessert in Zusammenarbeit mit seinen Kunden auf einer entsprechenden Plattform angebotene Dienstleistungen, die NASA lässt den Mars kartographieren und Firmen wie Haribo, Ritter Sport oder McDonnald's lassen von der Community neue Produkte vorschlagen.
+Auftraggeber schätzen vermutlich niedrigere Kosten sowie die Möglichkeit, auf einen weltweiten Wissens-Pool von angemeldeten Personen zugreifen zu können.
 Crowdworker profitieren davon, zeit- und ortsflexibel Tätigkeiten nachzugehen, ihre Fähigkeiten und Fertigkeiten zu erweitern und einen Erwerb zu erzielen.
 
 In Deutschland sind schätzungsweise 500 000 bis eine Million Menschen auf jenen Plattformen registriert.
@@ -87,22 +86,21 @@ Des Weiteren existieren zahlreiche quantitative deutschsprachige und internation
 
 ## Theoriefokus
 
-In der vorliegenden Studie verwenden wir den Begriff Crowdwork bzw. CrowdArbeit auf der subjektiven Ebene und als neue Form der Erwerbsarbeit.
-Der Fokus liegt dabei auf der Frage nach den subjektiven Gerechtigkeitsansprüchen an Crowdwork und im Speziellen nach dem subjektiven Verständnis von Leistungsgerechtigkeit.
-Die Frage nach den Legitimationsgrundlagen von Erwerbsarbeit hat ihre Wurzeln in der Forschung zum Arbeitsnehmerbewusstsein der 1950er bis 1970er Jahre [@Schelsky1957; @Popitz2018; @Kern1985].
-Die aktuelle Forschung zu der Frage nach Ansprüchen und Legitimationsgrundlagen von Arbeit ist sehr neu und diagnostiziert, dass die Verletzung von Gerechtigkeitsansprüchen am Arbeitsplatz durchaus wahrgenommen und kritisiert wird.
+In der vorliegenden Studie untersuchen wir subjektive Gerechtigkeitsansprüche an Crowdwork und im die subjektiven Verständnisse von Leistungsgerechtigkeit.
+Die Frage nach den Legitimationsgrundlagen von Erwerbsarbeit hat ihre Wurzeln in der Forschung zum Arbeitnehmerbewusstsein der 1950er bis 1970er Jahre [@Schelsky1957; @Popitz2018; @Kern1985].
+Die aktuelle Forschung zur Frage nach Ansprüchen und Legitimationsgrundlagen von Arbeit ist neu und diagnostiziert, dass die Verletzung von Gerechtigkeitsansprüchen am Arbeitsplatz durchaus wahrgenommen und kritisiert wird.
 Legitimationskonflikte bleiben jedoch aus [@Kratzer2015].
 Aktuelle Untersuchungen zu den normativen Grundlagen der Arbeitswelt, deren Gültigkeit in Form von subjektiven Ansprüchen geltend gemacht werden, bestehen aus drei einschlägigen Werken.
-Dabei diagnostiziert Francois Dubet die Gleichheit, die Leistung und die Autonomie als Gerechtigkeitsprinzipien von Arbeit [@Dubet2008].
-Die empirischen Befunde von Hürtgen und Voswinkel zeigen ebenfalls drei zentrale Ansprüche auf:
-Leistungsgerechtigkeit, Menschenrecht und Sozialwesen [@Hurtgen2014].
+Dabei diagnostiziert Francois Dubet Gleichheit, Leistung und Autonomie als Gerechtigkeitsprinzipien von Arbeit [@Dubet2008].
+Die empirischen Befunde von @Hurtgen2014 zeigen ebenfalls drei zentrale Ansprüche auf:
+Leistungsgerechtigkeit, Menschenrecht und Sozialwesen.
 Die Wissenschaftler des ISF München und des SOFI Göttingen identifizieren in ihrer qualitativ angelegten Studie sechs Gerechtigkeitsansprüche an Erwerbsarbeit:
 Würde, Leistungsgerechtigkeit, Selbstverwirklichung, Beteiligung, Fürsorge sowie Rationalitätsansprüche [@Kratzer2015].
 
 
 ## Entwicklung der Fragestellung
 
-Der aktuelle Stand der Literatur zu den neuen Phänomen Crowdsourcing bzw. Crowdwork zeigt, dass diese sich vordergründig der Frage nach der Begriffsklärung, eines geeigneten Interpretationsrahmens, der Beschaffenheit und Motivation der Crowd sowie den Arbeitsbedingungen dieser neuen Form der Arbeit widmen. 
+Der aktuelle Stand der Literatur zum Phänomen Crowdwork zeigt, dass diese sich vordergründig der Frage nach der Begriffsklärung, eines geeigneten Interpretationsrahmens, der Beschaffenheit und Motivation der Crowd sowie den Arbeitsbedingungen dieser neuen Form der Arbeit widmen. 
 Dabei sind die meisten von ihnen quantitativ angelegte Studien. 
 Es fehlen umfangreiche und vor allem qualitative Untersuchungen, welche die subjektive Erfahrungswelt der Crowdworker in den Blick nehmen. 
 Die drei einschlägigen Studien zum Gerechtigkeitsempfinden am Arbeitsplatz zielen auf Erwerbstätige, welche einer regulären Beschäftigung nachgehen, seien es Normalarbeitsbeschäftigte, oder jene in atypischen Arbeitsverhältnissen.
@@ -143,7 +141,8 @@ Die durchschnittliche Prämie liegt bei 250 Euro.
 Auf Testing-Plattformen werden Anwendungen oder Webseiten von der Community getestet.
 Die Vorteile der Auftraggeber, diese Tätigkeit von einer Crowd bearbeiten zu lassen, liegen darin, dass sie innerhalb von wenigen Tagen und realitätsnah abgewickelt und von den potentiellen Endverbrauchern im Voraus beurteilt werden können.
 Die Aktivitäten der Tester beziehen sich auf das funktionale Testing, das Testen von Kernfunktionen einer Anwendung und das Usability-Testing.
-Der Arbeitsprozess unterliegt einem zeitlichen Wettbewerbsprinzip: Wer zuerst einen Fehler in der Anwendung findet, wird prämiert.
+Der Arbeitsprozess unterliegt einem zeitlichen Wettbewerbsprinzip: 
+Wer zuerst einen Fehler in der Anwendung findet, wird prämiert.
 Die Prämienhöhen unterscheiden sich erheblich und hängen von dem Schweregrad der Aufgabe ab.
 
 Im Falle von Design-Plattformen geht es darum, Logo-, Web-, und Flyer-Designs zu erstellen. 
@@ -159,6 +158,7 @@ Die Motivation der Auftraggeber auf die Community zurückzugreifen stellt das sc
 Der Erfolg und somit die Prämierung der Leistung basieren auf dem Zeit- und Qualitätsprinzip: 
 Wird der Crowdworker den Anforderungen nicht gerecht oder erledigt die Aufgabe nicht im vorgegebenen Rahmen, wird sein Ergebnis abgelehnt. 
 Die Höhe der Prämie variiert stark und hängt von dem Vorgaben des Auftraggebers ab. 
+
 Alle vier Plattform-Typen zeichnen sich durch ein Ranking der Community aus: 
 Je mehr Wettbewerbe ein Crowdworker gewinnt, desto höher steigt er in der Ranking-Liste auf. 
 Eine höhere Position geht dabei mit einer höheren Wahrscheinlichkeit einher, für einen nächsten Wettbewerb eingeladen zu werden und künftig höhere Prämien zu erzielen.
@@ -179,9 +179,8 @@ Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 
 
 ## Quantitative Methodik und Sampling
 
-Die Quantitativen Daten wurden Online erhoben, mittels der Befragungsplattform Unipark. 
-Hierbei wurden Crowdworker, welche auf den drei deutschsprachigen Onlineplattformen: 
-Applause, Atizo und Crowdguru über ihre Ansprüche an Erwerbsarbeit und an Crowdwork befragt. 
+Die quantitativen Daten wurden Online erhoben, mittels der Befragungsplattform Unipark. 
+Hierbei wurden Crowdworker, welche auf den drei deutschsprachigen Onlineplattformen Applause, Atizo und Crowdguru über ihre Ansprüche an Erwerbsarbeit und an Crowdwork befragt. 
 Applause ist ein Unternehmen, welches klassischerweise als Testing-Plattform beschrieben werden kann. 
 Bei Atizo handelt es sich um eine Plattform, welche überwiegend Innovations-Wettbewerbe ausschreibt, wohingegen Crowdguru seine Community vordergründig Microjobs bearbeiten lässt. 
 Die Auswahl dieser drei Crowdwork-Plattformen erfolgte in der explorativen Phase zum einen über eine Recherche von den bekanntesten und größten Plattformen im deutschsprachigen Raum und zum anderen über das Schneeballverfahren [@Przyborski2010] im Zuge von qualitativen Interviews mit interessenpolitischen Experten. 
@@ -205,17 +204,17 @@ Die vollständigen Skripte zur Reproduktion der Ergebnisse aus den Rohdaten find
 `r nrow(crowddata)` Crowdworker beantworteten den Fragebogen, davon 114 rekrutiert über den Anwendungstester [Applause](https://www.applause.com), 16 über die Innovations- und Marktforschungsplatform  [Atizo](https://www.atizo.com) sowie 100 vom generischen Anbieter [Crowdguru](https://www.crowdguru.de).
 In etwa gleich viele der Beteiligten gaben weibliches und männliches Geschlecht an (jeweils `r table(crowddata$gender)`) bei einem Median Alter von `r 2017 - median(crowddata$birth, na.rm = TRUE)`.
 Über der Hälfte der Teilnehmer_innen berichten einen tertiären Bildungsabschluss:
-Die Stichprobe erscheint damit relativ gebildet, allerdings mag ein Teil dieses Effektes durch die jüngere Altersstruktur erkärt sein.
+Die Stichprobe erscheint damit relativ gebildet, allerdings mag ein Teil dieser Schiefe durch die jüngere Altersstruktur erkärt sein.
 Ebenfalls über der Hälte der Antworteten ist regular beschäftigt, wobei die Frage unklar formuliert ist und möglicherweise die untersuchte Crowdarbeit hier inkludiert wird.
 Neben diesen und weiteren soziodemografischen Daten wurden auch Arbeitsumfang und -zeiten auf den Crowdarbeitsplattformen erfasst.
 
 Im Mittelpunkt der unten stehenden Analyse stehen allerdings die Antworten auf eine `r ncol(crowddata$exp_crowd)`-Itembatterie zu Erwartungen an Crowdarbeit.
 Diese Einstellungen wurden mittels einer 5-stufigen Likertskala erhoben, und in ähnlichen Formulierungen auch in Bezug auf konventionelle Erwerbsarbeit abgefragt.
 Allerdings stimmen die *meisten* Befragten den *meisten* Items "ziemlich" oder "stark" zu.
-Die resultierende geringe Varianz erfordert eine kategoriale Interpretation der Daten und verhindert die zuverlässige Diagnose von *möglichen* Mustern in den Antworten.
+Die resultierende geringe Varianz erfordert eine kategoriale Interpretation der Daten und verhindert die zuverlässige Diagnose von möglichen Mustern in den Antworten.
 Da die Fragen nicht randominisiert wurden erschweren mögliche Reihenfolgenartefakte sowie geändertete Formulierungen weiter die Interpretation etwaiger Kovarianzen.
 Schließlich ist die Studie -- folgend ihrem explorativen Charakter -- nicht geeignet für schließende Vergleiche zwischen Fragen, Gruppen oder Bedingungen.
-Im Folgenden stellen wir daher kursorisch auf rein deskriptive Zählungen ab.
+Im Folgenden stellen wir daher rein kursorisch auf deskriptive Zählungen ab.
 
 
 # Leistungsgerechtigkeit im Kontrast Erwerbsarbeit vs. Crowdarbeit
@@ -271,7 +270,7 @@ Allerdings scheint angemessene Bezahlung genauso auch hinsichtlich konventionell
 Der Adressat der Kritik an zu geringen Prämien ist nicht die Plattform, sondern der Kunde bzw. der Auftraggeber.
 Die Gewinne, welche diese durch Crowdwork erzielen, stehen nicht im Verhältnis zur Prämierung und entwerten so die Leistung der Arbeitskraft.
 
-Dass es gar nicht erst zu einer Prämierung der erbrachten Leistung kommt, liegt nicht nur am Konkurrenzprinzip von Crowdwork, sondern auch an der **unklaren Aufgabenbeschreibung**.
+Dass es gar nicht erst zu einer Prämierung der erbrachten Leistung kommt, liegt nicht nur am Konkurrenzprinzip von Crowdwork, sondern auch an **unklaren Aufgabenbeschreibungen**.
 Dies trifft sowohl auf Design- und Ideenplattformen zu, welche nach dem Prinzip des Wettbewerbs organisiert sind, als auch auf Testing- und Microjob-Plattformen.
 Missbilligt wird, dass das Briefing für die jeweiligen Aufgaben zu ungenau ist.
 Dies führt dazu, dass die eingereichten Ergebnisse abgelehnt werden mit der Begründung, diese würden nicht den Kundenwünschen entsprechen.
@@ -295,7 +294,7 @@ Die quantitativen Daten zu den Items `r get_items(interesting$Leistungsbewertung
 Die **fehlende Planungssicherheit** in Bezug auf ein stetiges Einkommen stellt die letzte Dimension der Leistungsgerechtigkeit dar. 
 Hier geht es nicht darum, dass die Leistungsverausgabung nicht im Verhältnis zur ausgeschriebenen Prämie steht, sondern darum, dass man sich nicht darauf verlassen kann, dass die erbrachte Leistung überhaupt prämiert wird. 
 Viele der Crowdworker kritisieren, dass sie viel Zeit für eine Ausschreibung investieren und dennoch nicht prämiert werden. 
-Darüber hinaus werden viele Wettbewerbe sporadisch durchgeführt, sodass man einer finanziellen Nichtplanbarkeit ausgesetzt ist. 
+Darüber hinaus werden viele Wettbewerbe sporadisch durchgeführt, sodass potentielle Einkünfte schlecht planbar sind.
 Beim Crowdwork kann man sich nicht auf regelmäßige Einkünfte und auf eine stete Auftragslage verlassen. 
 Dies ist mitunter der Grund, warum die meisten Befragten Crowdwork nur als Nebenerwerb nutzen. 
 Zur Dimension der Planungssicherheit liegt im Fragebogen nur das Item `r get_items(interesting$Planungssicherheit)` vor, was ebenfalls als wichtig eingeschätzt wird.
@@ -313,7 +312,6 @@ Was zählt, ist lediglich das eingereichte Ergebnis.
 Da Crowdworker keine Verantwortung oder Pflichten für die Plattform oder die Community übernehmen, ist dieser Aspekt ebenfalls obsolet. 
 Zudem gehen die Crowdworker keinen Arbeitsvertrag mit der Plattform oder den Auftraggebern ein. 
 Die Höhe der ausgeschriebenen Prämie ist für alle Community-Mitglieder die gleiche, unabhängig davon, ob einer einen Hochschulabschluss oder eine abgeschlossene Ausbildung vorweisen kann. 
-Der individuelle Beitrag bzw. die persönliche Leistung hinter dem eingereichten Ergebnis verschwindet. 
 
 Und dennoch bzw. gerade deshalb berufen sich die Befragten auf den Anspruch der aufwandsbezogenen Leistungsgerechtigkeit. 
 Da die Höhe der Prämie nicht der dahinterliegenden geleisteten Arbeitszeit entspricht, wird die Kritik laut, die Arbeitsleistung verschwinde hinter dem Ergebnis. 
