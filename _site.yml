@@ -25,6 +25,9 @@ navbar:
   - text: "Appendix (english)"
     href: appendix.html
   right:
+  - icon: fa-pen
+    text: Edit
+    href: https://github.com/soztag/crowd/edit/master/%s
   - icon: fa-github
     text: Source
     href: https://github.com/soztag/crowd
