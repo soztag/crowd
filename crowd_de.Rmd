@@ -71,28 +71,28 @@ Der Begriff geht auf den Wissenschaftler und Journalisten Jeff Howe zurück, wel
 > "Crowdsourcing is the act of taking a job traditionally performed by a designated agent (usually an employee) and outsourcing it to an undefined, generally large group of people in the form of an open call. [@Howe2006]"
 
 Im Gegensatz zum Outsourcing, bei welchem bisher intern erbrachte Leistungen auch nach außen verlagert werden, werden diese beim Crowdsourcing an eine Masse von unbekannten Akteuren, mittels eines offenen Aufrufes auf einer Internetplattform, einem so genannten Intermediär, ausgeschrieben, wobei der Auftraggeber wirtschaftliche Vorteile erlangt und der Crowdworker nicht unbedingt.
-In der deutschsprachigen Literatur findet man sodann im Jahre 2009 eine erste und erweiterte Definition des Begriffs [@Papsdorf2009]. 
+In der deutschsprachigen Literatur findet man sodann im Jahre 2009 eine erste und erweiterte Definition des Begriffs [@Papsdorf2009].
 Es herrscht hierfür jedoch bislang keine einheitliche Begriffsverwendung. 
-Die bekanntesten sind Crowdwork [Flecker et al. 2016, @Schmidt2016, @Graham2017, @Schorpf2017], Cloudwork [@Schmidt2016], Gigwork bzw. Gig-Economy [@Harris2015, @Schmidt2016], On-Demand-Workforce bzw. On-Demand-Economy [@Berg2016, Huws/Joyce 2016, @Schmidt2016] oder Online-Outsourcing [Kuek et al. 2015]. 
+Die bekanntesten sind Crowdwork [@Flecker2016; @Schmidt2016; @Graham2017; @Schorpf2017], Cloudwork [@Schmidt2016], Gigwork bzw. Gig-Economy [@Harris2015; @Schmidt2016], On-Demand-Workforce bzw. On-Demand-Economy [@Berg2016; @Huws2017; @Schmidt2016] oder Online-Outsourcing [@Kuek2015]. 
 Darüber hinaus gibt es einige Studien zum Interpretationsrahmen dieser neuen Form der Erwerbsarbeit. 
-Sie wird als eine neue Form der Kunden- bzw. Userarbeit gedeutet [Kleemann/Voß/Rieder 2008, @Papsdorf2009], als Reorganisations-Strategie (Kawalec/Menz 2013), als neue Landnahme (Boes 2015), als Open Innovation (Chesbrough 2003, Reichwald/Piller 2009), als neue Form der Selbstständigkeit (Pongratz/Bormann 2017) oder als neues Geschäftsmodell [@Schmidt2016]. 
-Weitere Publikationen beschäftigen sich mit den Chancen und Risiken von Crowdwork auf den politischen Ebenen des Arbeitsrechts (Cherry 2014, Däubler 2014, Schröder 2015), des Datenschutzes (Höller 2015), der Ethik (Schmidt 2014, Küppers 2017, Menz/Tomazik 2017), der betrieblichen Interessenspolitik (Klebe 2014, Wedde 2015) und der Gewerkschaften (Benner 2014, Cohen 2014, Rio Antas 2014, Brandl 2015, Schwemmle 2015, Fuß 2017). 
-Des Weiteren existieren zahlreiche quantitative deutschsprachige und internationale Untersuchungen zur Beschaffenheit [Kuek et al. 2015, Ipeirotis 2010, Ross et al. 2010, Harris/Krueger 2015, Huws/Joyce 2016, ZEW 2016, @Ver.di2017, Pongratz/Bormann 2017, Leimeister et al. 2016] und der Motivation der Crowd (Berg 2016, Graham et al. 2017, Flecker et al. 2016), sowie den damit verbundenen Arbeitsbedingungen (Berg 2016, Graham et al. 2017, Schröpf et al. 2017, ArbeitGestalten 2016, Al Ani/Stumpp).
+Sie wird als eine neue Form der Kunden- bzw. Userarbeit gedeutet [@Kleeman2008; @Papsdorf2009], als Reorganisations-Strategie [@Kawalec2013], als neue Landnahme [@Boes2015], als Open Innovation [@Chesbrough2003; @Reichwald2009], als neue Form der Selbstständigkeit [@Pongratz2017a] oder als neues Geschäftsmodell [@Schmidt2016]. 
+Weitere Publikationen beschäftigen sich mit den Chancen und Risiken von Crowdwork auf den politischen Ebenen des Arbeitsrechts [@Cherry2014; @Daubler2014; @Schroder2015], des Datenschutzes [@Holler2015], der Ethik [@Schmidt2014; @Kuppers2017; @Menz2017], der betrieblichen Interessenspolitik [@Klebe2014; @Wedde2015] und der Gewerkschaften [@Benner2014; @Cohen2014; @RioAntas2014; @Brandl2015; @Schwemmle2015; @Fuss2017]. 
+Des Weiteren existieren zahlreiche quantitative deutschsprachige und internationale Untersuchungen zur Beschaffenheit [@Kuek2015; @Ipeirotis2010; @Ross2010; @Harris2015; @Huws2017; @ZentrumfurEuropaischeWirtschaftsforschungGmbH2016; @Ver.di2017; @Pongratz2017a; @Leimeister2016] und der Motivation der Crowd [@Berg2016; @Graham2017; @Flecker2016], sowie den damit verbundenen Arbeitsbedingungen [@Berg2016; @Graham2017; @Schorpf2017; @ArbeitGestalten2016; @Al-Ani2015].
 
 
 ## Theoriefokus
 
 In der vorliegenden Studie verwenden wir den Begriff Crowdwork bzw. CrowdArbeit auf der subjektiven Ebene und als neue Form der Erwerbsarbeit.
 Der Fokus liegt dabei auf der Frage nach den subjektiven Gerechtigkeitsansprüchen an Crowdwork und im Speziellen nach dem subjektiven Verständnis von Leistungsgerechtigkeit.
-Die Frage nach den Legitimationsgrundlagen von Erwerbsarbeit hat ihre Wurzeln in der Forschung zum Arbeitsnehmerbewusstsein der 1950er bis 1970er Jahre [Schelsky 1957, Popitz et al. 2018, Kern/Schumann 1985].
+Die Frage nach den Legitimationsgrundlagen von Erwerbsarbeit hat ihre Wurzeln in der Forschung zum Arbeitsnehmerbewusstsein der 1950er bis 1970er Jahre [@Schelsky1957; @Popitz2018; @Kern1985].
 Die aktuelle Forschung zu der Frage nach Ansprüchen und Legitimationsgrundlagen von Arbeit ist sehr neu und diagnostiziert, dass die Verletzung von Gerechtigkeitsansprüchen am Arbeitsplatz durchaus wahrgenommen und kritisiert wird.
-Legitimationskonflikte bleiben jedoch aus [Kratzer et al. 2015].
+Legitimationskonflikte bleiben jedoch aus [@Kratzer2015].
 Aktuelle Untersuchungen zu den normativen Grundlagen der Arbeitswelt, deren Gültigkeit in Form von subjektiven Ansprüchen geltend gemacht werden, bestehen aus drei einschlägigen Werken.
-Dabei diagnostiziert Francois Dubet die Gleichheit, die Leistung und die Autonomie als Gerechtigkeitsprinzipien von Arbeit [Dubet 2008].
+Dabei diagnostiziert Francois Dubet die Gleichheit, die Leistung und die Autonomie als Gerechtigkeitsprinzipien von Arbeit [@Dubet2008].
 Die empirischen Befunde von Hürtgen und Voswinkel zeigen ebenfalls drei zentrale Ansprüche auf:
-Leistungsgerechtigkeit, Menschenrecht und Sozialwesen [Hürtgen/Voswinkel 2014].
+Leistungsgerechtigkeit, Menschenrecht und Sozialwesen [@Hurtgen2014].
 Die Wissenschaftler des ISF München und des SOFI Göttingen identifizieren in ihrer qualitativ angelegten Studie sechs Gerechtigkeitsansprüche an Erwerbsarbeit:
-Würde, Leistungsgerechtigkeit, Selbstverwirklichung, Beteiligung, Fürsorge sowie Rationalitätsansprüche [Kratzer et al. 2015].
+Würde, Leistungsgerechtigkeit, Selbstverwirklichung, Beteiligung, Fürsorge sowie Rationalitätsansprüche [@Kratzer2015].
 
 
 ## Entwicklung der Fragestellung
@@ -123,7 +123,8 @@ Orientiert sich das Verständnis von Leistungsgerechtigkeit der Crowdworker imme
 
 Die sowohl qualitativ wie auch quantitativ angelegte Untersuchung verfolgte das Ziel, die Anspruchshaltungen der Crowdworker bezüglich der Arbeitswelt zu ermitteln. 
 Hierbei wurde ein exploratives Vorgehen gewählt, da es zur Zeit der Erhebung keinerlei empirische Befunde gab, welche das methodische Vorgehen hätten strukturieren können. 
-In einer ersten Phase wurde über qualitative Experteninterviews (Gläser/Laudel 2010) das empirische Feld erschlossen. 
+In einer ersten Phase wurde über qualitative Experteninterviews [Gläser/Laudel 2010] das empirische Feld erschlossen. 
+<!-- TODO missing citation -->
 Die Befragung mit wissenschaftlichen und interessenpolitischen Akteuren und Betreibern von Online-Plattformen ergab, dass es vier Typen von Crowdwork-Plattformen gibt: 
 Innovations-, Testing-, Microjob- und Designplattformen.
 
@@ -161,13 +162,13 @@ Eine höhere Position geht dabei mit einer höheren Wahrscheinlichkeit einher, f
 ## Qualitative Methodik und Sampling
 
 Auf Grundlage der Ergebnisse der ersten explorativen Erhebungsphase wurde die Forschungsstrategie konkretisiert. 
-In Sinne des theoretischen Samplings (Glaser/Strauss 2009) wurden zunächst mittels der minimalen Kontrastrierung Personen befragt, welche auf diesen Plattformtypen tätig sind befragt. 
+In Sinne des theoretischen Samplings [@Glaser2009] wurden zunächst mittels der minimalen Kontrastrierung Personen befragt, welche auf diesen Plattformtypen tätig sind befragt. 
 In einem weiteren Schritt und durch die maximale Kontrastrierung wuden die je einem Plattform-Typen zugehörigen Crowdworker im Hinblick auf Unterschiede ausgewählt. 
-Der Feldzugang erfolgte über die in der ersten Erhebungsphase befragten Experten, soziale Netzwerke sowie im Sinne des Schneeballverfahrens (Przyborski/Wohrab-Sahr 2010) die persönlichen Netzwerke der befragten Crowdworker. 
+Der Feldzugang erfolgte über die in der ersten Erhebungsphase befragten Experten, soziale Netzwerke sowie im Sinne des Schneeballverfahrens [@Przyborski2010] die persönlichen Netzwerke der befragten Crowdworker. 
 Die Methode der Erhebung stellten neben den qualitativen Experteninterviews der ersten Phase offene leitfadengestützte Interviews mit Crowdworkern dar. 
 Dem hauptsächlichen Auswertungsschritt lag ein Kodier-Verfahren mit Hilfe des Auswertungsprogramms MAXQDA des empirischen Materials zugrunde. 
 Nach der Aufzeichnung der Interviews wurden diese vollständig transkribiert und die befragten Personen anonymisiert. 
-Bei der Auswertung und Art und Weise des Kodier-Verfahrens wurde die Methode der Grounded Theory (Glaser/Strauss 2009) angewendet. 
+Bei der Auswertung und Art und Weise des Kodier-Verfahrens wurde die Methode der Grounded Theory [@Glaser2009] angewendet. 
 Das Sample der Untersuchung umfasst 25 Einzelinterviews, welche im Zeitraum von 2016 und 2018 im deutschsprachigen Raum geführt worden sind. 
 
 
@@ -178,8 +179,8 @@ Hierbei wurden Crowdworker, welche auf den drei deutschsprachigen Onlineplattfor
 Applause, Atizo und Crowdguru über ihre Ansprüche an Erwerbsarbeit und an Crowdwork befragt. 
 Applause ist ein Unternehmen, welches klassischerweise als Testing-Plattform beschrieben werden kann. 
 Bei Atizo handelt es sich um eine Plattform, welche überwiegend Innovations-Wettbewerbe ausschreibt, wohingegen Crowdguru seine Community vordergründig Microjobs bearbeiten lässt. 
-Die Auswahl dieser drei Crowdwork-Plattformen erfolgte in der explorativen Phase zum einen über eine Recherche von den bekanntesten und größten Plattformen im deutschsprachigen Raum und zum anderen über das Schneeballverfahren (Przyborski/Wohrab-Sahr 2010) im Zuge von qualitativen Interviews mit interessenpolitischen Experten. 
-Der Fragebogen basierte auf der Auswahl bereits etablierter Items in der Forschungsliteratur zum subjektiven Gerechtigkeitsempfinden bei der Arbeit (korrekte Angabe muss noch geprüft werden (Projekt Lanceo), Maier et al. 2007). 
+Die Auswahl dieser drei Crowdwork-Plattformen erfolgte in der explorativen Phase zum einen über eine Recherche von den bekanntesten und größten Plattformen im deutschsprachigen Raum und zum anderen über das Schneeballverfahren [@Przyborski2010] im Zuge von qualitativen Interviews mit interessenpolitischen Experten. 
+Der Fragebogen basierte auf der Auswahl bereits etablierter Items in der Forschungsliteratur zum subjektiven Gerechtigkeitsempfinden bei der Arbeit [korrekte Angabe muss noch geprüft werden (Projekt Lanceo); @Maier2007]. 
 <!-- TODO fix citation -->
 
 ```{r import, include=FALSE, eval=FALSE}
