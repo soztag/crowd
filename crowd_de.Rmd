@@ -43,6 +43,7 @@ output:
     toc_float: no
     smart: yes
     fig_caption: yes
+    dev: tiff
 ---
 
 # Alles neu...? Zur Einleitung
