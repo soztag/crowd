@@ -198,6 +198,31 @@ source(file = "cleaning.R")
 source(file = "analysis.R")
 ```
 
+```{r export, cache=FALSE, eval=FALSE, include = FALSE}
+# this was for sabine
+objs <- list(
+  crowddata = crowddata, 
+  quest = quest, 
+  exp_crowd = crowddata$exp_crowd, 
+  exp_work = crowddata$exp_work
+)
+purrr::iwalk(
+  .x = objs,
+  .f = function(x, y) {
+    x <- tibble::as_tibble(x)
+    haven::write_dta(
+      data = x,
+      path = paste0(y, ".dta")
+    )
+    readr::write_csv(
+      x = x,
+      path = paste0(y, ".csv")
+    )
+  }
+)
+```
+
+
 Die erhobenen Daten wurden von der Befragungsplattform ["Unipark"](https://www.unipark.com/) heruntergeladen, umfangreich bereinigt und rekodiert.
 Neben einigen Fehlwerten wurden einzelne Eingaben wegen Unplausibilität ausgeschlossen.
 Die vollständigen Skripte zur Reproduktion der Ergebnisse aus den Rohdaten finden Sie umfangreich kommentiert auf [`http://datascience.phil.fau.de/crowd/`](http://datascience.phil.fau.de/crowd/).
