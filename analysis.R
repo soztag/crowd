@@ -4,18 +4,23 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
     items <- colnames(m)
   }
   
-  quest %>% 
-    dplyr::filter(section == condition) %>% 
-    dplyr::filter(var %in% items) %>% 
-    dplyr::mutate(var_german = stringr::str_wrap(string = var_german, width = width)) %>% 
-    {.} -> df
-  long <- glue::glue_data(
-    .x = df, 
-    "...{var_german}", 
-    "({short_german}/{var})", 
-    .sep = "\n"
-  )
-  long <- rlang::set_names(x = long, nm = df$var)
+  if (lang == "de") {
+    quest %>% 
+      dplyr::filter(section == condition) %>% 
+      dplyr::filter(var %in% items) %>% 
+      dplyr::mutate(var_german = stringr::str_wrap(string = var_german, width = width)) %>% 
+      {.} -> df
+    long <- glue::glue_data(
+      .x = df, 
+      "...{var_german}", 
+      "({short_german}/{var})", 
+      .sep = "\n"
+    )
+    long <- rlang::set_names(x = long, nm = df$var)
+  } else {
+    long <- colnames(m)
+  }
+  
   
   # munge data
   m[, items] %>% 
@@ -59,7 +64,11 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
     # color by platform, but no guide
     g <- g + scale_fill_discrete(name = "Platforms") + guides(fill = FALSE) 
   } else {
-    g <- g + scale_fill_discrete(name = "Dimension der Leistungsgerechtigkeit")
+    if (lang == "de") {
+      g <- g + scale_fill_discrete(name = "Dimension der Leistungsgerechtigkeit")
+    } else {
+      g <- g + scale_fill_discrete(name = "Dimensions of Fairness")
+    }
   }
   
   if (lang == "de") {
@@ -69,21 +78,30 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
   }
   
   if (diff) {
-    g <- g + labs(
-      subtitle = "In meiner Erwerbsarbeit / In meiner Tätigkeit als CrowdworkerIn ist es mir wichtig, dass ..."
-      # subtitle = as_vector(quest[quest$section == "expect_crowd", "section_intro_german"])[1]
-    )
     if (lang == "de") {
+      g <- g + labs(
+        subtitle = "In meiner Erwerbsarbeit / In meiner Tätigkeit als CrowdworkerIn ist es mir wichtig, dass ..."
+        # subtitle = as_vector(quest[quest$section == "expect_crowd", "section_intro_german"])[1]
+      )
       g <- g + xlab("Unterschied in der Zustimmung")
       
     } else {
+      g <- g + labs(
+        subtitle = "In my job as a (crowd)worker, it is important to me that..."
+      )
       g <- g + xlab("Difference in Agreement")
     }
   } else {
-    g <- g + labs(
-      subtitle = "Bei meiner Tätigkeit als CrowdworkerIn ist es mir wichtig, dass ..."
-      # subtitle = as_vector(quest[quest$section == "expect_crowd", "section_intro_german"])[1]
-    )
+    if (lang == "de") {
+      g <- g + labs(
+        subtitle = "Bei meiner Tätigkeit als CrowdworkerIn ist es mir wichtig, dass ..."
+      )
+    } else {
+      g <- g + labs(
+        subtitle = "In my job as a (crowd)worker, it is important to me that ..."
+      )
+    }
+    
     g <- g + xlab(NULL)
     g <- g + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
     if (lang == "de") {

@@ -38,11 +38,6 @@ rsconnect/
 
 **/.DS_Store
 
-_site/
-
-index_files/
-index_cache/
-crowd_de_files/
-crowd_de_cache/
-appendix_files/
-appendix_cache/
+# rmarkdown outputs
+/_site/
+/*_files/

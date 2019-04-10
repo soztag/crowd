@@ -22,6 +22,7 @@ output:
     toc_float: no
     smart: yes
     fig_caption: yes
+always_allow_html: yes
 ---
 
 ```{r import, include=FALSE, eval=FALSE}
@@ -185,8 +186,8 @@ Such subtle shifts in emphasis may contribute small shifts in ratings, or may, i
 
 
 ```{r battery, fig.cap=paste(c("Work", "Crowdwork"), "Expectations (Heatmap of Counts)"), fig.width=12, fig.height=10}
-plot_battery(m = crowddata$exp_work, condition = "expect_work")
-plot_battery(m = crowddata$exp_crowd, condition = "expect_crowd")
+plot_battery(m = crowddata$exp_work, condition = "expect_work", lang = "en")
+plot_battery(m = crowddata$exp_crowd, condition = "expect_crowd", lang = "en")
 ```
 
 The above figures \@ref(fig:items-scores) and \@ref(fig:battery) show relatively little variance within and across the measured 28 variables in both contexts.

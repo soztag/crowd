@@ -1,0 +1,82 @@
+---
+title: "Crowdworking"
+author:
+  - name: "Sandra Kawalec"
+    url: https://soziologie.uni-hohenheim.de/sandra-kawalec
+    affiliation: Universität Hohenheim
+    affiliation_url: https://www.uni-hohenheim.de/
+    address: Lehrstuhl für Soziologie, Universität Hohenheim
+    email: Sandra.Kawalec@uni-hohenheim.de
+  - name: "Sabine Pfeiffer"
+    url: https://www.sabine-pfeiffer.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
+    address: Lehrstuhl für Soziologie Technik--Arbeit--Gesellschaft, Friedrich-Alexander Universität Erlangen-Nürnberg
+    email: info@sabine-pfeiffer.de
+  - name: "Maximilian Held"
+    url: https://www.maxheld.de
+    affiliation: Friedrich-Alexander Universität Erlangen-Nürnberg
+    affiliation_url: http://soziologie.phil.fau.de
+    address: Lehrstuhl für Soziologie Technik--Arbeit--Gesellschaft, Friedrich-Alexander Universität Erlangen-Nürnberg
+    email: info@maxheld.de
+date: "April 10th, 2019"
+keywords:
+- crowdwork
+
+bibliography: library.bib
+
+output:
+  bookdown::html_document2:
+    toc: yes
+    toc_depth: 3
+    toc_float: no
+    smart: yes
+    fig_caption: yes
+---
+
+## Results
+
+```{r import, include=FALSE, eval=FALSE}
+source(file = "import.R")
+```
+
+```{r setup, cache = FALSE, include=FALSE}
+source(file = "setup.R")
+source(file = "cleaning.R")
+source(file = "analysis.R")
+```
+
+```{r crowd, fig.cap="Crowdwork Expectations (Heatmap of Counts)", fig.width=12, fig.height=10}
+interesting <- NULL
+interesting$Renumeration <- c("wage_organisation", "wage")
+interesting$Briefing <- c("transparent_tasks", "expectations")
+interesting$Assessment <- c(
+  "dissent_eval",
+  "consistent_eval",
+  "influence_eval",
+  "evaluation",
+  "transparent_eval"
+)
+interesting$Planning <- c("safe_job")
+plot_battery(
+  m = crowddata$exp_crowd,
+  items = unlist(interesting),
+  width = 55,
+  lang = "en",
+  concepts = interesting
+)
+```
+
+```{r diff, fig.cap="Expectations Towards Regular Employment vs Crowdwork", fig.width=12, fig.height=10}
+m <- crowddata$exp_work - crowddata$exp_crowd
+plot_battery(
+  m = m,
+  items = unlist(interesting),
+  width = 55,
+  lang = "en",
+  concepts = interesting,
+  diff = TRUE
+)
+```
+
+# References {-}
