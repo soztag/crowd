@@ -183,86 +183,106 @@ colnames(crowddata$exp_crowd) <- colnames(crowddata$exp_work)
 tibble::tibble(
   var = character(), 
   var_german = character(),
+  var_english = character(),
   short_german = character(),
   section = character(),
-  section_intro_german = character()
+  section_intro_german = character(),
+  section_intro_english = character()
 ) %>%  
 
   # 2 Personal Information
   add_row(
     var = "birth",
-    var_german = "In welchem Jahr wurden Sie geboren?"
+    var_german = "In welchem Jahr wurden Sie geboren?",
+    var_english = "In what year were you born?"
   ) %>% 
   add_row(
     var = "gender",
-    var_german = "Sind Sie ..."
+    var_german = "Sind Sie ...",
+    var_english = "What is your gender?"
   ) %>% 
   add_row(
     var = "education",
-    var_german = "Welchen Abschluss haben Sie gemacht?"
+    var_german = "Welchen Abschluss haben Sie gemacht?",
+    var_english = "What is your highest educational degree?"
   ) %>% 
   add_row(
     var = "disability_care",
-    var_german = "Gibt es in Ihrem Haushalt jemand, der aus Alters-oder Krankheitsgründen oder wegen einer Behinderung hilfe-oder pflegebedürftig ist?"
+    var_german = "Gibt es in Ihrem Haushalt jemand, der aus Alters-oder Krankheitsgründen oder wegen einer Behinderung hilfe-oder pflegebedürftig ist?",
+    var_english = "Is there someone in your houshold who needs special care due to age, illness or disability?"
   ) %>% 
   add_row(
     var = "children",
-    var_german = "Gibt es in Ihrem Haushalt Kinder, die erst 2000 oder später geboren sind?"
+    var_german = "Gibt es in Ihrem Haushalt Kinder, die erst 2000 oder später geboren sind?",
+    var_english = "Are ther children in your household born in the year 2000 or later?"
   ) %>% 
   add_row(
     var = "employment",
-    var_german = "Üben Sie derzeit eine Erwerbstätigkeit aus? Was trifft für Sie zu?"
+    var_german = "Üben Sie derzeit eine Erwerbstätigkeit aus? Was trifft für Sie zu?",
+    var_english = "Are you currently employed?"
   ) %>% 
   add_row(
     var = "sum_employer",
-    var_german = "Bei wie vielen verschiedenen Arbeitgebern waren Sie seit dem Sie erstmals eine berufliche Tätigkeit aufgenommen haben beschäftigt, einschließlich Ihrer heutigen Beschäftigung? Phasen der Selbstständigkeit und der Beschäftigung bei einer Arbeitszeitfirma zählen wie ein Arbeitgeber."
+    var_german = "Bei wie vielen verschiedenen Arbeitgebern waren Sie seit dem Sie erstmals eine berufliche Tätigkeit aufgenommen haben beschäftigt, einschließlich Ihrer heutigen Beschäftigung? Phasen der Selbstständigkeit und der Beschäftigung bei einer Arbeitszeitfirma zählen wie ein Arbeitgeber.",
+    var_english = "How many employers have you had, including your current one? Periods if self-employment or working for a temp agency count as one employer."
   ) %>% 
   add_row(
     var = "profession_dev",
-    var_german = "Wenn Sie Ihr ganzes Berufsleben betrachten, würden Sie sagen, Sie haben einen beruflichen Aufstieg, einen Abstieg, keine wesentliche Veränderung oder war das eher ein Auf und Ab?"
+    var_german = "Wenn Sie Ihr ganzes Berufsleben betrachten, würden Sie sagen, Sie haben einen beruflichen Aufstieg, einen Abstieg, keine wesentliche Veränderung oder war das eher ein Auf und Ab?",
+    var_english = "Considering your entire career, would you say that you have move up the ladder, down, no change or where there ups and downs?"
   ) %>% 
   {.} -> quest
 quest[1:8, c("section")] <- "personal_info"
 quest[1:8, c("section_intro_german")] <- "Zunächst würden wir gerne einige Fragen zu Ihrer Person und zu Ihrem bisherigen Berufsleben stellen."
+quest[1:8, c("section_intro_english")] <- "Please answer some questions about your career."
 
 # 3 Current Job
 quest %>% 
   add_row(
     var = "sum_platforms",
-    var_german = "Auf wie vielen Crowdworking-Plattformen arbeiten Sie zur Zeit?"
+    var_german = "Auf wie vielen Crowdworking-Plattformen arbeiten Sie zur Zeit?",
+    var_english = "How many crowdworking-platforms are you working on at this time?"
   ) %>% 
   add_row(
     var = "platforms",
-    var_german = "Auf welcher Art von Crowdworking-Plattformen sind Sie überwiegend tätig?"
+    var_german = "Auf welcher Art von Crowdworking-Plattformen sind Sie überwiegend tätig?",
+    var_english = "What kinds of crowdworking-platforms are you using primarily?"
   ) %>% 
   add_row(
     var = "h_month",
-    var_german = "Wie viele Stunden im Monat arbeiten Sie auf Crowdworking-Plattformen insgesamt?"
+    var_german = "Wie viele Stunden im Monat arbeiten Sie auf Crowdworking-Plattformen insgesamt?",
+    var_english = "How many hours a month are you working on crowdworking-platforms?"
   ) %>% 
   add_row(
     var = "h_platform",
-    var_german = "Wie viele Stunden im Monat arbeiten Sie auf dieser Crowdworking-Plattform?"
+    var_german = "Wie viele Stunden im Monat arbeiten Sie auf dieser Crowdworking-Plattform?",
+    var_english = "how many hours per month are you working on this crowdworking platform?"
     # the wording is actually slightly inconsistent for this one; some questionnaires ask for, say "Atizo" by name, others just refer to "this platform".
   ) %>% 
   add_row(
     var = "time_of_day",
-    var_german = "Zu welcher Tageszeit sind Sie als CrowdworkerIn tätig?"
+    var_german = "Zu welcher Tageszeit sind Sie als CrowdworkerIn tätig?",
+    var_english = "At what time of day do you do crowdwork?"
   ) %>% 
   add_row(
     var = "time_of_week",
-    var_german = "Sind Sie überwiegend unter der Woche, am Wochenende oder die ganze Woche über auf Crowdworking-Plattformen tätig?"
+    var_german = "Sind Sie überwiegend unter der Woche, am Wochenende oder die ganze Woche über auf Crowdworking-Plattformen tätig?",
+    var_english = "Are you primarily working during the week, on the weekend or the entire week for the crowdworking platform?"
   ) %>% 
   add_row(
     var = "workspace",
-    var_german = "Von welchem Ort aus sind Sie auf Crowdworking-Plattformen tätig?"
+    var_german = "Von welchem Ort aus sind Sie auf Crowdworking-Plattformen tätig?",
+    var_english = "From where do you work on the crowdworking platforms?"
   ) %>% 
   add_row(
     var = "perm_contract",
-    var_german = "Würden Sie Ihre aktuelle Crowdworking-Tätigkeit gerne im Rahmen einer unbefristeten Vollzeitstelle ausüben?"
+    var_german = "Würden Sie Ihre aktuelle Crowdworking-Tätigkeit gerne im Rahmen einer unbefristeten Vollzeitstelle ausüben?",
+    var_english = "Would you like to do your current crowdworking job as a full-time job?"
   ) %>% 
   {.} -> quest
 quest[9:16, c("section")] <- "current_occ"
 quest[9:16, c("section_intro_german")] <- "Nun würden wir gerne etwas über Ihre aktuelle Tätigkeit als CrowdworkerIn erfahren."
+quest[9:16, c("section_intro_english")] <- "Please answer some questions about your current job as a crowdworker."
 
 
 # 4 Expectations Work
