@@ -374,7 +374,8 @@ quest %<>%
       NA,  # deadline
       NA,  # quantity
       "I have influence over the criteria by which my performance is evaluated.",  # evaluation
-      "my pay reflects the contribution I made to the organisation.",  # transparent_eval
+      "my service and/or my result is evaluated by the platform/customer on the basis of criteria
+that are comprehensible and transparent to me.",  # transparent_eval
       NA,  # planning
       NA,  # enough_time
       NA,  # training
@@ -389,7 +390,7 @@ quest %<>%
       "the platform/client thoroughly explains the criteria of the task to me.",  # transaprent_tasks
       "I have influence over the performance and results evaluation.",  # influence_eval
       "the evaluation of performance and results is applied uniformly.",  # consistent_eval
-      "it is possible for me to challenge the outcomeos of the performance and result evaluation.",  # dissent_eval
+      "it is possible for me to challenge the outcomes of the performance and result evaluation.",  # dissent_eval
       "my compensation is appropriate for the work I have completed.",  # wage
       "my compensation reflects the contributions I have made to the organization."  # wage_organisation
     ),
