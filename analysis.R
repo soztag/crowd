@@ -4,12 +4,14 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
     items <- colnames(m)
   }
   
+  # make good item labels on y axis
+  quest %>% 
+    dplyr::filter(section == condition) %>% 
+    dplyr::filter(var %in% items) %>% 
+    dplyr::mutate(var_german = stringr::str_wrap(string = var_german, width = width)) %>% 
+    dplyr::mutate(var_english = stringr::str_wrap(string = var_english, width = width)) %>% 
+    {.} -> df
   if (lang == "de") {
-    quest %>% 
-      dplyr::filter(section == condition) %>% 
-      dplyr::filter(var %in% items) %>% 
-      dplyr::mutate(var_german = stringr::str_wrap(string = var_german, width = width)) %>% 
-      {.} -> df
     long <- glue::glue_data(
       .x = df, 
       "...{var_german}", 
@@ -18,9 +20,14 @@ plot_battery <- function(m, items = NULL, condition = "expect_crowd", lang = "en
     )
     long <- rlang::set_names(x = long, nm = df$var)
   } else {
-    long <- colnames(m)
+    long <- glue::glue_data(
+      .x = df, 
+      "...{var_english}", 
+      "({var})", 
+      .sep = "\n"
+    )
+    long <- rlang::set_names(x = long, nm = df$var)
   }
-  
   
   # munge data
   m[, items] %>% 
