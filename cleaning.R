@@ -373,8 +373,8 @@ quest %<>%
       NA,  # autonomy
       NA,  # deadline
       NA,  # quantity
-      "I have influence on the criteria by which my performance is evaluated.",  # evaluation
-      "my payment reflects the effort I made to the organisation.",  # transparent_eval
+      "I have influence over the criteria by which my performance is evaluated.",  # evaluation
+      "my pay reflects the contribution I made to the organisation.",  # transparent_eval
       NA,  # planning
       NA,  # enough_time
       NA,  # training
@@ -387,11 +387,11 @@ quest %<>%
       NA,  # balance_time
       NA,  # separation
       "the platform/client thoroughly explains the criteria of the task to me.",  # transaprent_tasks
-      "I have influence on the performance and results evaluation.",  # influence_eval
+      "I have influence over the performance and results evaluation.",  # influence_eval
       "the evaluation of performance and results is applied uniformly.",  # consistent_eval
-      "is possible for me to challenge the outcome achieved by the performance and result evaluation.",  # dissent_eval
-      "my payment is appropriate for the work I have completed.",  # wage
-      "my payment reflects the effort I made to the organization."  # wage_organisation
+      "it is possible for me to challenge the outcomeos of the performance and result evaluation.",  # dissent_eval
+      "my compensation is appropriate for the work I have completed.",  # wage
+      "my compensation reflects the contributions I have made to the organization."  # wage_organisation
     ),
     section = "expect_crowd",
     section_intro_german = "Bitte denken Sie nun an Ihre Aktivität auf Internet-Plattformen. Die folgenden Fragen beziehen sich ausschließlich (!) auf Ihre Tätigkeit als CrowdworkerIn. Dabei interessiert uns wieder, wie wichtig Ihnen folgende Ausssagen zu Ansprüchen an Crowdarbeit sind. \n Bei meiner Tätigketit als CrowdwokerIn ist es mir wichtig, dass..."
