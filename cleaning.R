@@ -319,6 +319,36 @@ quest %<>%
       "entlohnung_angemessen",
       "entlohnung_leistung"
     ),
+    var_english = c(
+      NA,  # interesting_work
+      NA,  # learning
+      NA,  # cooperation
+      NA,  # support
+      NA,  # expectations
+      NA,  # codecide
+      NA,  # autonomy
+      NA,  # deadline,
+      NA, # quantity
+      "I have influence on the criteria by which my performance is evaluated.",  # evaluation
+      NA,  # transparent_eval
+      NA,  # planning
+      NA,  # enough_time
+      NA,  # training
+      NA,  # credit_chef
+      NA,  # credit_col
+      NA,  # fair
+      NA,  # adequate
+      NA,  # safe_job
+      NA,  # balance_loc
+      NA,  # balance_time
+      NA,  # separation
+      NA,  # transaprent_tasks
+      "I have influence on the performance and results evaluation.",  # influence_eval
+      "the evaluation of performance and results is applied uniformly.",  # consistent_eval
+      "is possible for me to challenge the outcome achieved by the performance and result evaluation.",  # dissent_eval
+      "my payment is appropriate for the work I have completed.",  # wage
+      "my payment reflects the effort I made to the organization."  # wage_organisation
+    ),
     section = "expect_work",
     section_intro_german = "Bitte denken Sie an Ihre aktuelle Erwerbstätigkeit. Sollten Sie zur Zeit keiner Erwerbstätigkeit nachgehen, so denken Sie bitte an Ihren letzten Job. Sollten Sie bisher noch nicht als ArbeitnehmerIn tätig gewesen sein, so stellen Sie sich bitte Ihren künftigen Job vor. Die folgenden Fragen beziehen sich ausschließlich auf diese Tätigkeit und fokussieren Ihre subjektiven Erwartungen an Arbeit. \n In meiner Erwerbsarbeit ist es mir wichtig, dass... \n Die Stärke Ihrer Zustimmung erfolgt auf einer 6-stufigen Skala."
   )
@@ -333,6 +363,36 @@ quest %<>%
   add_row(
     var = colnames(crowddata$exp_work),
     short_german = as_vector(quest[quest$section == "expect_work", "short_german"]),
+    var_english = c(
+      NA,  # interesting_work
+      NA,  # learning
+      NA,  # cooperation
+      NA,  # support
+      "I know exactly what is expected of me.",  # expectations
+      NA,  # codecide
+      NA,  # autonomy
+      NA,  # deadline
+      NA,  # quantity
+      "I have influence on the criteria by which my performance is evaluated.",  # evaluation
+      "my payment reflects the effort I made to the organisation.",  # transparent_eval
+      NA,  # planning
+      NA,  # enough_time
+      NA,  # training
+      NA,  # credit_chef
+      NA,  # credit_col
+      NA,  # fair
+      NA,  # adequate
+      "I have a secure order or tender situation.",  # safe_job
+      NA,  # balance_loc
+      NA,  # balance_time
+      NA,  # separation
+      "the platform/client thoroughly explains the criteria of the task to me.",  # transaprent_tasks
+      "I have influence on the performance and results evaluation.",  # influence_eval
+      "the evaluation of performance and results is applied uniformly.",  # consistent_eval
+      "is possible for me to challenge the outcome achieved by the performance and result evaluation.",  # dissent_eval
+      "my payment is appropriate for the work I have completed.",  # wage
+      "my payment reflects the effort I made to the organization."  # wage_organisation
+    ),
     section = "expect_crowd",
     section_intro_german = "Bitte denken Sie nun an Ihre Aktivität auf Internet-Plattformen. Die folgenden Fragen beziehen sich ausschließlich (!) auf Ihre Tätigkeit als CrowdworkerIn. Dabei interessiert uns wieder, wie wichtig Ihnen folgende Ausssagen zu Ansprüchen an Crowdarbeit sind. \n Bei meiner Tätigketit als CrowdwokerIn ist es mir wichtig, dass..."
   )
