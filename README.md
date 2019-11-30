@@ -1,5 +1,6 @@
-<!--repo is private, doesn't work on amazonws, see issue: https://github.com/maxheld83/ghactions/issues/47-->
-[![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/soztag/crowd)](https://github.com/soztag/crowd/actions)
+<!-- badges: start -->
+[![Actions Status](https://github.com/soztag/crowd/workflows/Render/badge.svg)](https://github.com/soztag/crowd/actions)
+<!-- badges: end -->
 
 Crowdwork, or distributed and platform-mediated contract work, is a relatively new form of work potentially **challenging existing fairness norms**.
 Crowdwork is often characterised by low and volatile incomes without benefits, but traditional labor market institutions to negotiate industrial relations are inoperative for such contract work.
